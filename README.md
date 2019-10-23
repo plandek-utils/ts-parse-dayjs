@@ -17,7 +17,55 @@ utils to parse Dayjs objects in UTC
 
 ## Usage
 
-TBD.
+### `dayjsNow`
+
+returns a Dayjs (in UTC) of the current time
+
+```typescript
+import { dayjsNow } from "@plandek-utils/ts-parse-dayjs";
+
+dayjsNow() // => Dayjs object with the current time, in UTC
+```
+
+### `parseDayjs`
+
+parses the given input and returns a Dayjs object (in UTC) if the given date is valid, or `null` if it results in an invalid date
+
+```typescript
+import { parseDayjs } from "@plandek-utils/ts-parse-dayjs";
+
+parseDayjs(null) // => null
+parseDayjs("") // => null
+parseDayjs("waa") // => null
+parseDayjs("2018-01-01") // => Dayjs object in UTC for 2018-01-01
+parseDayjs("2018-01-01T00:00:00.000Z") // => Dayjs object in UTC for 2018-01-01T00:00:00.000Z
+parseDayjs(new Date()) // => Dayjs object in UTC for the given Date
+parseDayjs(dayjsObject) // => same Dayjs object
+```
+
+### `parseDayjsOrError`
+
+same as [`parseDayjs`](#parseDayjs) but instead of returning `null` on an invalid date, it throws an `InvalidDateError`.
+
+```typescript
+import { parseDayjsOrError } from "@plandek-utils/ts-parse-dayjs";
+
+parseDayjsOrError("2018-01-01T00:00:00.000Z") // => Dayjs object in UTC for 2018-01-01T00:00:00.000Z
+parseDayjsOrError(null) // => throws InvalidDateError
+```
+
+### `parseDayjsStartOfDay` and `parseDayjsEndOfDay`
+
+same as [`parseDayjs`](#parseDayjs) but if it results in a valid Dayjs object, it will then modify it to be at the beginning or end of the UTC day.
+
+```typescript
+import { parseDayjsOrError } from "@plandek-utils/ts-parse-dayjs";
+
+parseDayjsStartOfDay(null) // => null
+parseDayjsEndOfDay(null) // => null
+parseDayjsStartOfDay("2018-01-01") // => Dayjs object in UTC for 2018-01-01T00:00:00.000Z
+parseDayjsEndOfDay("2018-01-01") // => Dayjs object in UTC for 2018-01-01T23:59:59.999Z
+```
 
 ## Development, Commits, versioning and publishing
 
