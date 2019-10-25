@@ -11,7 +11,7 @@ export function dayjsNow(): Dayjs {
   return dayjs.utc();
 }
 
-type ParseDayjsInput = Dayjs | Date | string | number | null;
+export type DayjsInput = Dayjs | Date | string | number | null;
 
 /**
  * it returns a Dayjs object (in UTC) representing the given date, unless:
@@ -20,7 +20,7 @@ type ParseDayjsInput = Dayjs | Date | string | number | null;
  * - it receives a Dayjs object (then returns the same object)
  * @param value
  */
-export function parseDayjs(value: ParseDayjsInput): Dayjs | null {
+export function parseDayjs(value: DayjsInput): Dayjs | null {
   if (!value) return null;
   if (isDayjs(value)) return value;
   if (value instanceof Date) return dayjs.utc(value);
@@ -42,7 +42,7 @@ export class InvalidDateError extends Error {}
  * @param value
  * @throws InvalidDateError
  */
-export function parseDayjsOrError(value: ParseDayjsInput): Dayjs {
+export function parseDayjsOrError(value: DayjsInput): Dayjs {
   const parsed = parseDayjs(value);
   if (!parsed) {
     throw new InvalidDateError(`invalid date to parse ${value}`);
@@ -55,7 +55,7 @@ export function parseDayjsOrError(value: ParseDayjsInput): Dayjs {
  * @param value
  * @see parseDayjs
  */
-export function parseDayjsStartOfDay(value: ParseDayjsInput): Dayjs | null {
+export function parseDayjsStartOfDay(value: DayjsInput): Dayjs | null {
   const d = parseDayjs(value);
   return d ? dayjs.utc(d).startOf("day") : null;
 }
@@ -65,7 +65,7 @@ export function parseDayjsStartOfDay(value: ParseDayjsInput): Dayjs | null {
  * @param value
  * @see parseDayjs
  */
-export function parseDayjsEndOfDay(value: ParseDayjsInput): Dayjs | null {
+export function parseDayjsEndOfDay(value: DayjsInput): Dayjs | null {
   const d = parseDayjs(value);
   return d ? dayjs.utc(d).endOf("day") : null;
 }
