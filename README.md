@@ -17,16 +17,6 @@ utils to parse Dayjs objects in UTC
 
 ## Usage
 
-### `dayjsNow`
-
-returns a Dayjs (in UTC) of the current time
-
-```typescript
-import { dayjsNow } from "@plandek-utils/ts-parse-dayjs";
-
-dayjsNow() // => Dayjs object with the current time, in UTC
-```
-
 ### `parseDayjs`
 
 parses the given input and returns a Dayjs object (in UTC) if the given date is valid, or `null` if it results in an invalid date
@@ -43,9 +33,40 @@ parseDayjs(new Date()) // => Dayjs object in UTC for the given Date
 parseDayjs(dayjsObject) // => same Dayjs object
 ```
 
+#### Locale
+
+By default the locale used is `en-gb`. This package import automatically all the english locales.
+
+You can explicitly ask for a different locale passing a second argument. It can be one of the AvailableLocales or one of the Dayjs locale objects
+
+```typescript
+import { parseDayjs, AvailableLocales } from "@plandek-utils/ts-parse-dayjs";
+
+parseDayjs("2018-01-01") // => Dayjs object in UTC for 2018-01-01, locale en-gb (week starts on Monday)
+parseDayjs("2018-01-01", AvailableLocales.EnglishUSA) // => Dayjs object in UTC for 2018-01-01, locale en (week starts on Sunday)
+
+import esLocale from 'dayjs/locale/es';
+parseDayjs("2018-01-01", esLocale) // => Dayjs object in UTC for 2018-01-01, locale es (spanish)
+```
+
+### `dayjsNow`
+
+returns a Dayjs (in UTC) of the current time. It can accept a locale as optional argument (see [Locale](#locale))
+
+```typescript
+import { dayjsNow, AvailableLocales } from "@plandek-utils/ts-parse-dayjs";
+
+dayjsNow() // => Dayjs object with the current time, in UTC (locale en-gb)
+dayjsNow(AvailableLocales.EnglishUSA) // => Dayjs object with the current time, in UTC (locale en)
+
+import esLocale from 'dayjs/locale/es';
+dayjsNow(esLocale) // => Dayjs with the current time, in UTC, locale es
+```
+
+
 ### `parseDayjsOrError`
 
-same as [`parseDayjs`](#parseDayjs) but instead of returning `null` on an invalid date, it throws an `InvalidDateError`.
+same as [`parseDayjs`](#parseDayjs) but instead of returning `null` on an invalid date, it throws an `InvalidDateError`. It can accept an optional second argument locale (see [Locale](#locale))
 
 ```typescript
 import { parseDayjsOrError } from "@plandek-utils/ts-parse-dayjs";
@@ -56,7 +77,7 @@ parseDayjsOrError(null) // => throws InvalidDateError
 
 ### `parseDayjsStartOfDay` and `parseDayjsEndOfDay`
 
-same as [`parseDayjs`](#parseDayjs) but if it results in a valid Dayjs object, it will then modify it to be at the beginning or end of the UTC day.
+same as [`parseDayjs`](#parseDayjs) but if it results in a valid Dayjs object, it will then modify it to be at the beginning or end of the UTC day. It can accept an optional second argument locale (see [Locale](#locale))
 
 ```typescript
 import { parseDayjsOrError } from "@plandek-utils/ts-parse-dayjs";
@@ -65,6 +86,52 @@ parseDayjsStartOfDay(null) // => null
 parseDayjsEndOfDay(null) // => null
 parseDayjsStartOfDay("2018-01-01") // => Dayjs object in UTC for 2018-01-01T00:00:00.000Z
 parseDayjsEndOfDay("2018-01-01") // => Dayjs object in UTC for 2018-01-01T23:59:59.999Z
+```
+
+### `parseFromStandardPeriods`
+
+given a string like `8d`, `12w`, `9m` or `2y`, it returns an object with the calculated range of 8 days, 12 weeks, 9 months and 2 years ago respectively.
+
+Optionally we can set an origin as second argument, otherwise the current time is used.
+
+If the string cannot be parsed correctly, it will return `null`.
+
+If the string is parsed correctly, it will return an object with:
+
+- `to`: the given origin (or current time if missing), at EOD of UTC (e.g. today at 23:59:59.999Z)
+- `from`: the calculated `from` after subtracting the given amount of the given unit, at the beginning of the period (beginning of the day, of the week, of the month or of the year)
+
+```typescript
+import { parseFromStandardPeriods } from "@plandek-utils/ts-parse-dayjs"; import { parseDayjs } from "./base";
+
+// if "now" is 2019-10-22T12:34:56.123Z
+
+parseFromStandardPeriods('') // => null
+parseFromStandardPeriods('wat') // => null
+parseFromStandardPeriods('10z') // => null
+parseFromStandardPeriods("10d")
+  // => { from: Dayjs(2019-10-12T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }
+parseFromStandardPeriods("2w")
+  // => { from: Dayjs(2019-10-07T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }
+parseFromStandardPeriods("2m")
+  // => { from: Dayjs(2019-08-01T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) } 
+parseFromStandardPeriods("2y")
+
+// if the number is 0, it will go to the beginning of the period
+parseFromStandardPeriods("0d")
+  // => { from: Dayjs(2019-10-22T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }
+parseFromStandardPeriods("0w")
+  // => { from: Dayjs(2019-10-21T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }
+parseFromStandardPeriods("0m")
+  // => { from: Dayjs(2019-10-01T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) } 
+parseFromStandardPeriods("0y")
+  // => { from: Dayjs(2019-01-01T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }
+
+// with optional origin
+const d = parseDayjs("2019-05-10")
+parseFromStandardPeriods("3d", d)
+  // => { from: Dayjs(2019-05-07T00:00:00.000Z), to: Dayjs(2019-05-10T23:59:59.999Z) }
+
 ```
 
 ## Development, Commits, versioning and publishing
