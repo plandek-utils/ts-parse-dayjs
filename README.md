@@ -102,7 +102,7 @@ If the string is parsed correctly, it will return an object with:
 - `from`: the calculated `from` after subtracting the given amount of the given unit, at the beginning of the period (beginning of the day, of the week, of the month or of the year)
 
 ```typescript
-import { parseFromStandardPeriods } from "@plandek-utils/ts-parse-dayjs"; import { parseDayjs } from "./base";
+import { parseFromStandardPeriods, parseDayjs } from "@plandek-utils/ts-parse-dayjs";
 
 // if "now" is 2019-10-22T12:34:56.123Z
 
