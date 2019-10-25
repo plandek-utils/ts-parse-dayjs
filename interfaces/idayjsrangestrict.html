@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>InvalidDateError | @plandek-utils/ts-parse-dayjs</title>
+	<title>IDayjsRangeStrict | @plandek-utils/ts-parse-dayjs</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,33 +57,21 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="invaliddateerror.html">InvalidDateError</a>
+					<a href="idayjsrangestrict.html">IDayjsRangeStrict</a>
 				</li>
 			</ul>
-			<h1>Class InvalidDateError</h1>
+			<h1>Interface IDayjsRangeStrict</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>error class to signal that the given input does not end up with a valid Dayjs object</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="tsd-signature-type">Error</span>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">InvalidDateError</span>
-							</li>
-						</ul>
+						<span class="target">IDayjsRangeStrict</span>
 					</li>
 				</ul>
 			</section>
@@ -94,10 +82,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="invaliddateerror.html#message" class="tsd-kind-icon">message</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="invaliddateerror.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="invaliddateerror.html#stack" class="tsd-kind-icon">stack</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="invaliddateerror.html#error" class="tsd-kind-icon">Error</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="idayjsrangestrict.html#from" class="tsd-kind-icon">from</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="idayjsrangestrict.html#to" class="tsd-kind-icon">to</a></li>
 							</ul>
 						</section>
 					</div>
@@ -105,47 +91,23 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="message" class="tsd-anchor"></a>
-					<h3>message</h3>
-					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="from" class="tsd-anchor"></a>
+					<h3>from</h3>
+					<div class="tsd-signature tsd-kind-icon">from<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Dayjs</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Error.message</p>
 						<ul>
-							<li>Defined in /Users/eturino/dev/ada/ts-parse-dayjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:974</li>
+							<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/1bc2ff7/src/parse-from-standard-periods.ts#L11">parse-from-standard-periods.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="name" class="tsd-anchor"></a>
-					<h3>name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from Error.name</p>
-						<ul>
-							<li>Defined in /Users/eturino/dev/ada/ts-parse-dayjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:973</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-					<a name="stack" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> stack</h3>
-					<div class="tsd-signature tsd-kind-icon">stack<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from Error.stack</p>
-						<p>Overrides Error.stack</p>
-						<ul>
-							<li>Defined in /Users/eturino/dev/ada/ts-parse-dayjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:975</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-					<a name="error" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> Error</h3>
-					<div class="tsd-signature tsd-kind-icon">Error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ErrorConstructor</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="to" class="tsd-anchor"></a>
+					<h3>to</h3>
+					<div class="tsd-signature tsd-kind-icon">to<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Dayjs</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in /Users/eturino/dev/ada/ts-parse-dayjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:984</li>
+							<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/1bc2ff7/src/parse-from-standard-periods.ts#L12">parse-from-standard-periods.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -165,35 +127,29 @@
 					<li class=" tsd-kind-enum">
 						<a href="../enums/availablelocales.html" class="tsd-kind-icon">Available<wbr>Locales</a>
 					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/invaliddateerror.html" class="tsd-kind-icon">Invalid<wbr>Date<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="idayjsrange.html" class="tsd-kind-icon">IDayjs<wbr>Range</a>
+					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
-						<a href="invaliddateerror.html" class="tsd-kind-icon">Invalid<wbr>Date<wbr>Error</a>
+					<li class="current tsd-kind-interface">
+						<a href="idayjsrangestrict.html" class="tsd-kind-icon">IDayjs<wbr>Range<wbr>Strict</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="invaliddateerror.html#message" class="tsd-kind-icon">message</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="idayjsrangestrict.html#from" class="tsd-kind-icon">from</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="invaliddateerror.html#name" class="tsd-kind-icon">name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="invaliddateerror.html#stack" class="tsd-kind-icon">stack</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-								<a href="invaliddateerror.html#error" class="tsd-kind-icon">Error</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="idayjsrangestrict.html#to" class="tsd-kind-icon">to</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/idayjsrange.html" class="tsd-kind-icon">IDayjs<wbr>Range</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/idayjsrangestrict.html" class="tsd-kind-icon">IDayjs<wbr>Range<wbr>Strict</a>
-					</li>
 					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="../interfaces/iperiod.html" class="tsd-kind-icon">IPeriod</a>
+						<a href="iperiod.html" class="tsd-kind-icon">IPeriod</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#dayjsinput" class="tsd-kind-icon">Dayjs<wbr>Input</a>
