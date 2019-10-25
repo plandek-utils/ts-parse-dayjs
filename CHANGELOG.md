@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v1.1.0...v1.2.0) (2019-10-25)
+
+
+### Features
+
+* add Locale support + include english locales by default + default locale en-gb ([99f0c72](https://github.com/plandek-utils/ts-parse-dayjs/commit/99f0c728f24c235613f61e57e2de40c74e34e4b4))
+* parseFromStandardPeriods() and Ranges ([1bc2ff7](https://github.com/plandek-utils/ts-parse-dayjs/commit/1bc2ff7617d61d06a63c9611d05339c6749e0ea4))
+
 ## [1.1.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v1.0.0...v1.1.0) (2019-10-25)
 
 
