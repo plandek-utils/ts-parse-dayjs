@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v1.2.0...v2.0.0) (2019-10-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* the Dayjs objects returned by the functions in this lib will now use `en-gb` locale
+by default instead of `en` (USA English)
+
+* mark as Breaking Change the new default locale ([ca59898](https://github.com/plandek-utils/ts-parse-dayjs/commit/ca59898a81693807956e8e3ed318681f0abcc77a))
+
 ## [1.2.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v1.1.0...v1.2.0) (2019-10-25)
 
 
