@@ -37,6 +37,8 @@ parseDayjs(dayjsObject) // => same Dayjs object
 
 By default the locale used is `en-gb`. This package import automatically all the english locales.
 
+**note: BREAKING CHANGE from 1.x to 2.x: default locale changed from `en` to `en-gb`**
+
 You can explicitly ask for a different locale passing a second argument. It can be one of the AvailableLocales or one of the Dayjs locale objects
 
 ```typescript
