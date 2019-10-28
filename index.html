@@ -99,6 +99,7 @@ parseDayjs(dayjsObject) <span class="hljs-comment">// =&gt; same Dayjs object</s
 					<h4>Locale</h4>
 				</a>
 				<p>By default the locale used is <code>en-gb</code>. This package import automatically all the english locales.</p>
+				<p><strong>note: BREAKING CHANGE from 1.x to 2.x: default locale changed from <code>en</code> to <code>en-gb</code></strong></p>
 				<p>You can explicitly ask for a different locale passing a second argument. It can be one of the AvailableLocales or one of the Dayjs locale objects</p>
 				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { parseDayjs, AvailableLocales } <span class="hljs-keyword">from</span> <span class="hljs-string">"@plandek-utils/ts-parse-dayjs"</span>;
 
@@ -147,7 +148,7 @@ parseDayjsEndOfDay(<span class="hljs-string">"2018-01-01"</span>) <span class="h
 					<li><code>to</code>: the given origin (or current time if missing), at EOD of UTC (e.g. today at 23:59:59.999Z)</li>
 					<li><code>from</code>: the calculated <code>from</code> after subtracting the given amount of the given unit, at the beginning of the period (beginning of the day, of the week, of the month or of the year)</li>
 				</ul>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { parseFromStandardPeriods } <span class="hljs-keyword">from</span> <span class="hljs-string">"@plandek-utils/ts-parse-dayjs"</span>; <span class="hljs-keyword">import</span> { parseDayjs } <span class="hljs-keyword">from</span> <span class="hljs-string">"./base"</span>;
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { parseFromStandardPeriods, parseDayjs } <span class="hljs-keyword">from</span> <span class="hljs-string">"@plandek-utils/ts-parse-dayjs"</span>;
 
 <span class="hljs-comment">// if "now" is 2019-10-22T12:34:56.123Z</span>
 
