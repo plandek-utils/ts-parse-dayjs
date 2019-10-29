@@ -34,15 +34,22 @@ export function extractInteger(timeString: string, re: RegExp): number | null {
 /**
  * @internal
  */
+function defaultToOverride(time: TimeOverride | TimeDefault): TimeOverride {
+  if (time === TimeDefault.EndOfDayIfMissing) return TimeOverride.EndOfDay;
+  if (time === TimeDefault.StartOfDayIfMissing) return TimeOverride.StartOfDay;
+  return time;
+}
+
+/**
+ * @internal
+ */
 export function adaptTimeOption(
   value: DayjsInput,
   time: TimeDefault | TimeOverride | null
 ): TimeDefault | TimeOverride | null {
   if (!time) return null;
   if (typeof value !== "string" || value.includes("T")) return time;
-  if (time === TimeDefault.EndOfDayIfMissing) return TimeOverride.EndOfDay;
-  if (time === TimeDefault.StartOfDayIfMissing) return TimeOverride.StartOfDay;
-  return time;
+  return defaultToOverride(time);
 }
 
 /**
