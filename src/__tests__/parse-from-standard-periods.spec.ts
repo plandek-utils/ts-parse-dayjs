@@ -13,7 +13,7 @@ describe("parseFromStandardPeriods()", () => {
   const to = origin.endOf("day");
   describe("waa => null", () => {
     it("with origin", () => {
-      expect(parseFromStandardPeriods("waa", origin)).toBeNull();
+      expect(parseFromStandardPeriods("waa", { origin })).toBeNull();
     });
 
     it("without origin (uses now)", () => {
@@ -28,7 +28,7 @@ describe("parseFromStandardPeriods()", () => {
     const expected = { from, to };
 
     it("with origin", () => {
-      expect(parseFromStandardPeriods("0d", origin)).toEqual(expected);
+      expect(parseFromStandardPeriods("0d", { origin })).toEqual(expected);
     });
 
     it("without origin (uses now)", () => {
@@ -43,7 +43,7 @@ describe("parseFromStandardPeriods()", () => {
     const expected = { from, to };
 
     it("with origin", () => {
-      expect(parseFromStandardPeriods("0w", origin)).toEqual(expected);
+      expect(parseFromStandardPeriods("0w", { origin })).toEqual(expected);
     });
 
     it("without origin (uses now)", () => {
@@ -58,7 +58,7 @@ describe("parseFromStandardPeriods()", () => {
     const expected = { from, to };
 
     it("with origin", () => {
-      expect(parseFromStandardPeriods("0m", origin)).toEqual(expected);
+      expect(parseFromStandardPeriods("0m", { origin })).toEqual(expected);
     });
 
     it("without origin (uses now)", () => {
@@ -73,7 +73,7 @@ describe("parseFromStandardPeriods()", () => {
     const expected = { from, to };
 
     it("with origin", () => {
-      expect(parseFromStandardPeriods("0y", origin)).toEqual(expected);
+      expect(parseFromStandardPeriods("0y", { origin })).toEqual(expected);
     });
 
     it("without origin (uses now)", () => {
@@ -88,7 +88,7 @@ describe("parseFromStandardPeriods()", () => {
     const expected = { from, to };
 
     it("with origin", () => {
-      expect(parseFromStandardPeriods("10d", origin)).toEqual(expected);
+      expect(parseFromStandardPeriods("10d", { origin })).toEqual(expected);
     });
 
     it("without origin (uses now)", () => {
@@ -103,7 +103,7 @@ describe("parseFromStandardPeriods()", () => {
     const expected = { from, to };
 
     it("with origin", () => {
-      expect(parseFromStandardPeriods("10d", origin)).toEqual(expected);
+      expect(parseFromStandardPeriods("10d", { origin })).toEqual(expected);
     });
 
     it("without origin (uses now)", () => {
@@ -118,7 +118,7 @@ describe("parseFromStandardPeriods()", () => {
     const expected = { from, to };
 
     it("with origin", () => {
-      expect(parseFromStandardPeriods("2w", origin)).toEqual(expected);
+      expect(parseFromStandardPeriods("2w", { origin })).toEqual(expected);
     });
 
     it("without origin (uses now)", () => {
@@ -133,7 +133,7 @@ describe("parseFromStandardPeriods()", () => {
     const expected = { from, to };
 
     it("with origin", () => {
-      expect(parseFromStandardPeriods("2m", origin)).toEqual(expected);
+      expect(parseFromStandardPeriods("2m", { origin })).toEqual(expected);
     });
 
     it("without origin (uses now)", () => {
@@ -148,7 +148,7 @@ describe("parseFromStandardPeriods()", () => {
     const expected = { from, to };
 
     it("with origin", () => {
-      expect(parseFromStandardPeriods("2y", origin)).toEqual(expected);
+      expect(parseFromStandardPeriods("2y", { origin })).toEqual(expected);
     });
 
     it("without origin (uses now)", () => {

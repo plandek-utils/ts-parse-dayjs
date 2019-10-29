@@ -98,6 +98,8 @@ given a string like `8d`, `12w`, `9m` or `2y`, it returns an object with the cal
 
 Optionally we can set an origin as second argument, otherwise the current time is used.
 
+**note: BREAKING CHANGE from 2.x to 3.x: The second argument is now an object like `{ origin: originDate }` instead of the origin directly**
+
 If the string cannot be parsed correctly, it will return `null`.
 
 If the string is parsed correctly, it will return an object with:
@@ -133,7 +135,7 @@ parseFromStandardPeriods("0y")
 
 // with optional origin
 const d = parseDayjs("2019-05-10")
-parseFromStandardPeriods("3d", d)
+parseFromStandardPeriods("3d", { origin: d })
   // => { from: Dayjs(2019-05-07T00:00:00.000Z), to: Dayjs(2019-05-10T23:59:59.999Z) }
 
 ```

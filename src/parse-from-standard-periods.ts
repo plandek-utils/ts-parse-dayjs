@@ -56,7 +56,7 @@ function calculateFrom(value: string, origin: Dayjs): Dayjs | null {
 
 export function parseFromStandardPeriods(
   value: string,
-  origin: Dayjs = dayjsNow()
+  { origin = dayjsNow() }: { origin?: Dayjs } = {}
 ): IDayjsRangeStrict | null {
   const from = calculateFrom(value, origin);
   if (!from) return null;
