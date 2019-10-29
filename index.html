@@ -99,15 +99,24 @@ parseDayjs(dayjsObject) <span class="hljs-comment">// =&gt; same Dayjs object</s
 					<h4>Locale</h4>
 				</a>
 				<p>By default the locale used is <code>en-gb</code>. This package import automatically all the english locales.</p>
-				<p><strong>note: BREAKING CHANGE from 1.x to 2.x: default locale changed from <code>en</code> to <code>en-gb</code></strong></p>
-				<p>You can explicitly ask for a different locale passing a second argument. It can be one of the AvailableLocales or one of the Dayjs locale objects</p>
+				<p>You can explicitly ask for a different locale passing a second argument. It can be one of the AvailableLocales or one of the Dayjs locale objects:</p>
+				<p><strong>note: BREAKING CHANGE from 1.x to 2.x: default locale changed from <code>en</code> to <code>en-gb</code></strong>
+				<strong>note: BREAKING CHANGE from 2.x to 3.x: The second argument is now an object like <code>{ locale: &quot;new-locale&quot; }</code> instead of the locale directly</strong></p>
 				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { parseDayjs, AvailableLocales } <span class="hljs-keyword">from</span> <span class="hljs-string">"@plandek-utils/ts-parse-dayjs"</span>;
 
 parseDayjs(<span class="hljs-string">"2018-01-01"</span>) <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01, locale en-gb (week starts on Monday)</span>
-parseDayjs(<span class="hljs-string">"2018-01-01"</span>, AvailableLocales.EnglishUSA) <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01, locale en (week starts on Sunday)</span>
+parseDayjs(<span class="hljs-string">"2018-01-01"</span>, { locale: AvailableLocales.EnglishUSA }) <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01, locale en (week starts on Sunday)</span>
 
 <span class="hljs-keyword">import</span> esLocale <span class="hljs-keyword">from</span> <span class="hljs-string">'dayjs/locale/es'</span>;
-parseDayjs(<span class="hljs-string">"2018-01-01"</span>, esLocale) <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01, locale es (spanish)</span></code></pre>
+parseDayjs(<span class="hljs-string">"2018-01-01"</span>, { locale: esLocale }) <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01, locale es (spanish)</span></code></pre>
+				<a href="#codestrictcode-option" id="codestrictcode-option" style="color: inherit; text-decoration: none;">
+					<h4><code>strict</code> option</h4>
+				</a>
+				<p>By passing <code>strict: true</code> in the options, we ensure that we will receive a Dayjs object, or throw an <code>InvalidDateError</code>. This is the same as <a href="#parsedayjsorerror"><code>parseDayjsOrError</code></a>.</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { parseDayjs } <span class="hljs-keyword">from</span> <span class="hljs-string">"@plandek-utils/ts-parse-dayjs"</span>;
+
+parseDayjs(<span class="hljs-string">"2018-01-01"</span>, { strict: <span class="hljs-literal">true</span> }) <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01, locale en-gb (week starts on Monday)</span>
+parseDayjs(<span class="hljs-string">"waaaa"</span>, { strict: <span class="hljs-literal">true</span> }) <span class="hljs-comment">// =&gt; throws InvalidDateError</span></code></pre>
 				<a href="#codedayjsnowcode" id="codedayjsnowcode" style="color: inherit; text-decoration: none;">
 					<h3><code>dayjsNow</code></h3>
 				</a>
@@ -115,10 +124,10 @@ parseDayjs(<span class="hljs-string">"2018-01-01"</span>, esLocale) <span class=
 				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { dayjsNow, AvailableLocales } <span class="hljs-keyword">from</span> <span class="hljs-string">"@plandek-utils/ts-parse-dayjs"</span>;
 
 dayjsNow() <span class="hljs-comment">// =&gt; Dayjs object with the current time, in UTC (locale en-gb)</span>
-dayjsNow(AvailableLocales.EnglishUSA) <span class="hljs-comment">// =&gt; Dayjs object with the current time, in UTC (locale en)</span>
+dayjsNow({ locale: AvailableLocales.EnglishUSA }) <span class="hljs-comment">// =&gt; Dayjs object with the current time, in UTC (locale en)</span>
 
 <span class="hljs-keyword">import</span> esLocale <span class="hljs-keyword">from</span> <span class="hljs-string">'dayjs/locale/es'</span>;
-dayjsNow(esLocale) <span class="hljs-comment">// =&gt; Dayjs with the current time, in UTC, locale es</span></code></pre>
+dayjsNow({ locale: esLocale }) <span class="hljs-comment">// =&gt; Dayjs with the current time, in UTC, locale es</span></code></pre>
 				<a href="#codeparsedayjsorerrorcode" id="codeparsedayjsorerrorcode" style="color: inherit; text-decoration: none;">
 					<h3><code>parseDayjsOrError</code></h3>
 				</a>
@@ -127,6 +136,7 @@ dayjsNow(esLocale) <span class="hljs-comment">// =&gt; Dayjs with the current ti
 
 parseDayjsOrError(<span class="hljs-string">"2018-01-01T00:00:00.000Z"</span>) <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01T00:00:00.000Z</span>
 parseDayjsOrError(<span class="hljs-literal">null</span>) <span class="hljs-comment">// =&gt; throws InvalidDateError</span></code></pre>
+				<p>note: this is the same as passing a <code>strict: true</code> option to parseDayJs</p>
 				<a href="#codeparsedayjsstartofdaycode-and-codeparsedayjsendofdaycode" id="codeparsedayjsstartofdaycode-and-codeparsedayjsendofdaycode" style="color: inherit; text-decoration: none;">
 					<h3><code>parseDayjsStartOfDay</code> and <code>parseDayjsEndOfDay</code></h3>
 				</a>
@@ -142,6 +152,7 @@ parseDayjsEndOfDay(<span class="hljs-string">"2018-01-01"</span>) <span class="h
 				</a>
 				<p>given a string like <code>8d</code>, <code>12w</code>, <code>9m</code> or <code>2y</code>, it returns an object with the calculated range of 8 days, 12 weeks, 9 months and 2 years ago respectively.</p>
 				<p>Optionally we can set an origin as second argument, otherwise the current time is used.</p>
+				<p><strong>note: BREAKING CHANGE from 2.x to 3.x: The second argument is now an object like <code>{ origin: originDate }</code> instead of the origin directly</strong></p>
 				<p>If the string cannot be parsed correctly, it will return <code>null</code>.</p>
 				<p>If the string is parsed correctly, it will return an object with:</p>
 				<ul>
@@ -175,7 +186,7 @@ parseFromStandardPeriods(<span class="hljs-string">"0y"</span>)
 
 <span class="hljs-comment">// with optional origin</span>
 <span class="hljs-keyword">const</span> d = parseDayjs(<span class="hljs-string">"2019-05-10"</span>)
-parseFromStandardPeriods(<span class="hljs-string">"3d"</span>, d)
+parseFromStandardPeriods(<span class="hljs-string">"3d"</span>, { origin: d })
   <span class="hljs-comment">// =&gt; { from: Dayjs(2019-05-07T00:00:00.000Z), to: Dayjs(2019-05-10T23:59:59.999Z) }</span>
 </code></pre>
 				<a href="#development-commits-versioning-and-publishing" id="development-commits-versioning-and-publishing" style="color: inherit; text-decoration: none;">
@@ -257,6 +268,12 @@ yarn publish --access public</code></pre>
 					<li class=" tsd-kind-enum">
 						<a href="enums/availablelocales.html" class="tsd-kind-icon">Available<wbr>Locales</a>
 					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/timedefault.html" class="tsd-kind-icon">Time<wbr>Default</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/timeoverride.html" class="tsd-kind-icon">Time<wbr>Override</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/invaliddateerror.html" class="tsd-kind-icon">Invalid<wbr>Date<wbr>Error</a>
 					</li>
@@ -273,7 +290,31 @@ yarn publish --access public</code></pre>
 						<a href="globals.html#dayjsinput" class="tsd-kind-icon">Dayjs<wbr>Input</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-is-not-exported">
+						<a href="globals.html#fulltimeoptions" class="tsd-kind-icon">Full<wbr>Time<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-is-not-exported">
+						<a href="globals.html#localeoptions" class="tsd-kind-icon">Locale<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#localeparam" class="tsd-kind-icon">Locale<wbr>Param</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#nowoptions" class="tsd-kind-icon">Now<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-is-not-exported">
+						<a href="globals.html#originoptions" class="tsd-kind-icon">Origin<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#parseoptions" class="tsd-kind-icon">Parse<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#parsestandardperiodoptions" class="tsd-kind-icon">Parse<wbr>Standard<wbr>Period<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-is-not-exported">
+						<a href="globals.html#strictoptions" class="tsd-kind-icon">Strict<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-is-not-exported">
+						<a href="globals.html#timeoverrideoptions" class="tsd-kind-icon">Time<wbr>Override<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#default_locale" class="tsd-kind-icon">DEFAULT_<wbr>LOCALE</a>
@@ -281,11 +322,26 @@ yarn publish --access public</code></pre>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#periods" class="tsd-kind-icon">PERIODS</a>
 					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#adapttime" class="tsd-kind-icon">adapt<wbr>Time</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#adapttimeoption" class="tsd-kind-icon">adapt<wbr>Time<wbr>Option</a>
+					</li>
 					<li class=" tsd-kind-function tsd-is-not-exported">
 						<a href="globals.html#calculatefrom" class="tsd-kind-icon">calculate<wbr>From</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="globals.html#createfrom" class="tsd-kind-icon">create<wbr>From</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createnow" class="tsd-kind-icon">create<wbr>Now</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="globals.html#dayjsnow" class="tsd-kind-icon">dayjs<wbr>Now</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#defaulttooverride" class="tsd-kind-icon">default<wbr>ToOverride</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#extractinteger" class="tsd-kind-icon">extract<wbr>Integer</a>
