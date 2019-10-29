@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v2.0.0...v3.0.0) (2019-10-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* The optional argument of the custom origin has been replaced by an optional object
+with all the options. The first option available is the `origin`. e.g.
+`parseFromStandardPeriods("1d", customOrigin)` => `parseFromStandardPeriods("1d", { origin:
+customOrigin })`
+* The optional argument of the custom locale has been replaced by an optional object
+with all the options. The first one of which is locale. e.g. `parseDayjs(d, customLocale)` =>
+`parseDayjs(d, { locale: customLocale })`
+
+### Features
+
+* options object with `strict` option + `time` adapt option + refactor ([#2](https://github.com/plandek-utils/ts-parse-dayjs/issues/2)) ([8a26e5f](https://github.com/plandek-utils/ts-parse-dayjs/commit/8a26e5fbdd98029e037a3af88fd4ed576ca8d788))
+* second argument as option hash instead of directly the locale ([400613b](https://github.com/plandek-utils/ts-parse-dayjs/commit/400613bb47e12aa81d71f41774d4ffcdc8912c3a))
+* second argument as option hash instead of directly the origin (parseFromStandardPeriods) ([f976d3e](https://github.com/plandek-utils/ts-parse-dayjs/commit/f976d3ed53bb78e0627fa614a2df228625791032))
+
 ## [2.0.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v1.2.0...v2.0.0) (2019-10-28)
 
 ### Features
