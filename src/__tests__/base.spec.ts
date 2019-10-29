@@ -74,34 +74,34 @@ describe("parseDayjs()", () => {
     { locale: esLocale, suffix: "imported locale object" },
     { locale: AvailableLocales.EnglishUSA, suffix: "AvailableLocale" }
   ].forEach(({ locale, suffix }) => {
-    describe(`with 2nd param Locale (${suffix}) -> uses the given Locale`, () => {
+    describe(`with 2nd param { locale: anotherLocale } (${suffix}) -> uses the given Locale`, () => {
       it("with null: returns null", async () => {
-        expect(parseDayjs(null, locale)).toBeNull();
+        expect(parseDayjs(null, { locale })).toBeNull();
       });
 
       it("with empty string: returns null", async () => {
-        expect(parseDayjs("", locale)).toBeNull();
+        expect(parseDayjs("", { locale })).toBeNull();
       });
 
       it("with an invalid date: returns null", async () => {
-        expect(parseDayjs("waa", locale)).toBeNull();
+        expect(parseDayjs("waa", { locale })).toBeNull();
       });
 
       it("with a valid date: returns Date", async () => {
-        expect(parseDayjs("2018-01-01", locale)).toEqual(
+        expect(parseDayjs("2018-01-01", { locale })).toEqual(
           dayjs.utc(new Date("2018-01-01"), locale).locale(locale)
         );
       });
 
       it("with a date: returns the object", async () => {
         const d = dayjs.utc("2018-01-01").locale(locale);
-        expect(parseDayjs(d, locale)).toBe(d);
+        expect(parseDayjs(d, { locale })).toBe(d);
       });
 
       it("with a dayjs: returns the dayjs object", async () => {
         const d = new Date("2018-01-01");
         const djs = dayjs.utc(d).locale(locale);
-        expect(parseDayjs(d, locale)).toEqual(djs);
+        expect(parseDayjs(d, { locale })).toEqual(djs);
       });
     });
   });

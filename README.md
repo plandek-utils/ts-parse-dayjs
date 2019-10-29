@@ -37,18 +37,20 @@ parseDayjs(dayjsObject) // => same Dayjs object
 
 By default the locale used is `en-gb`. This package import automatically all the english locales.
 
-**note: BREAKING CHANGE from 1.x to 2.x: default locale changed from `en` to `en-gb`**
+You can explicitly ask for a different locale passing a second argument. It can be one of the AvailableLocales or one of the Dayjs locale objects:
 
-You can explicitly ask for a different locale passing a second argument. It can be one of the AvailableLocales or one of the Dayjs locale objects
+**note: BREAKING CHANGE from 1.x to 2.x: default locale changed from `en` to `en-gb`**
+**note: BREAKING CHANGE from 2.x to 3.x: The second argument is now an object like `{ locale: "new-locale" }` instead of the locale directly**
+
 
 ```typescript
 import { parseDayjs, AvailableLocales } from "@plandek-utils/ts-parse-dayjs";
 
 parseDayjs("2018-01-01") // => Dayjs object in UTC for 2018-01-01, locale en-gb (week starts on Monday)
-parseDayjs("2018-01-01", AvailableLocales.EnglishUSA) // => Dayjs object in UTC for 2018-01-01, locale en (week starts on Sunday)
+parseDayjs("2018-01-01", { locale: AvailableLocales.EnglishUSA }) // => Dayjs object in UTC for 2018-01-01, locale en (week starts on Sunday)
 
 import esLocale from 'dayjs/locale/es';
-parseDayjs("2018-01-01", esLocale) // => Dayjs object in UTC for 2018-01-01, locale es (spanish)
+parseDayjs("2018-01-01", { locale: esLocale }) // => Dayjs object in UTC for 2018-01-01, locale es (spanish)
 ```
 
 ### `dayjsNow`
@@ -59,10 +61,10 @@ returns a Dayjs (in UTC) of the current time. It can accept a locale as optional
 import { dayjsNow, AvailableLocales } from "@plandek-utils/ts-parse-dayjs";
 
 dayjsNow() // => Dayjs object with the current time, in UTC (locale en-gb)
-dayjsNow(AvailableLocales.EnglishUSA) // => Dayjs object with the current time, in UTC (locale en)
+dayjsNow({ locale: AvailableLocales.EnglishUSA }) // => Dayjs object with the current time, in UTC (locale en)
 
 import esLocale from 'dayjs/locale/es';
-dayjsNow(esLocale) // => Dayjs with the current time, in UTC, locale es
+dayjsNow({ locale: esLocale }) // => Dayjs with the current time, in UTC, locale es
 ```
 
 
