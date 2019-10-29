@@ -53,6 +53,17 @@ import esLocale from 'dayjs/locale/es';
 parseDayjs("2018-01-01", { locale: esLocale }) // => Dayjs object in UTC for 2018-01-01, locale es (spanish)
 ```
 
+#### `strict` option 
+
+By passing `strict: true` in the options, we ensure that we will receive a Dayjs object, or throw an `InvalidDateError`. This is the same as [`parseDayjsOrError`](#parsedayjsorerror).
+
+```typescript
+import { parseDayjs } from "@plandek-utils/ts-parse-dayjs";
+
+parseDayjs("2018-01-01", { strict: true }) // => Dayjs object in UTC for 2018-01-01, locale en-gb (week starts on Monday)
+parseDayjs("waaaa", { strict: true }) // => throws InvalidDateError
+```
+
 ### `dayjsNow`
 
 returns a Dayjs (in UTC) of the current time. It can accept a locale as optional argument (see [Locale](#locale))
@@ -78,6 +89,8 @@ import { parseDayjsOrError } from "@plandek-utils/ts-parse-dayjs";
 parseDayjsOrError("2018-01-01T00:00:00.000Z") // => Dayjs object in UTC for 2018-01-01T00:00:00.000Z
 parseDayjsOrError(null) // => throws InvalidDateError
 ```
+
+note: this is the same as passing a `strict: true` option to parseDayJs
 
 ### `parseDayjsStartOfDay` and `parseDayjsEndOfDay`
 
