@@ -8,3 +8,4 @@ export {
 export * from "./dayjs-now";
 export * from "./parse";
 export * from "./parse-from-standard-periods";
+export * from "./time-options";
