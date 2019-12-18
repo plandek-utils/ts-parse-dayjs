@@ -31,9 +31,7 @@ export enum AvailableLocales {
 
 export const DEFAULT_LOCALE = AvailableLocales.EnglishGB;
 
-export type LocaleParam =
-  | AvailableLocales
-  | { name: string; [key: string]: any };
+export type LocaleParam = AvailableLocales | ILocale;
 
 export type DayjsInput = Dayjs | Date | string | number | null;
 

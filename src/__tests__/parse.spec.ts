@@ -68,7 +68,7 @@ describe("parseDayjs()", () => {
 
       it("with a valid date: returns Dayjs", async () => {
         expect(parseDayjs("2018-01-01", { locale })).toEqual(
-          dayjs.utc(new Date("2018-01-01"), locale).locale(locale)
+          dayjs.utc(new Date("2018-01-01")).locale(locale)
         );
       });
 
