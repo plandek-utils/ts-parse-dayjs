@@ -17,6 +17,8 @@ utils to parse Dayjs objects in UTC
 
 ## Usage
 
+note: it will return Dayjs objects with both [`utc`](https://day.js.org/docs/en/plugin/utc) and [`AdvancedFormat`](https://day.js.org/docs/en/plugin/advanced-format) plugins enabled.
+
 ### `parseDayjs`
 
 parses the given input and returns a Dayjs object (in UTC) if the given date is valid, or `null` if it results in an invalid date
@@ -31,6 +33,9 @@ parseDayjs("2018-01-01") // => Dayjs object in UTC for 2018-01-01
 parseDayjs("2018-01-01T00:00:00.000Z") // => Dayjs object in UTC for 2018-01-01T00:00:00.000Z
 parseDayjs(new Date()) // => Dayjs object in UTC for the given Date
 parseDayjs(dayjsObject) // => same Dayjs object
+
+// can be formatted
+parseDayjs("2018-01-01T00:00:00.000Z").format("Do MMM YYYY") // => 1st Jan 2018
 ```
 
 #### Locale
@@ -53,7 +58,7 @@ import esLocale from 'dayjs/locale/es';
 parseDayjs("2018-01-01", { locale: esLocale }) // => Dayjs object in UTC for 2018-01-01, locale es (spanish)
 ```
 
-#### `strict` option 
+#### `strict` option
 
 By passing `strict: true` in the options, we ensure that we will receive a Dayjs object, or throw an `InvalidDateError`. This is the same as [`parseDayjsOrError`](#parsedayjsorerror).
 
@@ -133,7 +138,7 @@ parseFromStandardPeriods("10d")
 parseFromStandardPeriods("2w")
   // => { from: Dayjs(2019-10-07T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }
 parseFromStandardPeriods("2m")
-  // => { from: Dayjs(2019-08-01T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) } 
+  // => { from: Dayjs(2019-08-01T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }
 parseFromStandardPeriods("2y")
 
 // if the number is 0, it will go to the beginning of the period
@@ -142,7 +147,7 @@ parseFromStandardPeriods("0d")
 parseFromStandardPeriods("0w")
   // => { from: Dayjs(2019-10-21T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }
 parseFromStandardPeriods("0m")
-  // => { from: Dayjs(2019-10-01T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) } 
+  // => { from: Dayjs(2019-10-01T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }
 parseFromStandardPeriods("0y")
   // => { from: Dayjs(2019-01-01T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }
 

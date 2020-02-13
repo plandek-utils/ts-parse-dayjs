@@ -26,4 +26,22 @@ describe("dayjsNow()", () => {
     timekeeper.reset();
     expect(actual.toDate()).toEqual(d);
   });
+
+  it("can be formatted (end of day)", () => {
+    const d = new Date("2017-08-15T23:59:59.999Z");
+    timekeeper.freeze(d);
+    const actual = dayjsNow();
+    timekeeper.reset();
+    expect(actual.toDate()).toEqual(d);
+    expect(actual.format("Do MMM YYYY")).toEqual("15th Aug 2017");
+  });
+
+  it("can be formatted (start of day)", () => {
+    const d = new Date("2017-08-15T00:00:00.000Z");
+    timekeeper.freeze(d);
+    const actual = dayjsNow();
+    timekeeper.reset();
+    expect(actual.toDate()).toEqual(d);
+    expect(actual.format("Do MMM YYYY")).toEqual("15th Aug 2017");
+  });
 });
