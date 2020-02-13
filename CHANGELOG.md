@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.3.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.2.0...v3.3.0) (2020-02-13)
+
+
+### Features
+
+* add week of year support ([f66822f](https://github.com/plandek-utils/ts-parse-dayjs/commit/f66822f734aa29d2f9907c92a508bf84eed2eeb2))
+
 ## [3.2.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.1.2...v3.2.0) (2020-02-13)
 
 
