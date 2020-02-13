@@ -12,6 +12,7 @@
   "license": "MIT",
   "keywords": [],
   "scripts": {
+    "type-check": "tsc --noEmit",
     "describe": "npm-scripts-info",
     "build": "run-s clean && run-p build:*",
     "build:main": "tsc -p tsconfig.json",

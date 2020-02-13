@@ -8,11 +8,13 @@ import "dayjs/locale/en-ie";
 import "dayjs/locale/en-il";
 import "dayjs/locale/en-nz";
 import "dayjs/locale/en-SG";
+import AdvancedFormat from "dayjs/plugin/advancedFormat";
 // tslint:disable-next-line:no-submodule-imports
 import utc from "dayjs/plugin/utc";
 // tslint:enable:no-submodule-imports
 
 dayjs.extend(utc);
+dayjs.extend(AdvancedFormat);
 
 /**
  * List of imported locales.
