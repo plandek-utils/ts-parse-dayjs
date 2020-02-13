@@ -44,4 +44,13 @@ describe("dayjsNow()", () => {
     expect(actual.toDate()).toEqual(d);
     expect(actual.format("Do MMM YYYY")).toEqual("15th Aug 2017");
   });
+
+  it("supports week of year", () => {
+    const d = new Date("2017-01-10T00:00:00.000Z");
+    timekeeper.freeze(d);
+    const actual = dayjsNow();
+    timekeeper.reset();
+    expect(actual.toDate()).toEqual(d);
+    expect(actual.week()).toEqual(2);
+  });
 });
