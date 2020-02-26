@@ -2,7 +2,9 @@ export {
   AvailableLocales,
   Dayjs,
   DayjsInput,
+  DEFAULT_DATE_FORMAT,
   DEFAULT_LOCALE,
+  formatDate,
   isDayjs,
   LocaleParam
 } from "./base";
