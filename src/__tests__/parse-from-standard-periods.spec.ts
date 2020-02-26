@@ -1,6 +1,5 @@
-import { Dayjs } from "dayjs";
 import timekeeper from "timekeeper";
-import { parseDayjsOrError, parseFromStandardPeriods } from "..";
+import { Dayjs, parseDayjsOrError, parseFromStandardPeriods } from "..";
 
 function frozenTime(time: Dayjs, fn: () => void): void {
   timekeeper.freeze(time.toDate());

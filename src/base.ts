@@ -18,6 +18,12 @@ dayjs.extend(utc);
 dayjs.extend(AdvancedFormat);
 dayjs.extend(weekOfYear);
 
+// exporting the type
+export { Dayjs };
+
+// exporting the isDayjs function
+export { isDayjs };
+
 /**
  * List of imported locales.
  * If you import more dayjs locales in your app, pass the actual locale object as param instead of the name
