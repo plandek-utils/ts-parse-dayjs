@@ -195,6 +195,15 @@ parseFromStandardPeriods(<span class="hljs-string">"0y"</span>);
 <span class="hljs-keyword">const</span> d = parseDayjs(<span class="hljs-string">"2019-05-10"</span>);
 parseFromStandardPeriods(<span class="hljs-string">"3d"</span>, { origin: d });
 <span class="hljs-comment">// =&gt; { from: Dayjs(2019-05-07T00:00:00.000Z), to: Dayjs(2019-05-10T23:59:59.999Z) }</span></code></pre>
+				<a href="#codeformatdatecode" id="codeformatdatecode" style="color: inherit; text-decoration: none;">
+					<h3><code>formatDate()</code></h3>
+				</a>
+				<p>Used to format a Dayjs object using the AdvancedFormat plugin. The default format is <code>&quot;Do MMM YYYY&quot;</code></p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { formatDate, parseDayjs } <span class="hljs-keyword">from</span> <span class="hljs-string">"@plandek-utils/ts-parse-dayjs"</span>;
+
+formatDate(<span class="hljs-literal">null</span>); <span class="hljs-comment">// =&gt; null</span>
+formatDate(parseDayjs(<span class="hljs-string">"2019-01-02"</span>)); <span class="hljs-comment">// =&gt; "2nd Jan 2019"</span>
+formatDate(parseDayjs(<span class="hljs-string">"2019-01-02"</span>), <span class="hljs-string">"Do ww MMMM YYYY"</span>); <span class="hljs-comment">// =&gt; "2nd 01 January 2019"</span></code></pre>
 				<a href="#development-commits-versioning-and-publishing" id="development-commits-versioning-and-publishing" style="color: inherit; text-decoration: none;">
 					<h2>Development, Commits, versioning and publishing</h2>
 				</a>
@@ -323,6 +332,9 @@ yarn publish --access public</code></pre>
 						<a href="globals.html#timeoverrideoptions" class="tsd-kind-icon">Time<wbr>Override<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-variable">
+						<a href="globals.html#default_date_format" class="tsd-kind-icon">DEFAULT_<wbr>DATE_<wbr>FORMAT</a>
+					</li>
+					<li class=" tsd-kind-variable">
 						<a href="globals.html#default_locale" class="tsd-kind-icon">DEFAULT_<wbr>LOCALE</a>
 					</li>
 					<li class=" tsd-kind-variable">
@@ -354,6 +366,9 @@ yarn publish --access public</code></pre>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#extractperiod" class="tsd-kind-icon">extract<wbr>Period</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#formatdate" class="tsd-kind-icon">format<wbr>Date</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#isvalidnumber" class="tsd-kind-icon">is<wbr>Valid<wbr>Number</a>
