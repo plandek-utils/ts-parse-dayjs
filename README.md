@@ -158,6 +158,18 @@ parseFromStandardPeriods("3d", { origin: d });
 // => { from: Dayjs(2019-05-07T00:00:00.000Z), to: Dayjs(2019-05-10T23:59:59.999Z) }
 ```
 
+### `formatDate()`
+
+Used to format a Dayjs object using the AdvancedFormat plugin. The default format is `"Do MMM YYYY"`
+
+```typescript
+import { formatDate, parseDayjs } from "@plandek-utils/ts-parse-dayjs";
+
+formatDate(null); // => null
+formatDate(parseDayjs("2019-01-02")); // => "2nd Jan 2019"
+formatDate(parseDayjs("2019-01-02"), "Do ww MMMM YYYY"); // => "2nd 01 January 2019"
+```
+
 ## Development, Commits, versioning and publishing
 
 <details><summary>See documentation for development</summary>
