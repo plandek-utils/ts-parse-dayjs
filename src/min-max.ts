@@ -10,14 +10,14 @@ function isEmptyArray<T>(x: T[]): x is EmptyArray<T> {
 
 export function minDayjs(list: EmptyArray<Dayjs>): null;
 export function minDayjs(list: NonEmptyArray<Dayjs>): Dayjs;
-export function minDayjs(list: EmptyArray<Dayjs> | NonEmptyArray<Dayjs>): null | Dayjs;
-export function minDayjs(list: EmptyArray<Dayjs> | NonEmptyArray<Dayjs>) {
+export function minDayjs(list: EmptyArray<Dayjs> | NonEmptyArray<Dayjs> | Dayjs[]): null | Dayjs;
+export function minDayjs(list: Dayjs[]) {
   return isEmptyArray(list) ? null : dayjs.min(list);
 }
 
 export function maxDayjs(list: EmptyArray<Dayjs>): null;
 export function maxDayjs(list: NonEmptyArray<Dayjs>): Dayjs;
-export function maxDayjs(list: EmptyArray<Dayjs> | NonEmptyArray<Dayjs>): null | Dayjs;
+export function maxDayjs(list: EmptyArray<Dayjs> | NonEmptyArray<Dayjs> | Dayjs[]): null | Dayjs;
 export function maxDayjs(list: Dayjs[]) {
   return isEmptyArray(list) ? null : dayjs.max(list);
 }
