@@ -6,10 +6,11 @@ export {
   DEFAULT_LOCALE,
   formatDate,
   isDayjs,
-  LocaleParam
+  LocaleParam,
 } from "./base";
 export * from "./dayjs-now";
 export * from "./errors";
+export { minDayjs, maxDayjs } from "./min-max";
 export * from "./parse";
 export * from "./parse-from-standard-periods";
 export * from "./time-options";

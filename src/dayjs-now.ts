@@ -12,9 +12,6 @@ import { adaptTime } from "./utils";
  * @see DEFAULT_LOCALE
  * @see TimeOverride
  */
-export function dayjsNow({
-  locale = DEFAULT_LOCALE,
-  time
-}: NowOptions = {}): Dayjs {
+export function dayjsNow({ locale = DEFAULT_LOCALE, time }: NowOptions = {}): Dayjs {
   return adaptTime(createNow(locale), time);
 }

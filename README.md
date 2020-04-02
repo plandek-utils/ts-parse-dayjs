@@ -124,10 +124,7 @@ If the string is parsed correctly, it will return an object with:
 - `from`: the calculated `from` after subtracting the given amount of the given unit, at the beginning of the period (beginning of the day, of the week, of the month or of the year)
 
 ```typescript
-import {
-  parseFromStandardPeriods,
-  parseDayjs
-} from "@plandek-utils/ts-parse-dayjs";
+import { parseFromStandardPeriods, parseDayjs } from "@plandek-utils/ts-parse-dayjs";
 
 // if "now" is 2019-10-22T12:34:56.123Z
 
@@ -168,6 +165,24 @@ import { formatDate, parseDayjs } from "@plandek-utils/ts-parse-dayjs";
 formatDate(null); // => null
 formatDate(parseDayjs("2019-01-02")); // => "2nd Jan 2019"
 formatDate(parseDayjs("2019-01-02"), "Do ww MMMM YYYY"); // => "2nd 01 January 2019"
+```
+
+### `minDayjs()` and `maxDayjs()`
+
+Used to compare an array of Dayjs objects and return the min (earliest) or max (latest).
+
+```typescript
+import { minDayjs, maxDayjs, parseDayjs } from "@plandek-utils/ts-parse-dayjs";
+const d1 = parseDayjsOrError("2019-01-01");
+const d2 = parseDayjsOrError("2019-02-02");
+const d3 = parseDayjsOrError("2019-03-03");
+const d4 = parseDayjsOrError("2019-04-04");
+
+minDayjs([]); // => null
+minDayjs([d3, d4, d1, d2]); // => d1
+
+maxDayjs([]); // => null
+maxDayjs([d3, d4, d1, d2]); // => d4
 ```
 
 ## Development, Commits, versioning and publishing

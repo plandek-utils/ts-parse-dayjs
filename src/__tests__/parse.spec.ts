@@ -11,7 +11,7 @@ import {
   parseDayjs,
   parseDayjsEndOfDay,
   parseDayjsOrError,
-  parseDayjsStartOfDay
+  parseDayjsStartOfDay,
 } from "..";
 import { TimeDefault, TimeOverride } from "../time-options";
 
@@ -51,7 +51,7 @@ describe("parseDayjs()", () => {
 
   [
     { locale: esLocale, suffix: "imported locale object" },
-    { locale: AvailableLocales.EnglishUSA, suffix: "AvailableLocale" }
+    { locale: AvailableLocales.EnglishUSA, suffix: "AvailableLocale" },
   ].forEach(({ locale, suffix }) => {
     describe(`with 2nd param { locale: anotherLocale } (${suffix}) -> uses the given Locale`, () => {
       it("with null: returns null", async () => {
@@ -90,11 +90,9 @@ describe("parseDayjs()", () => {
       it("with a valid date string: returns Dayjs at start of day", async () => {
         expect(
           parseDayjs("2018-01-01T10:11:12.123Z", {
-            time: TimeOverride.StartOfDay
+            time: TimeOverride.StartOfDay,
           })
-        ).toEqual(
-          dayjs.utc(new Date("2018-01-01T00:00:00.000Z")).locale(DEFAULT_LOCALE)
-        );
+        ).toEqual(dayjs.utc(new Date("2018-01-01T00:00:00.000Z")).locale(DEFAULT_LOCALE));
       });
 
       it("with a date: returns a Dayjs object at start of day", async () => {
@@ -117,28 +115,22 @@ describe("parseDayjs()", () => {
       it("with a valid date string that has NO time inside: returns Dayjs without adapting the time", async () => {
         expect(
           parseDayjs("2018-01-01", {
-            time: TimeDefault.StartOfDayIfMissing
+            time: TimeDefault.StartOfDayIfMissing,
           })
-        ).toEqual(
-          dayjs.utc(new Date("2018-01-01T00:00:00.000Z")).locale(DEFAULT_LOCALE)
-        );
+        ).toEqual(dayjs.utc(new Date("2018-01-01T00:00:00.000Z")).locale(DEFAULT_LOCALE));
       });
 
       it("with a valid date string that has time inside: returns Dayjs without adapting the time", async () => {
         expect(
           parseDayjs("2018-01-01T10:11:12.123Z", {
-            time: TimeDefault.StartOfDayIfMissing
+            time: TimeDefault.StartOfDayIfMissing,
           })
-        ).toEqual(
-          dayjs.utc(new Date("2018-01-01T10:11:12.123Z")).locale(DEFAULT_LOCALE)
-        );
+        ).toEqual(dayjs.utc(new Date("2018-01-01T10:11:12.123Z")).locale(DEFAULT_LOCALE));
       });
 
       it("with a date: returns a Dayjs object without adapting the time", async () => {
         const d = dayjs.utc("2018-01-01T10:11:12.123Z").locale(DEFAULT_LOCALE);
-        expect(
-          parseDayjs(d, { time: TimeDefault.StartOfDayIfMissing })
-        ).toEqual(
+        expect(parseDayjs(d, { time: TimeDefault.StartOfDayIfMissing })).toEqual(
           dayjs.utc(new Date("2018-01-01T10:11:12.123Z")).locale(DEFAULT_LOCALE)
         );
       });
@@ -146,9 +138,7 @@ describe("parseDayjs()", () => {
       it("with a dayjs: returns the same dayjs (without adapting the time)", async () => {
         const d = new Date("2018-01-01T10:11:12.123Z");
         const djs = dayjs.utc(d).locale(DEFAULT_LOCALE);
-        expect(parseDayjs(djs, { time: TimeDefault.StartOfDayIfMissing })).toBe(
-          djs
-        );
+        expect(parseDayjs(djs, { time: TimeDefault.StartOfDayIfMissing })).toBe(djs);
       });
     });
 
@@ -156,11 +146,9 @@ describe("parseDayjs()", () => {
       it("with a valid date string: returns Dayjs at end of day", async () => {
         expect(
           parseDayjs("2018-01-01T10:11:12.123Z", {
-            time: TimeOverride.EndOfDay
+            time: TimeOverride.EndOfDay,
           })
-        ).toEqual(
-          dayjs.utc(new Date("2018-01-01T23:59:59.999Z")).locale(DEFAULT_LOCALE)
-        );
+        ).toEqual(dayjs.utc(new Date("2018-01-01T23:59:59.999Z")).locale(DEFAULT_LOCALE));
       });
 
       it("with a date: returns a Dayjs object at end of day", async () => {
@@ -183,21 +171,17 @@ describe("parseDayjs()", () => {
       it("with a valid date string that has NO time inside: returns Dayjs without adapting the time", async () => {
         expect(
           parseDayjs("2018-01-01", {
-            time: TimeDefault.EndOfDayIfMissing
+            time: TimeDefault.EndOfDayIfMissing,
           })
-        ).toEqual(
-          dayjs.utc(new Date("2018-01-01T23:59:59.999Z")).locale(DEFAULT_LOCALE)
-        );
+        ).toEqual(dayjs.utc(new Date("2018-01-01T23:59:59.999Z")).locale(DEFAULT_LOCALE));
       });
 
       it("with a valid date string that has time inside: returns Dayjs without adapting the time", async () => {
         expect(
           parseDayjs("2018-01-01T10:11:12.123Z", {
-            time: TimeDefault.EndOfDayIfMissing
+            time: TimeDefault.EndOfDayIfMissing,
           })
-        ).toEqual(
-          dayjs.utc(new Date("2018-01-01T10:11:12.123Z")).locale(DEFAULT_LOCALE)
-        );
+        ).toEqual(dayjs.utc(new Date("2018-01-01T10:11:12.123Z")).locale(DEFAULT_LOCALE));
       });
 
       it("with a date: returns a Dayjs object without adapting the time", async () => {
@@ -210,9 +194,7 @@ describe("parseDayjs()", () => {
       it("with a dayjs: returns the same dayjs (without adapting the time)", async () => {
         const d = new Date("2018-01-01T10:11:12.123Z");
         const djs = dayjs.utc(d).locale(DEFAULT_LOCALE);
-        expect(parseDayjs(djs, { time: TimeDefault.EndOfDayIfMissing })).toBe(
-          djs
-        );
+        expect(parseDayjs(djs, { time: TimeDefault.EndOfDayIfMissing })).toBe(djs);
       });
     });
   });
@@ -264,9 +246,7 @@ describe("parseDayjsStartOfDay()", () => {
 
   it("with a valid date: returns Date at start of day", async () => {
     const d = parseDayjsStartOfDay("2018-01-01");
-    expect(d).toEqual(
-      dayjs.utc("2018-01-01T00:00:00.000Z").locale(DEFAULT_LOCALE)
-    );
+    expect(d).toEqual(dayjs.utc("2018-01-01T00:00:00.000Z").locale(DEFAULT_LOCALE));
     expect(d && d.toISOString()).toEqual("2018-01-01T00:00:00.000Z");
   });
 });
@@ -286,9 +266,7 @@ describe("parseDayjsEndOfDay()", () => {
 
   it("with a valid date: returns Date at end of day", async () => {
     const d = parseDayjsEndOfDay("2018-01-01");
-    expect(d).toEqual(
-      dayjs.utc("2018-01-01T23:59:59.999Z").locale(DEFAULT_LOCALE)
-    );
+    expect(d).toEqual(dayjs.utc("2018-01-01T23:59:59.999Z").locale(DEFAULT_LOCALE));
     expect(d && d.toISOString()).toEqual("2018-01-01T23:59:59.999Z");
   });
 });

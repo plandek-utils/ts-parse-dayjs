@@ -29,7 +29,7 @@ const PERIODS: IPeriod[] = [
   { re: /^([\d]+)y$/, unit: "year" },
   { re: /^([\d]+)m$/, unit: "month" },
   { re: /^([\d]+)w$/, unit: "week" },
-  { re: /^([\d]+)d$/, unit: "day" }
+  { re: /^([\d]+)d$/, unit: "day" },
 ];
 
 /**
@@ -49,18 +49,11 @@ function extractPeriod(value: string): { unit: OpUnitType; q: number } | null {
 /**
  * @internal
  */
-function calculateFrom(
-  value: string,
-  origin: Dayjs,
-  locale: LocaleParam
-): Dayjs | null {
+function calculateFrom(value: string, origin: Dayjs, locale: LocaleParam): Dayjs | null {
   const period = extractPeriod(value);
   if (!period) return null;
 
-  return origin
-    .locale(locale)
-    .subtract(period.q, period.unit)
-    .startOf(period.unit);
+  return origin.locale(locale).subtract(period.q, period.unit).startOf(period.unit);
 }
 
 /**
