@@ -10,8 +10,6 @@ describe("formatDate()", () => {
   });
 
   describe("with custom format", () => {
-    expect(formatDate(parseDayjs("2019-01-02"), "Do ww MMMM YYYY")).toEqual(
-      "2nd 01 January 2019"
-    );
+    expect(formatDate(parseDayjs("2019-01-02"), "Do ww MMMM YYYY")).toEqual("2nd 01 January 2019");
   });
 });

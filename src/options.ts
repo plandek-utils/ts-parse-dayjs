@@ -40,6 +40,4 @@ export type ParseOptions = StrictOptions & LocaleOptions & FullTimeOptions;
 /**
  * options for parseFromStandardPeriods()
  */
-export type ParseStandardPeriodOptions = StrictOptions &
-  LocaleOptions &
-  OriginOptions;
+export type ParseStandardPeriodOptions = StrictOptions & LocaleOptions & OriginOptions;

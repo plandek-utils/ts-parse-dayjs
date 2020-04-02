@@ -18,14 +18,8 @@ import { adaptTime, adaptTimeOption } from "./utils";
  * @see TimeOverride
  * @see TimeDefault
  */
-export function parseDayjs(
-  value: DayjsInput,
-  options: ParseOptions & { strict: true }
-): Dayjs;
-export function parseDayjs(
-  value: DayjsInput,
-  options?: ParseOptions
-): Dayjs | null;
+export function parseDayjs(value: DayjsInput, options: ParseOptions & { strict: true }): Dayjs;
+export function parseDayjs(value: DayjsInput, options?: ParseOptions): Dayjs | null;
 export function parseDayjs(
   value: DayjsInput,
   { locale = DEFAULT_LOCALE, strict = false, time = null }: ParseOptions = {}

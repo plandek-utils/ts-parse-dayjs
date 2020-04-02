@@ -9,14 +9,16 @@ import "dayjs/locale/en-il";
 import "dayjs/locale/en-nz";
 import "dayjs/locale/en-SG";
 import AdvancedFormat from "dayjs/plugin/advancedFormat";
-// tslint:disable-next-line:no-submodule-imports
 import utc from "dayjs/plugin/utc";
+import minMax from "dayjs/plugin/minMax";
 import weekOfYear from "dayjs/plugin/weekOfYear";
 // tslint:enable:no-submodule-imports
 
 dayjs.extend(utc);
 dayjs.extend(AdvancedFormat);
 dayjs.extend(weekOfYear);
+dayjs.extend(weekOfYear);
+dayjs.extend(minMax);
 
 // exporting the type
 export { Dayjs };
@@ -36,7 +38,7 @@ export enum AvailableLocales {
   EnglishIE = "en-ie",
   EnglishIL = "en-il",
   EnglishNZ = "en-nz",
-  EnglishSG = "en-SG"
+  EnglishSG = "en-SG",
 }
 
 export const DEFAULT_LOCALE = AvailableLocales.EnglishGB;
@@ -49,10 +51,7 @@ export const DEFAULT_DATE_FORMAT = "Do MMM YYYY";
 
 export function formatDate(date: null | undefined, dateFormat?: string): null;
 export function formatDate(date: Dayjs, dateFormat?: string): string;
-export function formatDate(
-  date: Dayjs | null | undefined,
-  dateFormat?: string
-): string | null;
+export function formatDate(date: Dayjs | null | undefined, dateFormat?: string): string | null;
 export function formatDate(
   date: Dayjs | null | undefined,
   dateFormat: string = DEFAULT_DATE_FORMAT
@@ -70,10 +69,7 @@ export function createNow(locale: LocaleParam): Dayjs {
 /**
  * @internal
  */
-export function createFrom(
-  value: DayjsInput,
-  locale: LocaleParam
-): Dayjs | null {
+export function createFrom(value: DayjsInput, locale: LocaleParam): Dayjs | null {
   if (!value) return null;
   const d = isDayjs(value) ? value : dayjs.utc(value).locale(locale);
   return d.isValid() ? d : null;

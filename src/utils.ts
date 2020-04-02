@@ -55,10 +55,7 @@ export function adaptTimeOption(
 /**
  * @internal
  */
-export function adaptTime(
-  d: Dayjs,
-  override?: TimeOverride | TimeDefault | null
-): Dayjs {
+export function adaptTime(d: Dayjs, override?: TimeOverride | TimeDefault | null): Dayjs {
   if (override === TimeOverride.StartOfDay) {
     return d.startOf("day");
   }
