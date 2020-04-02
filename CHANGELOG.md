@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.6.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.5.0...v3.6.0) (2020-04-02)
+
+
+### Features
+
+* add minDayjs() and maxDayjs(), plus upgrade dayjs dep. Also update dependencies and format ([03a8c02](https://github.com/plandek-utils/ts-parse-dayjs/commit/03a8c02a57e93556577b445a849176f055ddc9af))
+
 ## [3.5.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.4.0...v3.5.0) (2020-02-26)
 
 
