@@ -163,10 +163,7 @@ parseDayjsEndOfDay(<span class="hljs-string">"2018-01-01"</span>); <span class="
 					<li><code>to</code>: the given origin (or current time if missing), at EOD of UTC (e.g. today at 23:59:59.999Z)</li>
 					<li><code>from</code>: the calculated <code>from</code> after subtracting the given amount of the given unit, at the beginning of the period (beginning of the day, of the week, of the month or of the year)</li>
 				</ul>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {
-  parseFromStandardPeriods,
-  parseDayjs
-} <span class="hljs-keyword">from</span> <span class="hljs-string">"@plandek-utils/ts-parse-dayjs"</span>;
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { parseFromStandardPeriods, parseDayjs } <span class="hljs-keyword">from</span> <span class="hljs-string">"@plandek-utils/ts-parse-dayjs"</span>;
 
 <span class="hljs-comment">// if "now" is 2019-10-22T12:34:56.123Z</span>
 
@@ -204,6 +201,21 @@ parseFromStandardPeriods(<span class="hljs-string">"3d"</span>, { origin: d });
 formatDate(<span class="hljs-literal">null</span>); <span class="hljs-comment">// =&gt; null</span>
 formatDate(parseDayjs(<span class="hljs-string">"2019-01-02"</span>)); <span class="hljs-comment">// =&gt; "2nd Jan 2019"</span>
 formatDate(parseDayjs(<span class="hljs-string">"2019-01-02"</span>), <span class="hljs-string">"Do ww MMMM YYYY"</span>); <span class="hljs-comment">// =&gt; "2nd 01 January 2019"</span></code></pre>
+				<a href="#codemindayjscode-and-codemaxdayjscode" id="codemindayjscode-and-codemaxdayjscode" style="color: inherit; text-decoration: none;">
+					<h3><code>minDayjs()</code> and <code>maxDayjs()</code></h3>
+				</a>
+				<p>Used to compare an array of Dayjs objects and return the min (earliest) or max (latest).</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { minDayjs, maxDayjs, parseDayjs } <span class="hljs-keyword">from</span> <span class="hljs-string">"@plandek-utils/ts-parse-dayjs"</span>;
+<span class="hljs-keyword">const</span> d1 = parseDayjsOrError(<span class="hljs-string">"2019-01-01"</span>);
+<span class="hljs-keyword">const</span> d2 = parseDayjsOrError(<span class="hljs-string">"2019-02-02"</span>);
+<span class="hljs-keyword">const</span> d3 = parseDayjsOrError(<span class="hljs-string">"2019-03-03"</span>);
+<span class="hljs-keyword">const</span> d4 = parseDayjsOrError(<span class="hljs-string">"2019-04-04"</span>);
+
+minDayjs([]); <span class="hljs-comment">// =&gt; null</span>
+minDayjs([d3, d4, d1, d2]); <span class="hljs-comment">// =&gt; d1</span>
+
+maxDayjs([]); <span class="hljs-comment">// =&gt; null</span>
+maxDayjs([d3, d4, d1, d2]); <span class="hljs-comment">// =&gt; d4</span></code></pre>
 				<a href="#development-commits-versioning-and-publishing" id="development-commits-versioning-and-publishing" style="color: inherit; text-decoration: none;">
 					<h2>Development, Commits, versioning and publishing</h2>
 				</a>
@@ -304,6 +316,9 @@ yarn publish --access public</code></pre>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#dayjsinput" class="tsd-kind-icon">Dayjs<wbr>Input</a>
 					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#emptyarray" class="tsd-kind-icon">Empty<wbr>Array</a>
+					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#fulltimeoptions" class="tsd-kind-icon">Full<wbr>Time<wbr>Options</a>
 					</li>
@@ -312,6 +327,9 @@ yarn publish --access public</code></pre>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#localeparam" class="tsd-kind-icon">Locale<wbr>Param</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#nonemptyarray" class="tsd-kind-icon">Non<wbr>Empty<wbr>Array</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#nowoptions" class="tsd-kind-icon">Now<wbr>Options</a>
@@ -370,8 +388,17 @@ yarn publish --access public</code></pre>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#formatdate" class="tsd-kind-icon">format<wbr>Date</a>
 					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#isemptyarray" class="tsd-kind-icon">is<wbr>Empty<wbr>Array</a>
+					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#isvalidnumber" class="tsd-kind-icon">is<wbr>Valid<wbr>Number</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#maxdayjs" class="tsd-kind-icon">max<wbr>Dayjs</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#mindayjs" class="tsd-kind-icon">min<wbr>Dayjs</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#parsedayjs" class="tsd-kind-icon">parse<wbr>Dayjs</a>
@@ -401,57 +428,13 @@ yarn publish --access public</code></pre>
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
-				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 		</div>
 	</div>
