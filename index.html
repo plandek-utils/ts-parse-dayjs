@@ -14,7 +14,7 @@
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -65,7 +65,7 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<a href="#codeplandek-utilsts-parse-dayjscode" id="codeplandek-utilsts-parse-dayjscode" style="color: inherit; text-decoration: none;">
+				<a href="#plandek-utilsts-parse-dayjs" id="plandek-utilsts-parse-dayjs" style="color: inherit; text-decoration: none;">
 					<h1><code>@plandek-utils/ts-parse-dayjs</code></h1>
 				</a>
 				<p><a href="https://badge.fury.io/js/%40plandek-utils%2Fts-parse-dayjs"><img src="https://badge.fury.io/js/%40plandek-utils%2Fts-parse-dayjs.svg" alt="npm version"></a>
@@ -83,7 +83,7 @@
 					<h2>Usage</h2>
 				</a>
 				<p>Note: it will return Dayjs objects with both <a href="https://day.js.org/docs/en/plugin/utc"><code>utc</code></a> and <a href="https://day.js.org/docs/en/plugin/advanced-format"><code>AdvancedFormat</code></a>, and <a href="https://github.com/iamkun/dayjs/blob/dev/types/plugin/weekOfYear.d.ts"><code>WeekOfYear</code></a> plugins enabled.</p>
-				<a href="#codeparsedayjscode" id="codeparsedayjscode" style="color: inherit; text-decoration: none;">
+				<a href="#parsedayjs" id="parsedayjs" style="color: inherit; text-decoration: none;">
 					<h3><code>parseDayjs</code></h3>
 				</a>
 				<p>parses the given input and returns a Dayjs object (in UTC) if the given date is valid, or <code>null</code> if it results in an invalid date</p>
@@ -113,7 +113,7 @@ parseDayjs(<span class="hljs-string">"2018-01-01"</span>, { locale: AvailableLoc
 
 <span class="hljs-keyword">import</span> esLocale <span class="hljs-keyword">from</span> <span class="hljs-string">"dayjs/locale/es"</span>;
 parseDayjs(<span class="hljs-string">"2018-01-01"</span>, { locale: esLocale }); <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01, locale es (spanish)</span></code></pre>
-				<a href="#codestrictcode-option" id="codestrictcode-option" style="color: inherit; text-decoration: none;">
+				<a href="#strict-option" id="strict-option" style="color: inherit; text-decoration: none;">
 					<h4><code>strict</code> option</h4>
 				</a>
 				<p>By passing <code>strict: true</code> in the options, we ensure that we will receive a Dayjs object, or throw an <code>InvalidDateError</code>. This is the same as <a href="#parsedayjsorerror"><code>parseDayjsOrError</code></a>.</p>
@@ -121,7 +121,7 @@ parseDayjs(<span class="hljs-string">"2018-01-01"</span>, { locale: esLocale });
 
 parseDayjs(<span class="hljs-string">"2018-01-01"</span>, { strict: <span class="hljs-literal">true</span> }); <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01, locale en-gb (week starts on Monday)</span>
 parseDayjs(<span class="hljs-string">"waaaa"</span>, { strict: <span class="hljs-literal">true</span> }); <span class="hljs-comment">// =&gt; throws InvalidDateError</span></code></pre>
-				<a href="#codedayjsnowcode" id="codedayjsnowcode" style="color: inherit; text-decoration: none;">
+				<a href="#dayjsnow" id="dayjsnow" style="color: inherit; text-decoration: none;">
 					<h3><code>dayjsNow</code></h3>
 				</a>
 				<p>returns a Dayjs (in UTC) of the current time. It can accept a locale as optional argument (see <a href="#locale">Locale</a>)</p>
@@ -132,7 +132,7 @@ dayjsNow({ locale: AvailableLocales.EnglishUSA }); <span class="hljs-comment">//
 
 <span class="hljs-keyword">import</span> esLocale <span class="hljs-keyword">from</span> <span class="hljs-string">"dayjs/locale/es"</span>;
 dayjsNow({ locale: esLocale }); <span class="hljs-comment">// =&gt; Dayjs with the current time, in UTC, locale es</span></code></pre>
-				<a href="#codeparsedayjsorerrorcode" id="codeparsedayjsorerrorcode" style="color: inherit; text-decoration: none;">
+				<a href="#parsedayjsorerror" id="parsedayjsorerror" style="color: inherit; text-decoration: none;">
 					<h3><code>parseDayjsOrError</code></h3>
 				</a>
 				<p>same as <a href="#parseDayjs"><code>parseDayjs</code></a> but instead of returning <code>null</code> on an invalid date, it throws an <code>InvalidDateError</code>. It can accept an optional second argument locale (see <a href="#locale">Locale</a>)</p>
@@ -141,7 +141,7 @@ dayjsNow({ locale: esLocale }); <span class="hljs-comment">// =&gt; Dayjs with t
 parseDayjsOrError(<span class="hljs-string">"2018-01-01T00:00:00.000Z"</span>); <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01T00:00:00.000Z</span>
 parseDayjsOrError(<span class="hljs-literal">null</span>); <span class="hljs-comment">// =&gt; throws InvalidDateError</span></code></pre>
 				<p>note: this is the same as passing a <code>strict: true</code> option to parseDayJs</p>
-				<a href="#codeparsedayjsstartofdaycode-and-codeparsedayjsendofdaycode" id="codeparsedayjsstartofdaycode-and-codeparsedayjsendofdaycode" style="color: inherit; text-decoration: none;">
+				<a href="#parsedayjsstartofday-and-parsedayjsendofday" id="parsedayjsstartofday-and-parsedayjsendofday" style="color: inherit; text-decoration: none;">
 					<h3><code>parseDayjsStartOfDay</code> and <code>parseDayjsEndOfDay</code></h3>
 				</a>
 				<p>same as <a href="#parseDayjs"><code>parseDayjs</code></a> but if it results in a valid Dayjs object, it will then modify it to be at the beginning or end of the UTC day. It can accept an optional second argument locale (see <a href="#locale">Locale</a>)</p>
@@ -151,7 +151,7 @@ parseDayjsStartOfDay(<span class="hljs-literal">null</span>); <span class="hljs-
 parseDayjsEndOfDay(<span class="hljs-literal">null</span>); <span class="hljs-comment">// =&gt; null</span>
 parseDayjsStartOfDay(<span class="hljs-string">"2018-01-01"</span>); <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01T00:00:00.000Z</span>
 parseDayjsEndOfDay(<span class="hljs-string">"2018-01-01"</span>); <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01T23:59:59.999Z</span></code></pre>
-				<a href="#codeparsefromstandardperiodscode" id="codeparsefromstandardperiodscode" style="color: inherit; text-decoration: none;">
+				<a href="#parsefromstandardperiods" id="parsefromstandardperiods" style="color: inherit; text-decoration: none;">
 					<h3><code>parseFromStandardPeriods</code></h3>
 				</a>
 				<p>given a string like <code>8d</code>, <code>12w</code>, <code>9m</code> or <code>2y</code>, it returns an object with the calculated range of 8 days, 12 weeks, 9 months and 2 years ago respectively.</p>
@@ -192,7 +192,7 @@ parseFromStandardPeriods(<span class="hljs-string">"0y"</span>);
 <span class="hljs-keyword">const</span> d = parseDayjs(<span class="hljs-string">"2019-05-10"</span>);
 parseFromStandardPeriods(<span class="hljs-string">"3d"</span>, { origin: d });
 <span class="hljs-comment">// =&gt; { from: Dayjs(2019-05-07T00:00:00.000Z), to: Dayjs(2019-05-10T23:59:59.999Z) }</span></code></pre>
-				<a href="#codeformatdatecode" id="codeformatdatecode" style="color: inherit; text-decoration: none;">
+				<a href="#formatdate" id="formatdate" style="color: inherit; text-decoration: none;">
 					<h3><code>formatDate()</code></h3>
 				</a>
 				<p>Used to format a Dayjs object using the AdvancedFormat plugin. The default format is <code>&quot;Do MMM YYYY&quot;</code></p>
@@ -201,7 +201,7 @@ parseFromStandardPeriods(<span class="hljs-string">"3d"</span>, { origin: d });
 formatDate(<span class="hljs-literal">null</span>); <span class="hljs-comment">// =&gt; null</span>
 formatDate(parseDayjs(<span class="hljs-string">"2019-01-02"</span>)); <span class="hljs-comment">// =&gt; "2nd Jan 2019"</span>
 formatDate(parseDayjs(<span class="hljs-string">"2019-01-02"</span>), <span class="hljs-string">"Do ww MMMM YYYY"</span>); <span class="hljs-comment">// =&gt; "2nd 01 January 2019"</span></code></pre>
-				<a href="#codemindayjscode-and-codemaxdayjscode" id="codemindayjscode-and-codemaxdayjscode" style="color: inherit; text-decoration: none;">
+				<a href="#mindayjs-and-maxdayjs" id="mindayjs-and-maxdayjs" style="color: inherit; text-decoration: none;">
 					<h3><code>minDayjs()</code> and <code>maxDayjs()</code></h3>
 				</a>
 				<p>Used to compare an array of Dayjs objects and return the min (earliest) or max (latest).</p>
