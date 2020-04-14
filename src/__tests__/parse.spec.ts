@@ -32,9 +32,7 @@ describe("parseDayjs()", () => {
     });
 
     it("with a valid date: returns Date", async () => {
-      expect(parseDayjs("2018-01-01")).toEqual(
-        dayjs.utc(new Date("2018-01-01")).locale(DEFAULT_LOCALE)
-      );
+      expect(parseDayjs("2018-01-01")).toEqual(dayjs.utc(new Date("2018-01-01")).locale(DEFAULT_LOCALE));
     });
 
     it("with a date: returns the object", async () => {
@@ -67,9 +65,7 @@ describe("parseDayjs()", () => {
       });
 
       it("with a valid date: returns Dayjs", async () => {
-        expect(parseDayjs("2018-01-01", { locale })).toEqual(
-          dayjs.utc(new Date("2018-01-01")).locale(locale)
-        );
+        expect(parseDayjs("2018-01-01", { locale })).toEqual(dayjs.utc(new Date("2018-01-01")).locale(locale));
       });
 
       it("with a date: returns the object", async () => {
@@ -214,9 +210,7 @@ describe("parseDayjsOrError()", () => {
   });
 
   it("with a valid date: returns Dayjs", async () => {
-    expect(parseDayjsOrError("2018-01-01")).toEqual(
-      dayjs.utc(new Date("2018-01-01")).locale(DEFAULT_LOCALE)
-    );
+    expect(parseDayjsOrError("2018-01-01")).toEqual(dayjs.utc(new Date("2018-01-01")).locale(DEFAULT_LOCALE));
   });
 
   it("with a date: returns the object", async () => {

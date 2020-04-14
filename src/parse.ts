@@ -44,10 +44,7 @@ export function parseDayjs(
  * @param options
  * @throws InvalidDateError
  */
-export function parseDayjsOrError(
-  value: DayjsInput,
-  options: Omit<ParseOptions, "strict"> = {}
-): Dayjs {
+export function parseDayjsOrError(value: DayjsInput, options: Omit<ParseOptions, "strict"> = {}): Dayjs {
   return parseDayjs(value, { ...options, strict: true });
 }
 
@@ -59,10 +56,7 @@ export function parseDayjsOrError(
  * @see parseDayjs
  * @see TimeOverride.StartOfDay
  */
-export function parseDayjsStartOfDay(
-  value: DayjsInput,
-  options: Omit<ParseOptions, "time"> = {}
-): Dayjs | null {
+export function parseDayjsStartOfDay(value: DayjsInput, options: Omit<ParseOptions, "time"> = {}): Dayjs | null {
   return parseDayjs(value, { ...options, time: TimeOverride.StartOfDay });
 }
 
@@ -74,9 +68,6 @@ export function parseDayjsStartOfDay(
  * @see parseDayjs
  * @see TimeOverride.EndOfDay
  */
-export function parseDayjsEndOfDay(
-  value: DayjsInput,
-  options: Omit<ParseOptions, "time"> = {}
-): Dayjs | null {
+export function parseDayjsEndOfDay(value: DayjsInput, options: Omit<ParseOptions, "time"> = {}): Dayjs | null {
   return parseDayjs(value, { ...options, time: TimeOverride.EndOfDay });
 }
