@@ -52,10 +52,7 @@ export const DEFAULT_DATE_FORMAT = "Do MMM YYYY";
 export function formatDate(date: null | undefined, dateFormat?: string): null;
 export function formatDate(date: Dayjs, dateFormat?: string): string;
 export function formatDate(date: Dayjs | null | undefined, dateFormat?: string): string | null;
-export function formatDate(
-  date: Dayjs | null | undefined,
-  dateFormat: string = DEFAULT_DATE_FORMAT
-): string | null {
+export function formatDate(date: Dayjs | null | undefined, dateFormat: string = DEFAULT_DATE_FORMAT): string | null {
   return date ? date.format(dateFormat) : null;
 }
 
