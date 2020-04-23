@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.8.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.7.0...v3.8.0) (2020-04-23)
+
+
+### Features
+
+* better type of isValidDate(), now hinting that the value is not null ([dee648b](https://github.com/plandek-utils/ts-parse-dayjs/commit/dee648b910fe0638d38cfd4ce3dbac7e60460635))
+
 ## [3.7.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.6.3...v3.7.0) (2020-04-23)
 
 
