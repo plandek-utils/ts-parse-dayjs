@@ -9,6 +9,7 @@ export {
   LocaleParam,
 } from "./base";
 export * from "./dayjs-now";
+export * from "./is-valid-date";
 export * from "./errors";
 export { minDayjs, maxDayjs } from "./min-max";
 export * from "./parse";
