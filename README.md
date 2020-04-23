@@ -185,6 +185,32 @@ maxDayjs([]); // => null
 maxDayjs([d3, d4, d1, d2]); // => d4
 ```
 
+### `isValidDate()`
+
+returns true if the given string, dayjs or Date object represent a valid date, false otherwise. It always returns false if given `null` or `undefined`
+
+```typescript
+import { isValidDate, parseDayjs } from "@plandek-utils/ts-parse-dayjs";
+
+isValidDate(null); // => false
+isValidDate(undefined); // => false
+isValidDate("2012-12-15"); // => true
+isValidDate("2012-12-15T12:31:31Z"); // => true
+isValidDate("2012-12-15T12:31:97Z"); // => false
+isValidDate("2012-12-32T12:31:00Z"); // => false
+isValidDate("2012-12-32"); // => false
+isValidDate(new Date("2012-12-15")); // => true
+isValidDate(new Date("2012-12-15T12:31:31Z")); // => true
+isValidDate(new Date("2012-12-15T12:31:97Z")); // => false
+isValidDate(new Date("2012-12-32T12:31:00Z")); // => false
+isValidDate(new Date("2012-12-32")); // => false
+isValidDate(parseDayjs("2012-12-15")); // => true
+isValidDate(parseDayjs("2012-12-15T12:31:31Z")); // => true
+isValidDate(parseDayjs("2012-12-15T12:31:97Z")); // => false
+isValidDate(parseDayjs("2012-12-32T12:31:00Z")); // => false
+isValidDate(parseDayjs(new Date("2012-12-32"))); // => false
+```
+
 ## Development, Commits, versioning and publishing
 
 <details><summary>See documentation for development</summary>
