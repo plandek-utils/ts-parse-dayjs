@@ -216,6 +216,29 @@ minDayjs([d3, d4, d1, d2]); <span class="hljs-comment">// =&gt; d1</span>
 
 maxDayjs([]); <span class="hljs-comment">// =&gt; null</span>
 maxDayjs([d3, d4, d1, d2]); <span class="hljs-comment">// =&gt; d4</span></code></pre>
+				<a href="#isvaliddate" id="isvaliddate" style="color: inherit; text-decoration: none;">
+					<h3><code>isValidDate()</code></h3>
+				</a>
+				<p>returns true if the given string, dayjs or Date object represent a valid date, false otherwise. It always returns false if given <code>null</code> or <code>undefined</code></p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { isValidDate, parseDayjs } <span class="hljs-keyword">from</span> <span class="hljs-string">"@plandek-utils/ts-parse-dayjs"</span>;
+
+isValidDate(<span class="hljs-literal">null</span>); <span class="hljs-comment">// =&gt; false</span>
+isValidDate(<span class="hljs-literal">undefined</span>); <span class="hljs-comment">// =&gt; false</span>
+isValidDate(<span class="hljs-string">"2012-12-15"</span>); <span class="hljs-comment">// =&gt; true</span>
+isValidDate(<span class="hljs-string">"2012-12-15T12:31:31Z"</span>); <span class="hljs-comment">// =&gt; true</span>
+isValidDate(<span class="hljs-string">"2012-12-15T12:31:97Z"</span>); <span class="hljs-comment">// =&gt; false</span>
+isValidDate(<span class="hljs-string">"2012-12-32T12:31:00Z"</span>); <span class="hljs-comment">// =&gt; false</span>
+isValidDate(<span class="hljs-string">"2012-12-32"</span>); <span class="hljs-comment">// =&gt; false</span>
+isValidDate(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">"2012-12-15"</span>)); <span class="hljs-comment">// =&gt; true</span>
+isValidDate(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">"2012-12-15T12:31:31Z"</span>)); <span class="hljs-comment">// =&gt; true</span>
+isValidDate(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">"2012-12-15T12:31:97Z"</span>)); <span class="hljs-comment">// =&gt; false</span>
+isValidDate(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">"2012-12-32T12:31:00Z"</span>)); <span class="hljs-comment">// =&gt; false</span>
+isValidDate(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">"2012-12-32"</span>)); <span class="hljs-comment">// =&gt; false</span>
+isValidDate(parseDayjs(<span class="hljs-string">"2012-12-15"</span>)); <span class="hljs-comment">// =&gt; true</span>
+isValidDate(parseDayjs(<span class="hljs-string">"2012-12-15T12:31:31Z"</span>)); <span class="hljs-comment">// =&gt; true</span>
+isValidDate(parseDayjs(<span class="hljs-string">"2012-12-15T12:31:97Z"</span>)); <span class="hljs-comment">// =&gt; false</span>
+isValidDate(parseDayjs(<span class="hljs-string">"2012-12-32T12:31:00Z"</span>)); <span class="hljs-comment">// =&gt; false</span>
+isValidDate(parseDayjs(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">"2012-12-32"</span>))); <span class="hljs-comment">// =&gt; false</span></code></pre>
 				<a href="#development-commits-versioning-and-publishing" id="development-commits-versioning-and-publishing" style="color: inherit; text-decoration: none;">
 					<h2>Development, Commits, versioning and publishing</h2>
 				</a>
@@ -390,6 +413,9 @@ yarn publish --access public</code></pre>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter">
 						<a href="globals.html#isemptyarray" class="tsd-kind-icon">is<wbr>Empty<wbr>Array</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isvaliddate" class="tsd-kind-icon">is<wbr>Valid<wbr>Date</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#isvalidnumber" class="tsd-kind-icon">is<wbr>Valid<wbr>Number</a>
