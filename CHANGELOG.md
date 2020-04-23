@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.7.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.6.3...v3.7.0) (2020-04-23)
+
+
+### Features
+
+* isValidDate() function added ([2697376](https://github.com/plandek-utils/ts-parse-dayjs/commit/269737695db8694a2550ac104658dcc3ca762de4))
+
+
+### Bug Fixes
+
+* **deps:** [security] bump acorn from 6.4.0 to 6.4.1 ([#66](https://github.com/plandek-utils/ts-parse-dayjs/issues/66)) ([146038f](https://github.com/plandek-utils/ts-parse-dayjs/commit/146038f2517fffb4824237b244085557ba0adc01))
+
 ### [3.6.3](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.6.2...v3.6.3) (2020-04-14)
 
 ### [3.6.2](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.6.1...v3.6.2) (2020-04-03)
