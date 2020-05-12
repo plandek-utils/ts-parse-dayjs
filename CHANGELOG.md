@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.8.2](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.8.1...v3.8.2) (2020-05-12)
+
+
+### Bug Fixes
+
+* target TS compilation to es2017 instead of esnext to avoid issues with apps using the lib ([81fba37](https://github.com/plandek-utils/ts-parse-dayjs/commit/81fba37245a5863df87b987916f26a7b00037458))
+
 ### [3.8.1](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.8.0...v3.8.1) (2020-05-12)
 
 ## [3.8.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.7.0...v3.8.0) (2020-04-23)
