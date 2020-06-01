@@ -45,7 +45,8 @@ export const DEFAULT_LOCALE = AvailableLocales.EnglishGB;
 
 export type LocaleParam = AvailableLocales | ILocale;
 
-export type DayjsInput = Dayjs | Date | string | number | null;
+export type DayjsInput = Dayjs | Date | string | number | null | undefined;
+export type StrictDayjsInput = Exclude<Dayjs, null | undefined>;
 
 export const DEFAULT_DATE_FORMAT = "Do MMM YYYY";
 

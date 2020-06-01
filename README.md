@@ -185,6 +185,13 @@ maxDayjs([]); // => null
 maxDayjs([d3, d4, d1, d2]); // => d4
 ```
 
+### `isStrictDayjsInput()` and `isDayjsInput()`
+
+return true if the given input is a valid DayjsInput (`Date`, Dayjs object, string or number):
+
+- `isDayjsInput` allows for `null` or `undefined`
+- `isStrictDayjsInput` does not allow for `null` or `undefined`
+
 ### `isValidDate()`
 
 returns true if the given string, dayjs or Date object represent a valid date, false otherwise. It always returns false if given `null` or `undefined`
