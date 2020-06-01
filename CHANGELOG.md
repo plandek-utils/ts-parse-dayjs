@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.9.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.8.2...v3.9.0) (2020-06-01)
+
+
+### Features
+
+* add `isStrictDayjsInput()` and `isDayjsInput()` ([0a3d7c3](https://github.com/plandek-utils/ts-parse-dayjs/commit/0a3d7c3dc59664279635901c98aadca296a70184))
+
+
+### Bug Fixes
+
+* target ES2017 instead of esnext for module, and ES2015 for main ([e783e88](https://github.com/plandek-utils/ts-parse-dayjs/commit/e783e8835ae480becb6519bf12ee0a734531b05b))
+
 ### [3.8.2](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.8.1...v3.8.2) (2020-05-12)
 
 
