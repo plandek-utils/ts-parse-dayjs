@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.10.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.9.0...v3.10.0) (2020-06-18)
+
+
+### Features
+
+* adding `isBetween`, `isSameOrAfter` and `isSameOrBefore` to created dayjs objects ([4fd2185](https://github.com/plandek-utils/ts-parse-dayjs/commit/4fd21853968553742091c7b8910dbf28873e12eb))
+
 ## [3.9.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.8.2...v3.9.0) (2020-06-01)
 
 
