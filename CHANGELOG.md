@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.10.1](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.10.0...v3.10.1) (2020-06-18)
+
+
+### Bug Fixes
+
+* add global import to fix types ([7c4bbc9](https://github.com/plandek-utils/ts-parse-dayjs/commit/7c4bbc9c804a0c85abe858b22a3edb114100fa1d))
+
 ## [3.10.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.9.0...v3.10.0) (2020-06-18)
 
 
