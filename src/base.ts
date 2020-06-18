@@ -1,5 +1,6 @@
 import dayjs, { Dayjs, isDayjs } from "dayjs";
 // tslint:disable:no-submodule-imports
+// tslint:disable:no-duplicate-imports
 import "dayjs/locale/en";
 import "dayjs/locale/en-au";
 import "dayjs/locale/en-ca";
@@ -8,6 +9,14 @@ import "dayjs/locale/en-ie";
 import "dayjs/locale/en-il";
 import "dayjs/locale/en-nz";
 import "dayjs/locale/en-SG";
+import "dayjs/plugin/advancedFormat";
+import "dayjs/plugin/isBetween";
+import "dayjs/plugin/IsSameOrAfter";
+import "dayjs/plugin/IsSameOrBefore";
+import "dayjs/plugin/minMax";
+import "dayjs/plugin/utc";
+import "dayjs/plugin/weekOfYear";
+
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import isBetween from "dayjs/plugin/isBetween";
 import IsSameOrAfter from "dayjs/plugin/IsSameOrAfter";
@@ -15,6 +24,7 @@ import IsSameOrBefore from "dayjs/plugin/IsSameOrBefore";
 import minMax from "dayjs/plugin/minMax";
 import utc from "dayjs/plugin/utc";
 import weekOfYear from "dayjs/plugin/weekOfYear";
+// tslint:enable:no-duplicate-imports
 // tslint:enable:no-submodule-imports
 
 dayjs.extend(advancedFormat);
