@@ -8,17 +8,22 @@ import "dayjs/locale/en-ie";
 import "dayjs/locale/en-il";
 import "dayjs/locale/en-nz";
 import "dayjs/locale/en-SG";
-import AdvancedFormat from "dayjs/plugin/advancedFormat";
-import utc from "dayjs/plugin/utc";
+import advancedFormat from "dayjs/plugin/advancedFormat";
+import isBetween from "dayjs/plugin/isBetween";
+import IsSameOrAfter from "dayjs/plugin/IsSameOrAfter";
+import IsSameOrBefore from "dayjs/plugin/IsSameOrBefore";
 import minMax from "dayjs/plugin/minMax";
+import utc from "dayjs/plugin/utc";
 import weekOfYear from "dayjs/plugin/weekOfYear";
 // tslint:enable:no-submodule-imports
 
-dayjs.extend(utc);
-dayjs.extend(AdvancedFormat);
-dayjs.extend(weekOfYear);
-dayjs.extend(weekOfYear);
+dayjs.extend(advancedFormat);
+dayjs.extend(isBetween);
+dayjs.extend(IsSameOrAfter);
+dayjs.extend(IsSameOrBefore);
 dayjs.extend(minMax);
+dayjs.extend(utc);
+dayjs.extend(weekOfYear);
 
 // exporting the type
 export { Dayjs };
