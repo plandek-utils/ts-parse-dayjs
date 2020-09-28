@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.10.4](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.10.3...v3.10.4) (2020-09-28)
+
+
+### Bug Fixes
+
+* **dependency:** missing lock file + adapting to dayjs filename fix ([073af2d](https://github.com/plandek-utils/ts-parse-dayjs/commit/073af2d316aecf87e7dcf7181bd01eee25809ef4))
+
 ### [3.10.3](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.10.2...v3.10.3) (2020-09-28)
 
 ### [3.10.2](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.10.1...v3.10.2) (2020-06-18)
