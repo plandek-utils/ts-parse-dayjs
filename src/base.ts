@@ -8,7 +8,7 @@ import "dayjs/locale/en-gb";
 import "dayjs/locale/en-ie";
 import "dayjs/locale/en-il";
 import "dayjs/locale/en-nz";
-import "dayjs/locale/en-SG";
+import "dayjs/locale/en-sg";
 import "dayjs/plugin/advancedFormat";
 import "dayjs/plugin/isBetween";
 import "dayjs/plugin/isSameOrAfter";
