@@ -4,9 +4,15 @@ export {
   DayjsInput,
   DEFAULT_DATE_FORMAT,
   DEFAULT_LOCALE,
+  duration,
+  Duration,
+  durationBetween,
+  DurationInputType,
   formatDate,
   isDayjs,
+  isDuration,
   LocaleParam,
+  StrictDayjsInput,
 } from "./base";
 export * from "./dayjs-now";
 export * from "./is-valid-date";

@@ -17,7 +17,16 @@ utils to parse Dayjs objects in UTC
 
 ## Usage
 
-Note: it will return Dayjs objects with both [`utc`](https://day.js.org/docs/en/plugin/utc) and [`AdvancedFormat`](https://day.js.org/docs/en/plugin/advanced-format), and [`WeekOfYear`](https://github.com/iamkun/dayjs/blob/dev/types/plugin/weekOfYear.d.ts) plugins enabled.
+Note: it will return Dayjs objects with plugins:
+ 
+- [`AdvancedFormat`](https://day.js.org/docs/en/plugin/advanced-format)
+- [`Duration`](https://day.js.org/docs/en/plugin/duration)
+- [`IsBetween`](https://day.js.org/docs/en/plugin/is-between)
+- [`IsSameOrAfter`](https://day.js.org/docs/en/plugin/is-same-or-after)
+- [`IsSameOrBefore`](https://day.js.org/docs/en/plugin/is-same-or-before)
+- [`MinMax`](https://day.js.org/docs/en/plugin/min-max)
+- [`UTC`](https://day.js.org/docs/en/plugin/utc) 
+- [`WeekOfYear`](https://day.js.org/docs/en/plugin/week-of-year)
 
 ### `parseDayjs`
 
@@ -216,6 +225,24 @@ isValidDate(parseDayjs("2012-12-15T12:31:31Z")); // => true
 isValidDate(parseDayjs("2012-12-15T12:31:97Z")); // => false
 isValidDate(parseDayjs("2012-12-32T12:31:00Z")); // => false
 isValidDate(parseDayjs(new Date("2012-12-32"))); // => false
+```
+
+### `durationBetween(a, b)`
+
+returns the `Duration` type of `b.diff(a)`
+
+We also have `isDuration(x)` function.
+
+```typescript
+import { durationBetween, parseDayjsOrError } from "@plandek-utils/ts-parse-dayjs";
+
+const a = parseDayjsOrError("2012-12-15T12:31:31Z");
+const b = parseDayjsOrError("2012-12-15T12:31:41Z");
+
+const d = durationBetween(a, b);
+d.asSeconds() // => 10
+
+isDuration(d) // => true
 ```
 
 ## Development, Commits, versioning and publishing
