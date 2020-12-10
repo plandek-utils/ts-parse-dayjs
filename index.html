@@ -82,7 +82,17 @@
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h2>Usage</h2>
 				</a>
-				<p>Note: it will return Dayjs objects with both <a href="https://day.js.org/docs/en/plugin/utc"><code>utc</code></a> and <a href="https://day.js.org/docs/en/plugin/advanced-format"><code>AdvancedFormat</code></a>, and <a href="https://github.com/iamkun/dayjs/blob/dev/types/plugin/weekOfYear.d.ts"><code>WeekOfYear</code></a> plugins enabled.</p>
+				<p>Note: it will return Dayjs objects with plugins:</p>
+				<ul>
+					<li><a href="https://day.js.org/docs/en/plugin/advanced-format"><code>AdvancedFormat</code></a></li>
+					<li><a href="https://day.js.org/docs/en/plugin/duration"><code>Duration</code></a></li>
+					<li><a href="https://day.js.org/docs/en/plugin/is-between"><code>IsBetween</code></a></li>
+					<li><a href="https://day.js.org/docs/en/plugin/is-same-or-after"><code>IsSameOrAfter</code></a></li>
+					<li><a href="https://day.js.org/docs/en/plugin/is-same-or-before"><code>IsSameOrBefore</code></a></li>
+					<li><a href="https://day.js.org/docs/en/plugin/min-max"><code>MinMax</code></a></li>
+					<li><a href="https://day.js.org/docs/en/plugin/utc"><code>UTC</code></a> </li>
+					<li><a href="https://day.js.org/docs/en/plugin/week-of-year"><code>WeekOfYear</code></a></li>
+				</ul>
 				<a href="#parsedayjs" id="parsedayjs" style="color: inherit; text-decoration: none;">
 					<h3><code>parseDayjs</code></h3>
 				</a>
@@ -109,18 +119,18 @@ parseDayjs(<span class="hljs-string">&quot;2018-01-01T00:00:00.000Z&quot;</span>
 				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { parseDayjs, AvailableLocales } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@plandek-utils/ts-parse-dayjs&quot;</span>;
 
 parseDayjs(<span class="hljs-string">&quot;2018-01-01&quot;</span>); <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01, locale en-gb (week starts on Monday)</span>
-parseDayjs(<span class="hljs-string">&quot;2018-01-01&quot;</span>, { locale: AvailableLocales.EnglishUSA }); <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01, locale en (week starts on Sunday)</span>
+parseDayjs(<span class="hljs-string">&quot;2018-01-01&quot;</span>, { <span class="hljs-attr">locale</span>: AvailableLocales.EnglishUSA }); <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01, locale en (week starts on Sunday)</span>
 
 <span class="hljs-keyword">import</span> esLocale <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;dayjs/locale/es&quot;</span>;
-parseDayjs(<span class="hljs-string">&quot;2018-01-01&quot;</span>, { locale: esLocale }); <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01, locale es (spanish)</span></code></pre>
+parseDayjs(<span class="hljs-string">&quot;2018-01-01&quot;</span>, { <span class="hljs-attr">locale</span>: esLocale }); <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01, locale es (spanish)</span></code></pre>
 				<a href="#strict-option" id="strict-option" style="color: inherit; text-decoration: none;">
 					<h4><code>strict</code> option</h4>
 				</a>
 				<p>By passing <code>strict: true</code> in the options, we ensure that we will receive a Dayjs object, or throw an <code>InvalidDateError</code>. This is the same as <a href="#parsedayjsorerror"><code>parseDayjsOrError</code></a>.</p>
 				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { parseDayjs } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@plandek-utils/ts-parse-dayjs&quot;</span>;
 
-parseDayjs(<span class="hljs-string">&quot;2018-01-01&quot;</span>, { strict: <span class="hljs-literal">true</span> }); <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01, locale en-gb (week starts on Monday)</span>
-parseDayjs(<span class="hljs-string">&quot;waaaa&quot;</span>, { strict: <span class="hljs-literal">true</span> }); <span class="hljs-comment">// =&gt; throws InvalidDateError</span></code></pre>
+parseDayjs(<span class="hljs-string">&quot;2018-01-01&quot;</span>, { <span class="hljs-attr">strict</span>: <span class="hljs-literal">true</span> }); <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01, locale en-gb (week starts on Monday)</span>
+parseDayjs(<span class="hljs-string">&quot;waaaa&quot;</span>, { <span class="hljs-attr">strict</span>: <span class="hljs-literal">true</span> }); <span class="hljs-comment">// =&gt; throws InvalidDateError</span></code></pre>
 				<a href="#dayjsnow" id="dayjsnow" style="color: inherit; text-decoration: none;">
 					<h3><code>dayjsNow</code></h3>
 				</a>
@@ -128,10 +138,10 @@ parseDayjs(<span class="hljs-string">&quot;waaaa&quot;</span>, { strict: <span c
 				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { dayjsNow, AvailableLocales } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@plandek-utils/ts-parse-dayjs&quot;</span>;
 
 dayjsNow(); <span class="hljs-comment">// =&gt; Dayjs object with the current time, in UTC (locale en-gb)</span>
-dayjsNow({ locale: AvailableLocales.EnglishUSA }); <span class="hljs-comment">// =&gt; Dayjs object with the current time, in UTC (locale en)</span>
+dayjsNow({ <span class="hljs-attr">locale</span>: AvailableLocales.EnglishUSA }); <span class="hljs-comment">// =&gt; Dayjs object with the current time, in UTC (locale en)</span>
 
 <span class="hljs-keyword">import</span> esLocale <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;dayjs/locale/es&quot;</span>;
-dayjsNow({ locale: esLocale }); <span class="hljs-comment">// =&gt; Dayjs with the current time, in UTC, locale es</span></code></pre>
+dayjsNow({ <span class="hljs-attr">locale</span>: esLocale }); <span class="hljs-comment">// =&gt; Dayjs with the current time, in UTC, locale es</span></code></pre>
 				<a href="#parsedayjsorerror" id="parsedayjsorerror" style="color: inherit; text-decoration: none;">
 					<h3><code>parseDayjsOrError</code></h3>
 				</a>
@@ -190,7 +200,7 @@ parseFromStandardPeriods(<span class="hljs-string">&quot;0y&quot;</span>);
 
 <span class="hljs-comment">// with optional origin</span>
 <span class="hljs-keyword">const</span> d = parseDayjs(<span class="hljs-string">&quot;2019-05-10&quot;</span>);
-parseFromStandardPeriods(<span class="hljs-string">&quot;3d&quot;</span>, { origin: d });
+parseFromStandardPeriods(<span class="hljs-string">&quot;3d&quot;</span>, { <span class="hljs-attr">origin</span>: d });
 <span class="hljs-comment">// =&gt; { from: Dayjs(2019-05-07T00:00:00.000Z), to: Dayjs(2019-05-10T23:59:59.999Z) }</span></code></pre>
 				<a href="#formatdate" id="formatdate" style="color: inherit; text-decoration: none;">
 					<h3><code>formatDate()</code></h3>
@@ -247,6 +257,20 @@ isValidDate(parseDayjs(<span class="hljs-string">&quot;2012-12-15T12:31:31Z&quot
 isValidDate(parseDayjs(<span class="hljs-string">&quot;2012-12-15T12:31:97Z&quot;</span>)); <span class="hljs-comment">// =&gt; false</span>
 isValidDate(parseDayjs(<span class="hljs-string">&quot;2012-12-32T12:31:00Z&quot;</span>)); <span class="hljs-comment">// =&gt; false</span>
 isValidDate(parseDayjs(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">&quot;2012-12-32&quot;</span>))); <span class="hljs-comment">// =&gt; false</span></code></pre>
+				<a href="#durationbetweena-b" id="durationbetweena-b" style="color: inherit; text-decoration: none;">
+					<h3><code>durationBetween(a, b)</code></h3>
+				</a>
+				<p>returns the <code>Duration</code> type of <code>b.diff(a)</code></p>
+				<p>We also have <code>isDuration(x)</code> function.</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { durationBetween, parseDayjsOrError } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@plandek-utils/ts-parse-dayjs&quot;</span>;
+
+<span class="hljs-keyword">const</span> a = parseDayjsOrError(<span class="hljs-string">&quot;2012-12-15T12:31:31Z&quot;</span>);
+<span class="hljs-keyword">const</span> b = parseDayjsOrError(<span class="hljs-string">&quot;2012-12-15T12:31:41Z&quot;</span>);
+
+<span class="hljs-keyword">const</span> d = durationBetween(a, b);
+d.asSeconds() <span class="hljs-comment">// =&gt; 10</span>
+
+isDuration(d) <span class="hljs-comment">// =&gt; true</span></code></pre>
 				<a href="#development-commits-versioning-and-publishing" id="development-commits-versioning-and-publishing" style="color: inherit; text-decoration: none;">
 					<h2>Development, Commits, versioning and publishing</h2>
 				</a>
@@ -392,6 +416,12 @@ yarn publish --access public</code></pre>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#periods" class="tsd-kind-icon">PERIODS</a>
 					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#duration" class="tsd-kind-icon">duration</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#isduration" class="tsd-kind-icon">is<wbr>Duration</a>
+					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#adapttime" class="tsd-kind-icon">adapt<wbr>Time</a>
 					</li>
@@ -412,6 +442,9 @@ yarn publish --access public</code></pre>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#defaulttooverride" class="tsd-kind-icon">default<wbr>ToOverride</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#durationbetween" class="tsd-kind-icon">duration<wbr>Between</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#extractinteger" class="tsd-kind-icon">extract<wbr>Integer</a>
