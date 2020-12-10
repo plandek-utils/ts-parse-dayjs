@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.11.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.10.4...v3.11.0) (2020-12-10)
+
+
+### Features
+
+* adding Duration plugin and durationBetween(a, b) function. Also enhancing README ([5658c51](https://github.com/plandek-utils/ts-parse-dayjs/commit/5658c51d37d31764423c4361f02839c691781976))
+
 ### [3.10.4](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.10.3...v3.10.4) (2020-09-28)
 
 
