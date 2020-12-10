@@ -10,6 +10,7 @@ import "dayjs/locale/en-il";
 import "dayjs/locale/en-nz";
 import "dayjs/locale/en-sg";
 import "dayjs/plugin/advancedFormat";
+import "dayjs/plugin/duration";
 import "dayjs/plugin/isBetween";
 import "dayjs/plugin/isSameOrAfter";
 import "dayjs/plugin/isSameOrBefore";
@@ -18,6 +19,7 @@ import "dayjs/plugin/utc";
 import "dayjs/plugin/weekOfYear";
 
 import advancedFormat from "dayjs/plugin/advancedFormat";
+import durationPlugin, { Duration, DurationInputType } from "dayjs/plugin/duration";
 import isBetween from "dayjs/plugin/isBetween";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
@@ -28,6 +30,7 @@ import weekOfYear from "dayjs/plugin/weekOfYear";
 // tslint:enable:no-submodule-imports
 
 dayjs.extend(advancedFormat);
+dayjs.extend(durationPlugin);
 dayjs.extend(isBetween);
 dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);
@@ -36,10 +39,25 @@ dayjs.extend(utc);
 dayjs.extend(weekOfYear);
 
 // exporting the type
-export { Dayjs };
+export { Dayjs, Duration, DurationInputType };
 
 // exporting the isDayjs function
 export { isDayjs };
+
+const duration = dayjs.duration;
+const isDuration = dayjs.isDuration;
+
+// exporting the duration functions
+export { duration, isDuration };
+
+/**
+ * returns the Duration between the given 2 dates as a dayjs Duration object
+ * @param from
+ * @param to
+ */
+export function durationBetween(from: Dayjs, to: Dayjs): Duration {
+  return duration(to.diff(from));
+}
 
 /**
  * List of imported locales.
