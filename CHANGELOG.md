@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.11.0...v4.0.0) (2021-02-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** `dayjs` Duration plugin has a typescript-only breaking change in its type
+definition.
+
+* **deps:** updated dependencies, including dayjs ([4e5a5b5](https://github.com/plandek-utils/ts-parse-dayjs/commit/4e5a5b504969dd432632db42f54f36a62ee9276b))
+
 ## [3.11.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v3.10.4...v3.11.0) (2020-12-10)
 
 
