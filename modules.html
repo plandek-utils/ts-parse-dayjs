@@ -1,0 +1,995 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>@plandek-utils/ts-parse-dayjs</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/main.plus.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">@plandek-utils/ts-parse-dayjs</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>@plandek-utils/ts-parse-dayjs</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Enumerations</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-enum"><a href="enums/availablelocales.html" class="tsd-kind-icon">Available<wbr>Locales</a></li>
+								<li class="tsd-kind-enum"><a href="enums/timedefault.html" class="tsd-kind-icon">Time<wbr>Default</a></li>
+								<li class="tsd-kind-enum"><a href="enums/timeoverride.html" class="tsd-kind-icon">Time<wbr>Override</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Classes</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-class tsd-is-external"><a href="classes/dayjs.html" class="tsd-kind-icon">Dayjs</a></li>
+								<li class="tsd-kind-class"><a href="classes/invaliddateerror.html" class="tsd-kind-icon">Invalid<wbr>Date<wbr>Error</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Interfaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface tsd-is-external"><a href="interfaces/duration.html" class="tsd-kind-icon">Duration</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/idayjsrange.html" class="tsd-kind-icon">IDayjs<wbr>Range</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/idayjsrangestrict.html" class="tsd-kind-icon">IDayjs<wbr>Range<wbr>Strict</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Type aliases</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias"><a href="modules.html#dayjsinput" class="tsd-kind-icon">Dayjs<wbr>Input</a></li>
+								<li class="tsd-kind-type-alias tsd-is-external"><a href="modules.html#durationunittype" class="tsd-kind-icon">Duration<wbr>Unit<wbr>Type</a></li>
+								<li class="tsd-kind-type-alias tsd-is-external"><a href="modules.html#durationunitsobjecttype" class="tsd-kind-icon">Duration<wbr>Units<wbr>Object<wbr>Type</a></li>
+								<li class="tsd-kind-type-alias"><a href="modules.html#localeparam" class="tsd-kind-icon">Locale<wbr>Param</a></li>
+								<li class="tsd-kind-type-alias"><a href="modules.html#strictdayjsinput" class="tsd-kind-icon">Strict<wbr>Dayjs<wbr>Input</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable"><a href="modules.html#default_date_format" class="tsd-kind-icon">DEFAULT_<wbr>DATE_<wbr>FORMAT</a></li>
+								<li class="tsd-kind-variable"><a href="modules.html#default_locale" class="tsd-kind-icon">DEFAULT_<wbr>LOCALE</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function"><a href="modules.html#dayjsnow" class="tsd-kind-icon">dayjs<wbr>Now</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#duration" class="tsd-kind-icon">duration</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#durationbetween" class="tsd-kind-icon">duration<wbr>Between</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#formatdate" class="tsd-kind-icon">format<wbr>Date</a></li>
+								<li class="tsd-kind-function tsd-is-external"><a href="modules.html#isdayjs" class="tsd-kind-icon">is<wbr>Dayjs</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#isdayjsinput" class="tsd-kind-icon">is<wbr>Dayjs<wbr>Input</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#isduration" class="tsd-kind-icon">is<wbr>Duration</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#isstrictdayjsinput" class="tsd-kind-icon">is<wbr>Strict<wbr>Dayjs<wbr>Input</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#isvaliddate" class="tsd-kind-icon">is<wbr>Valid<wbr>Date</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#maxdayjs" class="tsd-kind-icon">max<wbr>Dayjs</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#mindayjs" class="tsd-kind-icon">min<wbr>Dayjs</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#parsedayjs" class="tsd-kind-icon">parse<wbr>Dayjs</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#parsedayjsendofday" class="tsd-kind-icon">parse<wbr>Dayjs<wbr>End<wbr>OfDay</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#parsedayjsorerror" class="tsd-kind-icon">parse<wbr>Dayjs<wbr>OrError</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#parsedayjsstartofday" class="tsd-kind-icon">parse<wbr>Dayjs<wbr>Start<wbr>OfDay</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#parsefromstandardperiods" class="tsd-kind-icon">parse<wbr>From<wbr>Standard<wbr>Periods</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Type aliases</h2>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="dayjsinput" class="tsd-anchor"></a>
+					<h3>Dayjs<wbr>Input</h3>
+					<div class="tsd-signature tsd-kind-icon">Dayjs<wbr>Input<span class="tsd-signature-symbol">:</span> <a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/base.ts#L81">src/base.ts:81</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-is-external">
+					<a name="durationunittype" class="tsd-anchor"></a>
+					<h3>Duration<wbr>Unit<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">Duration<wbr>Unit<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Exclude</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">OpUnitType</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;date&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;dates&quot;</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in node_modules/dayjs/plugin/duration.d.ts:12</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-is-external">
+					<a name="durationunitsobjecttype" class="tsd-anchor"></a>
+					<h3>Duration<wbr>Units<wbr>Object<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">Duration<wbr>Units<wbr>Object<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{</span><span class="tsd-signature-symbol">[ </span><span class="tsd-signature-type">unit</span><span class="tsd-signature-symbol"> in </span><span class="tsd-signature-type">Exclude</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">UnitTypeLongPlural</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;dates&quot;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;weeks&quot;</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in node_modules/dayjs/plugin/duration.d.ts:9</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="localeparam" class="tsd-anchor"></a>
+					<h3>Locale<wbr>Param</h3>
+					<div class="tsd-signature tsd-kind-icon">Locale<wbr>Param<span class="tsd-signature-symbol">:</span> <a href="enums/availablelocales.html" class="tsd-signature-type" data-tsd-kind="Enumeration">AvailableLocales</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ILocale</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/base.ts#L79">src/base.ts:79</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="strictdayjsinput" class="tsd-anchor"></a>
+					<h3>Strict<wbr>Dayjs<wbr>Input</h3>
+					<div class="tsd-signature tsd-kind-icon">Strict<wbr>Dayjs<wbr>Input<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Exclude</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/base.ts#L82">src/base.ts:82</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="default_date_format" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> DEFAULT_<wbr>DATE_<wbr>FORMAT</h3>
+					<div class="tsd-signature tsd-kind-icon">DEFAULT_<wbr>DATE_<wbr>FORMAT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;Do MMM YYYY&quot;</span><span class="tsd-signature-symbol"> = &quot;Do MMM YYYY&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/base.ts#L84">src/base.ts:84</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="default_locale" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> DEFAULT_<wbr>LOCALE</h3>
+					<div class="tsd-signature tsd-kind-icon">DEFAULT_<wbr>LOCALE<span class="tsd-signature-symbol">:</span> <a href="enums/availablelocales.html#englishgb" class="tsd-signature-type" data-tsd-kind="Enumeration member">EnglishGB</a><span class="tsd-signature-symbol"> = ...</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/base.ts#L77">src/base.ts:77</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="dayjsnow" class="tsd-anchor"></a>
+					<h3>dayjs<wbr>Now</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">dayjs<wbr>Now<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">NowOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/dayjs-now.ts#L15">src/dayjs-now.ts:15</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>returns the current Dayjs (in UTC)</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt data-tag-name="see">see</dt>
+									<dd data-tag-name="see"><p>DEFAULT_LOCALE</p>
+									</dd>
+									<dt data-tag-name="see">see</dt>
+									<dd data-tag-name="see"><p>TimeOverride</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>__namedParameters: <span class="tsd-signature-type">NowOptions</span><span class="tsd-signature-symbol"> = ...</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="duration" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> duration</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">duration<span class="tsd-signature-symbol">(</span>units<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>days<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>hours<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>milliseconds<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>minutes<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>months<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>seconds<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>weeks<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>years<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interfaces/duration.html" class="tsd-signature-type" data-tsd-kind="Interface">Duration</a></li>
+						<li class="tsd-signature tsd-kind-icon">duration<span class="tsd-signature-symbol">(</span>time<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, unit<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">&quot;millisecond&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;second&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;minute&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;hour&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;day&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;month&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;year&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;milliseconds&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;seconds&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;minutes&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;hours&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;days&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;months&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;years&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;d&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;M&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;y&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;h&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;m&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;s&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;ms&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;week&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;weeks&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;w&quot;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interfaces/duration.html" class="tsd-signature-type" data-tsd-kind="Interface">Duration</a></li>
+						<li class="tsd-signature tsd-kind-icon">duration<span class="tsd-signature-symbol">(</span>ISO_8601<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interfaces/duration.html" class="tsd-signature-type" data-tsd-kind="Interface">Duration</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/base.ts#L47">src/base.ts:47</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>units: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>days<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>hours<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>milliseconds<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>minutes<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>months<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>seconds<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>weeks<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>years<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="interfaces/duration.html" class="tsd-signature-type" data-tsd-kind="Interface">Duration</a></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/base.ts#L47">src/base.ts:47</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>time: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> unit: <span class="tsd-signature-type">&quot;millisecond&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;second&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;minute&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;hour&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;day&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;month&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;year&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;milliseconds&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;seconds&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;minutes&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;hours&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;days&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;months&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;years&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;d&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;M&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;y&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;h&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;m&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;s&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;ms&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;week&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;weeks&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;w&quot;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="interfaces/duration.html" class="tsd-signature-type" data-tsd-kind="Interface">Duration</a></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/base.ts#L47">src/base.ts:47</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ISO_8601: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="interfaces/duration.html" class="tsd-signature-type" data-tsd-kind="Interface">Duration</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="durationbetween" class="tsd-anchor"></a>
+					<h3>duration<wbr>Between</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">duration<wbr>Between<span class="tsd-signature-symbol">(</span>from<span class="tsd-signature-symbol">: </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a>, to<span class="tsd-signature-symbol">: </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interfaces/duration.html" class="tsd-signature-type" data-tsd-kind="Interface">Duration</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/base.ts#L58">src/base.ts:58</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>returns the Duration between the given 2 dates as a dayjs Duration object</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>from: <a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a></h5>
+								</li>
+								<li>
+									<h5>to: <a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="interfaces/duration.html" class="tsd-signature-type" data-tsd-kind="Interface">Duration</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="formatdate" class="tsd-anchor"></a>
+					<h3>format<wbr>Date</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">format<wbr>Date<span class="tsd-signature-symbol">(</span>date<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span>, dateFormat<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span></li>
+						<li class="tsd-signature tsd-kind-icon">format<wbr>Date<span class="tsd-signature-symbol">(</span>date<span class="tsd-signature-symbol">: </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a>, dateFormat<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">format<wbr>Date<span class="tsd-signature-symbol">(</span>date<span class="tsd-signature-symbol">: </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span>, dateFormat<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/base.ts#L86">src/base.ts:86</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>date: <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> dateFormat: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/base.ts#L87">src/base.ts:87</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>date: <a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> dateFormat: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/base.ts#L88">src/base.ts:88</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>date: <a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> dateFormat: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-external">
+					<a name="isdayjs" class="tsd-anchor"></a>
+					<h3>is<wbr>Dayjs</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Dayjs<span class="tsd-signature-symbol">(</span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">d</span><span class="tsd-signature-symbol"> is </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in node_modules/dayjs/index.d.ts:416</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>d: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">d</span><span class="tsd-signature-symbol"> is </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="isdayjsinput" class="tsd-anchor"></a>
+					<h3>is<wbr>Dayjs<wbr>Input</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Dayjs<wbr>Input<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">x</span><span class="tsd-signature-symbol"> is </span><a href="modules.html#dayjsinput" class="tsd-signature-type" data-tsd-kind="Type alias">DayjsInput</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/is-dayjs-input.ts#L20">src/is-dayjs-input.ts:20</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>returns true if the given param is a Dayjs object, Date, number (except NaN), string, null or undefined</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">x</span><span class="tsd-signature-symbol"> is </span><a href="modules.html#dayjsinput" class="tsd-signature-type" data-tsd-kind="Type alias">DayjsInput</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="isduration" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> is<wbr>Duration</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Duration<span class="tsd-signature-symbol">(</span>d<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">d</span><span class="tsd-signature-symbol"> is </span><a href="interfaces/duration.html" class="tsd-signature-type" data-tsd-kind="Interface">Duration</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/base.ts#L48">src/base.ts:48</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>d: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">d</span><span class="tsd-signature-symbol"> is </span><a href="interfaces/duration.html" class="tsd-signature-type" data-tsd-kind="Interface">Duration</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="isstrictdayjsinput" class="tsd-anchor"></a>
+					<h3>is<wbr>Strict<wbr>Dayjs<wbr>Input</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Strict<wbr>Dayjs<wbr>Input<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">x</span><span class="tsd-signature-symbol"> is </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/is-dayjs-input.ts#L11">src/is-dayjs-input.ts:11</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>returns true if the given param is a Dayjs object, Date, number (except NaN) or string</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">x</span><span class="tsd-signature-symbol"> is </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="isvaliddate" class="tsd-anchor"></a>
+					<h3>is<wbr>Valid<wbr>Date</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Valid<wbr>Date<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><a href="modules.html#dayjsinput" class="tsd-signature-type" data-tsd-kind="Type alias">DayjsInput</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">x</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Date</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/is-valid-date.ts#L14">src/is-valid-date.ts:14</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <a href="modules.html#dayjsinput" class="tsd-signature-type" data-tsd-kind="Type alias">DayjsInput</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">x</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Date</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="maxdayjs" class="tsd-anchor"></a>
+					<h3>max<wbr>Dayjs</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">max<wbr>Dayjs<span class="tsd-signature-symbol">(</span>list<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EmptyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span></li>
+						<li class="tsd-signature tsd-kind-icon">max<wbr>Dayjs<span class="tsd-signature-symbol">(</span>list<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">NonEmptyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a></li>
+						<li class="tsd-signature tsd-kind-icon">max<wbr>Dayjs<span class="tsd-signature-symbol">(</span>list<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EmptyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NonEmptyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/min-max.ts#L18">src/min-max.ts:18</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>list: <span class="tsd-signature-type">EmptyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/min-max.ts#L19">src/min-max.ts:19</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>list: <span class="tsd-signature-type">NonEmptyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/min-max.ts#L20">src/min-max.ts:20</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>list: <span class="tsd-signature-type">EmptyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NonEmptyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="mindayjs" class="tsd-anchor"></a>
+					<h3>min<wbr>Dayjs</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">min<wbr>Dayjs<span class="tsd-signature-symbol">(</span>list<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EmptyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span></li>
+						<li class="tsd-signature tsd-kind-icon">min<wbr>Dayjs<span class="tsd-signature-symbol">(</span>list<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">NonEmptyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a></li>
+						<li class="tsd-signature tsd-kind-icon">min<wbr>Dayjs<span class="tsd-signature-symbol">(</span>list<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EmptyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NonEmptyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/min-max.ts#L11">src/min-max.ts:11</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>list: <span class="tsd-signature-type">EmptyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/min-max.ts#L12">src/min-max.ts:12</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>list: <span class="tsd-signature-type">NonEmptyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/min-max.ts#L13">src/min-max.ts:13</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>list: <span class="tsd-signature-type">EmptyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NonEmptyArray</span><span class="tsd-signature-symbol">&lt;</span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="parsedayjs" class="tsd-anchor"></a>
+					<h3>parse<wbr>Dayjs</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Dayjs<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="modules.html#dayjsinput" class="tsd-signature-type" data-tsd-kind="Type alias">DayjsInput</a>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ParseOptions</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>strict<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a></li>
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Dayjs<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="modules.html#dayjsinput" class="tsd-signature-type" data-tsd-kind="Type alias">DayjsInput</a>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ParseOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/parse.ts#L21">src/parse.ts:21</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>it returns a Dayjs object (in UTC) representing the given date, unless:</p>
+									<ul>
+										<li>it receives null, or empty string (then returns null)</li>
+										<li>it produces an invalid Dayjs (then returns null)</li>
+										<li>it receives a Dayjs object (then returns the same object)</li>
+									</ul>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt data-tag-name="see">see</dt>
+									<dd data-tag-name="see"><p>DEFAULT_LOCALE</p>
+									</dd>
+									<dt data-tag-name="see">see</dt>
+									<dd data-tag-name="see"><p>TimeOverride</p>
+									</dd>
+									<dt data-tag-name="see">see</dt>
+									<dd data-tag-name="see"><p>TimeDefault</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <a href="modules.html#dayjsinput" class="tsd-signature-type" data-tsd-kind="Type alias">DayjsInput</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>input to create the Dayjs object</p>
+									</div>
+								</li>
+								<li>
+									<h5>options: <span class="tsd-signature-type">ParseOptions</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>strict<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> }</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/parse.ts#L22">src/parse.ts:22</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <a href="modules.html#dayjsinput" class="tsd-signature-type" data-tsd-kind="Type alias">DayjsInput</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">ParseOptions</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="parsedayjsendofday" class="tsd-anchor"></a>
+					<h3>parse<wbr>Dayjs<wbr>End<wbr>OfDay</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Dayjs<wbr>End<wbr>OfDay<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="modules.html#dayjsinput" class="tsd-signature-type" data-tsd-kind="Type alias">DayjsInput</a>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ParseOptions</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;time&quot;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/parse.ts#L71">src/parse.ts:71</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>parses the Dayjs (in UTC) with the given input and modifies it to be at the end of the UTC day</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt data-tag-name="see">see</dt>
+									<dd data-tag-name="see"><p>parseDayjs</p>
+									</dd>
+									<dt data-tag-name="see">see</dt>
+									<dd data-tag-name="see"><p>TimeOverride.EndOfDay</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <a href="modules.html#dayjsinput" class="tsd-signature-type" data-tsd-kind="Type alias">DayjsInput</a></h5>
+								</li>
+								<li>
+									<h5>options: <span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ParseOptions</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;time&quot;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="parsedayjsorerror" class="tsd-anchor"></a>
+					<h3>parse<wbr>Dayjs<wbr>OrError</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Dayjs<wbr>OrError<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="modules.html#dayjsinput" class="tsd-signature-type" data-tsd-kind="Type alias">DayjsInput</a>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ParseOptions</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;strict&quot;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/parse.ts#L47">src/parse.ts:47</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>it returns a Dayjs object (in UTC) representing the given date, unless:</p>
+									<ul>
+										<li>it receives null, or empty string (then throws an error)</li>
+										<li>it produces an invalid Dayjs (then throws an error)</li>
+										<li>it receives a Dayjs object (then returns the same object)</li>
+									</ul>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt data-tag-name="throws">throws</dt>
+									<dd data-tag-name="throws"><p>InvalidDateError</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <a href="modules.html#dayjsinput" class="tsd-signature-type" data-tsd-kind="Type alias">DayjsInput</a></h5>
+								</li>
+								<li>
+									<h5>options: <span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ParseOptions</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;strict&quot;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="parsedayjsstartofday" class="tsd-anchor"></a>
+					<h3>parse<wbr>Dayjs<wbr>Start<wbr>OfDay</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Dayjs<wbr>Start<wbr>OfDay<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="modules.html#dayjsinput" class="tsd-signature-type" data-tsd-kind="Type alias">DayjsInput</a>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ParseOptions</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;time&quot;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/parse.ts#L59">src/parse.ts:59</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>parses the Dayjs (in UTC) with the given input and modifies it to be at the beginning of the UTC day</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt data-tag-name="see">see</dt>
+									<dd data-tag-name="see"><p>parseDayjs</p>
+									</dd>
+									<dt data-tag-name="see">see</dt>
+									<dd data-tag-name="see"><p>TimeOverride.StartOfDay</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <a href="modules.html#dayjsinput" class="tsd-signature-type" data-tsd-kind="Type alias">DayjsInput</a></h5>
+								</li>
+								<li>
+									<h5>options: <span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ParseOptions</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;time&quot;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="classes/dayjs.html" class="tsd-signature-type" data-tsd-kind="Class">Dayjs</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="parsefromstandardperiods" class="tsd-anchor"></a>
+					<h3>parse<wbr>From<wbr>Standard<wbr>Periods</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>From<wbr>Standard<wbr>Periods<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, __namedParameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ParseStandardPeriodOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interfaces/idayjsrangestrict.html" class="tsd-signature-type" data-tsd-kind="Interface">IDayjsRangeStrict</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/plandek-utils/ts-parse-dayjs/blob/55d907e/src/parse-from-standard-periods.ts#L80">src/parse-from-standard-periods.ts:80</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>given a string like <code>8d</code>, <code>12w</code>, <code>9m</code> or <code>2y</code>, it returns an object with the calculated range of 8 days, 12 weeks, 9 months and 2 years ago respectively.</p>
+								</div>
+								<p>Optionally we can set an origin as second argument, otherwise the current time is used.</p>
+								<p>*note: BREAKING CHANGE from 2.x to 3.x: The second argument is now an object like <code>{ origin: originDate }</code> instead of the origin directly**</p>
+								<p>If the string cannot be parsed correctly, it will return <code>null</code>.</p>
+								<p>If the string is parsed correctly, it will return an object with:</p>
+								<ul>
+									<li><code>to</code>: the given origin (or current time if missing), at EOD of UTC (e.g. today at 23:59:59.999Z)</li>
+									<li><code>from</code>: the calculated <code>from</code> after subtracting the given amount of the given unit, at the beginning of the period (beginning of the day, of the week, of the month or of the year)</li>
+								</ul>
+								<dl class="tsd-comment-tags">
+									<dt data-tag-name="see">see</dt>
+									<dd data-tag-name="see"><p>dayjsNow</p>
+									</dd>
+									<dt data-tag-name="see">see</dt>
+									<dd data-tag-name="see"><p>DEFAULT_LOCALE</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>string to parse</p>
+									</div>
+								</li>
+								<li>
+									<h5>__namedParameters: <span class="tsd-signature-type">ParseStandardPeriodOptions</span><span class="tsd-signature-symbol"> = ...</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="interfaces/idayjsrangestrict.html" class="tsd-signature-type" data-tsd-kind="Interface">IDayjsRangeStrict</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="current ">
+						<a href="modules.html">Exports</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/availablelocales.html" class="tsd-kind-icon">Available<wbr>Locales</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/timedefault.html" class="tsd-kind-icon">Time<wbr>Default</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/timeoverride.html" class="tsd-kind-icon">Time<wbr>Override</a>
+					</li>
+					<li class=" tsd-kind-class tsd-is-external">
+						<a href="classes/dayjs.html" class="tsd-kind-icon">Dayjs</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/invaliddateerror.html" class="tsd-kind-icon">Invalid<wbr>Date<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-is-external">
+						<a href="interfaces/duration.html" class="tsd-kind-icon">Duration</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/idayjsrange.html" class="tsd-kind-icon">IDayjs<wbr>Range</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/idayjsrangestrict.html" class="tsd-kind-icon">IDayjs<wbr>Range<wbr>Strict</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#dayjsinput" class="tsd-kind-icon">Dayjs<wbr>Input</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-is-external">
+						<a href="modules.html#durationunittype" class="tsd-kind-icon">Duration<wbr>Unit<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-is-external">
+						<a href="modules.html#durationunitsobjecttype" class="tsd-kind-icon">Duration<wbr>Units<wbr>Object<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#localeparam" class="tsd-kind-icon">Locale<wbr>Param</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#strictdayjsinput" class="tsd-kind-icon">Strict<wbr>Dayjs<wbr>Input</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="modules.html#default_date_format" class="tsd-kind-icon">DEFAULT_<wbr>DATE_<wbr>FORMAT</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="modules.html#default_locale" class="tsd-kind-icon">DEFAULT_<wbr>LOCALE</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#dayjsnow" class="tsd-kind-icon">dayjs<wbr>Now</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#duration" class="tsd-kind-icon">duration</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#durationbetween" class="tsd-kind-icon">duration<wbr>Between</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#formatdate" class="tsd-kind-icon">format<wbr>Date</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-external">
+						<a href="modules.html#isdayjs" class="tsd-kind-icon">is<wbr>Dayjs</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#isdayjsinput" class="tsd-kind-icon">is<wbr>Dayjs<wbr>Input</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#isduration" class="tsd-kind-icon">is<wbr>Duration</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#isstrictdayjsinput" class="tsd-kind-icon">is<wbr>Strict<wbr>Dayjs<wbr>Input</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#isvaliddate" class="tsd-kind-icon">is<wbr>Valid<wbr>Date</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#maxdayjs" class="tsd-kind-icon">max<wbr>Dayjs</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#mindayjs" class="tsd-kind-icon">min<wbr>Dayjs</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#parsedayjs" class="tsd-kind-icon">parse<wbr>Dayjs</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#parsedayjsendofday" class="tsd-kind-icon">parse<wbr>Dayjs<wbr>End<wbr>OfDay</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#parsedayjsorerror" class="tsd-kind-icon">parse<wbr>Dayjs<wbr>OrError</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#parsedayjsstartofday" class="tsd-kind-icon">parse<wbr>Dayjs<wbr>Start<wbr>OfDay</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#parsefromstandardperiods" class="tsd-kind-icon">parse<wbr>From<wbr>Standard<wbr>Periods</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

@@ -41,8 +41,6 @@
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
 							<input type="checkbox" id="tsd-filter-externals" checked />
 							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -52,11 +50,6 @@
 	</div>
 	<div class="tsd-page-title">
 		<div class="container">
-			<ul class="tsd-breadcrumb">
-				<li>
-					<a href="globals.html">Globals</a>
-				</li>
-			</ul>
 			<h1>@plandek-utils/ts-parse-dayjs</h1>
 		</div>
 	</div>
@@ -97,18 +90,19 @@
 					<h3><code>parseDayjs</code></h3>
 				</a>
 				<p>parses the given input and returns a Dayjs object (in UTC) if the given date is valid, or <code>null</code> if it results in an invalid date</p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { parseDayjs } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@plandek-utils/ts-parse-dayjs&quot;</span>;
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">parseDayjs</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@plandek-utils/ts-parse-dayjs&quot;</span><span style="color: #000000">;</span>
 
-parseDayjs(<span class="hljs-literal">null</span>); <span class="hljs-comment">// =&gt; null</span>
-parseDayjs(<span class="hljs-string">&quot;&quot;</span>); <span class="hljs-comment">// =&gt; null</span>
-parseDayjs(<span class="hljs-string">&quot;waa&quot;</span>); <span class="hljs-comment">// =&gt; null</span>
-parseDayjs(<span class="hljs-string">&quot;2018-01-01&quot;</span>); <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01</span>
-parseDayjs(<span class="hljs-string">&quot;2018-01-01T00:00:00.000Z&quot;</span>); <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01T00:00:00.000Z</span>
-parseDayjs(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()); <span class="hljs-comment">// =&gt; Dayjs object in UTC for the given Date</span>
-parseDayjs(dayjsObject); <span class="hljs-comment">// =&gt; same Dayjs object</span>
+<span style="color: #795E26">parseDayjs</span><span style="color: #000000">(</span><span style="color: #0000FF">null</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; null</span>
+<span style="color: #795E26">parseDayjs</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;&quot;</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; null</span>
+<span style="color: #795E26">parseDayjs</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;waa&quot;</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; null</span>
+<span style="color: #795E26">parseDayjs</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2018-01-01&quot;</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; Dayjs object in UTC for 2018-01-01</span>
+<span style="color: #795E26">parseDayjs</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2018-01-01T00:00:00.000Z&quot;</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; Dayjs object in UTC for 2018-01-01T00:00:00.000Z</span>
+<span style="color: #795E26">parseDayjs</span><span style="color: #000000">(</span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">Date</span><span style="color: #000000">()); </span><span style="color: #008000">// =&gt; Dayjs object in UTC for the given Date</span>
+<span style="color: #795E26">parseDayjs</span><span style="color: #000000">(</span><span style="color: #001080">dayjsObject</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; same Dayjs object</span>
 
-<span class="hljs-comment">// can be formatted</span>
-parseDayjs(<span class="hljs-string">&quot;2018-01-01T00:00:00.000Z&quot;</span>).format(<span class="hljs-string">&quot;Do MMM YYYY&quot;</span>); <span class="hljs-comment">// =&gt; 1st Jan 2018</span></code></pre>
+<span style="color: #008000">// can be formatted</span>
+<span style="color: #795E26">parseDayjs</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2018-01-01T00:00:00.000Z&quot;</span><span style="color: #000000">).</span><span style="color: #795E26">format</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Do MMM YYYY&quot;</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; 1st Jan 2018</span>
+</code></pre>
 				<a href="#locale" id="locale" style="color: inherit; text-decoration: none;">
 					<h4>Locale</h4>
 				</a>
@@ -116,51 +110,56 @@ parseDayjs(<span class="hljs-string">&quot;2018-01-01T00:00:00.000Z&quot;</span>
 				<p>You can explicitly ask for a different locale passing a second argument. It can be one of the AvailableLocales or one of the Dayjs locale objects:</p>
 				<p><strong>note: BREAKING CHANGE from 1.x to 2.x: default locale changed from <code>en</code> to <code>en-gb</code></strong>
 				<strong>note: BREAKING CHANGE from 2.x to 3.x: The second argument is now an object like <code>{ locale: &quot;new-locale&quot; }</code> instead of the locale directly</strong></p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { parseDayjs, AvailableLocales } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@plandek-utils/ts-parse-dayjs&quot;</span>;
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">parseDayjs</span><span style="color: #000000">, </span><span style="color: #001080">AvailableLocales</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@plandek-utils/ts-parse-dayjs&quot;</span><span style="color: #000000">;</span>
 
-parseDayjs(<span class="hljs-string">&quot;2018-01-01&quot;</span>); <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01, locale en-gb (week starts on Monday)</span>
-parseDayjs(<span class="hljs-string">&quot;2018-01-01&quot;</span>, { <span class="hljs-attr">locale</span>: AvailableLocales.EnglishUSA }); <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01, locale en (week starts on Sunday)</span>
+<span style="color: #795E26">parseDayjs</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2018-01-01&quot;</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; Dayjs object in UTC for 2018-01-01, locale en-gb (week starts on Monday)</span>
+<span style="color: #795E26">parseDayjs</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2018-01-01&quot;</span><span style="color: #000000">, { </span><span style="color: #001080">locale:</span><span style="color: #000000"> </span><span style="color: #001080">AvailableLocales</span><span style="color: #000000">.</span><span style="color: #001080">EnglishUSA</span><span style="color: #000000"> }); </span><span style="color: #008000">// =&gt; Dayjs object in UTC for 2018-01-01, locale en (week starts on Sunday)</span>
 
-<span class="hljs-keyword">import</span> esLocale <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;dayjs/locale/es&quot;</span>;
-parseDayjs(<span class="hljs-string">&quot;2018-01-01&quot;</span>, { <span class="hljs-attr">locale</span>: esLocale }); <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01, locale es (spanish)</span></code></pre>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">esLocale</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;dayjs/locale/es&quot;</span><span style="color: #000000">;</span>
+<span style="color: #795E26">parseDayjs</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2018-01-01&quot;</span><span style="color: #000000">, { </span><span style="color: #001080">locale:</span><span style="color: #000000"> </span><span style="color: #001080">esLocale</span><span style="color: #000000"> }); </span><span style="color: #008000">// =&gt; Dayjs object in UTC for 2018-01-01, locale es (spanish)</span>
+</code></pre>
 				<a href="#strict-option" id="strict-option" style="color: inherit; text-decoration: none;">
 					<h4><code>strict</code> option</h4>
 				</a>
 				<p>By passing <code>strict: true</code> in the options, we ensure that we will receive a Dayjs object, or throw an <code>InvalidDateError</code>. This is the same as <a href="#parsedayjsorerror"><code>parseDayjsOrError</code></a>.</p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { parseDayjs } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@plandek-utils/ts-parse-dayjs&quot;</span>;
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">parseDayjs</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@plandek-utils/ts-parse-dayjs&quot;</span><span style="color: #000000">;</span>
 
-parseDayjs(<span class="hljs-string">&quot;2018-01-01&quot;</span>, { <span class="hljs-attr">strict</span>: <span class="hljs-literal">true</span> }); <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01, locale en-gb (week starts on Monday)</span>
-parseDayjs(<span class="hljs-string">&quot;waaaa&quot;</span>, { <span class="hljs-attr">strict</span>: <span class="hljs-literal">true</span> }); <span class="hljs-comment">// =&gt; throws InvalidDateError</span></code></pre>
+<span style="color: #795E26">parseDayjs</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2018-01-01&quot;</span><span style="color: #000000">, { </span><span style="color: #001080">strict:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> }); </span><span style="color: #008000">// =&gt; Dayjs object in UTC for 2018-01-01, locale en-gb (week starts on Monday)</span>
+<span style="color: #795E26">parseDayjs</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;waaaa&quot;</span><span style="color: #000000">, { </span><span style="color: #001080">strict:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> }); </span><span style="color: #008000">// =&gt; throws InvalidDateError</span>
+</code></pre>
 				<a href="#dayjsnow" id="dayjsnow" style="color: inherit; text-decoration: none;">
 					<h3><code>dayjsNow</code></h3>
 				</a>
 				<p>returns a Dayjs (in UTC) of the current time. It can accept a locale as optional argument (see <a href="#locale">Locale</a>)</p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { dayjsNow, AvailableLocales } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@plandek-utils/ts-parse-dayjs&quot;</span>;
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">dayjsNow</span><span style="color: #000000">, </span><span style="color: #001080">AvailableLocales</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@plandek-utils/ts-parse-dayjs&quot;</span><span style="color: #000000">;</span>
 
-dayjsNow(); <span class="hljs-comment">// =&gt; Dayjs object with the current time, in UTC (locale en-gb)</span>
-dayjsNow({ <span class="hljs-attr">locale</span>: AvailableLocales.EnglishUSA }); <span class="hljs-comment">// =&gt; Dayjs object with the current time, in UTC (locale en)</span>
+<span style="color: #795E26">dayjsNow</span><span style="color: #000000">(); </span><span style="color: #008000">// =&gt; Dayjs object with the current time, in UTC (locale en-gb)</span>
+<span style="color: #795E26">dayjsNow</span><span style="color: #000000">({ </span><span style="color: #001080">locale:</span><span style="color: #000000"> </span><span style="color: #001080">AvailableLocales</span><span style="color: #000000">.</span><span style="color: #001080">EnglishUSA</span><span style="color: #000000"> }); </span><span style="color: #008000">// =&gt; Dayjs object with the current time, in UTC (locale en)</span>
 
-<span class="hljs-keyword">import</span> esLocale <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;dayjs/locale/es&quot;</span>;
-dayjsNow({ <span class="hljs-attr">locale</span>: esLocale }); <span class="hljs-comment">// =&gt; Dayjs with the current time, in UTC, locale es</span></code></pre>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">esLocale</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;dayjs/locale/es&quot;</span><span style="color: #000000">;</span>
+<span style="color: #795E26">dayjsNow</span><span style="color: #000000">({ </span><span style="color: #001080">locale:</span><span style="color: #000000"> </span><span style="color: #001080">esLocale</span><span style="color: #000000"> }); </span><span style="color: #008000">// =&gt; Dayjs with the current time, in UTC, locale es</span>
+</code></pre>
 				<a href="#parsedayjsorerror" id="parsedayjsorerror" style="color: inherit; text-decoration: none;">
 					<h3><code>parseDayjsOrError</code></h3>
 				</a>
 				<p>same as <a href="#parseDayjs"><code>parseDayjs</code></a> but instead of returning <code>null</code> on an invalid date, it throws an <code>InvalidDateError</code>. It can accept an optional second argument locale (see <a href="#locale">Locale</a>)</p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { parseDayjsOrError } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@plandek-utils/ts-parse-dayjs&quot;</span>;
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">parseDayjsOrError</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@plandek-utils/ts-parse-dayjs&quot;</span><span style="color: #000000">;</span>
 
-parseDayjsOrError(<span class="hljs-string">&quot;2018-01-01T00:00:00.000Z&quot;</span>); <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01T00:00:00.000Z</span>
-parseDayjsOrError(<span class="hljs-literal">null</span>); <span class="hljs-comment">// =&gt; throws InvalidDateError</span></code></pre>
+<span style="color: #795E26">parseDayjsOrError</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2018-01-01T00:00:00.000Z&quot;</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; Dayjs object in UTC for 2018-01-01T00:00:00.000Z</span>
+<span style="color: #795E26">parseDayjsOrError</span><span style="color: #000000">(</span><span style="color: #0000FF">null</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; throws InvalidDateError</span>
+</code></pre>
 				<p>note: this is the same as passing a <code>strict: true</code> option to parseDayJs</p>
 				<a href="#parsedayjsstartofday-and-parsedayjsendofday" id="parsedayjsstartofday-and-parsedayjsendofday" style="color: inherit; text-decoration: none;">
 					<h3><code>parseDayjsStartOfDay</code> and <code>parseDayjsEndOfDay</code></h3>
 				</a>
 				<p>same as <a href="#parseDayjs"><code>parseDayjs</code></a> but if it results in a valid Dayjs object, it will then modify it to be at the beginning or end of the UTC day. It can accept an optional second argument locale (see <a href="#locale">Locale</a>)</p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { parseDayjsOrError } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@plandek-utils/ts-parse-dayjs&quot;</span>;
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">parseDayjsOrError</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@plandek-utils/ts-parse-dayjs&quot;</span><span style="color: #000000">;</span>
 
-parseDayjsStartOfDay(<span class="hljs-literal">null</span>); <span class="hljs-comment">// =&gt; null</span>
-parseDayjsEndOfDay(<span class="hljs-literal">null</span>); <span class="hljs-comment">// =&gt; null</span>
-parseDayjsStartOfDay(<span class="hljs-string">&quot;2018-01-01&quot;</span>); <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01T00:00:00.000Z</span>
-parseDayjsEndOfDay(<span class="hljs-string">&quot;2018-01-01&quot;</span>); <span class="hljs-comment">// =&gt; Dayjs object in UTC for 2018-01-01T23:59:59.999Z</span></code></pre>
+<span style="color: #795E26">parseDayjsStartOfDay</span><span style="color: #000000">(</span><span style="color: #0000FF">null</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; null</span>
+<span style="color: #795E26">parseDayjsEndOfDay</span><span style="color: #000000">(</span><span style="color: #0000FF">null</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; null</span>
+<span style="color: #795E26">parseDayjsStartOfDay</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2018-01-01&quot;</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; Dayjs object in UTC for 2018-01-01T00:00:00.000Z</span>
+<span style="color: #795E26">parseDayjsEndOfDay</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2018-01-01&quot;</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; Dayjs object in UTC for 2018-01-01T23:59:59.999Z</span>
+</code></pre>
 				<a href="#parsefromstandardperiods" id="parsefromstandardperiods" style="color: inherit; text-decoration: none;">
 					<h3><code>parseFromStandardPeriods</code></h3>
 				</a>
@@ -173,59 +172,62 @@ parseDayjsEndOfDay(<span class="hljs-string">&quot;2018-01-01&quot;</span>); <sp
 					<li><code>to</code>: the given origin (or current time if missing), at EOD of UTC (e.g. today at 23:59:59.999Z)</li>
 					<li><code>from</code>: the calculated <code>from</code> after subtracting the given amount of the given unit, at the beginning of the period (beginning of the day, of the week, of the month or of the year)</li>
 				</ul>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { parseFromStandardPeriods, parseDayjs } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@plandek-utils/ts-parse-dayjs&quot;</span>;
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">parseFromStandardPeriods</span><span style="color: #000000">, </span><span style="color: #001080">parseDayjs</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@plandek-utils/ts-parse-dayjs&quot;</span><span style="color: #000000">;</span>
 
-<span class="hljs-comment">// if &quot;now&quot; is 2019-10-22T12:34:56.123Z</span>
+<span style="color: #008000">// if &quot;now&quot; is 2019-10-22T12:34:56.123Z</span>
 
-parseFromStandardPeriods(<span class="hljs-string">&quot;&quot;</span>); <span class="hljs-comment">// =&gt; null</span>
-parseFromStandardPeriods(<span class="hljs-string">&quot;wat&quot;</span>); <span class="hljs-comment">// =&gt; null</span>
-parseFromStandardPeriods(<span class="hljs-string">&quot;10z&quot;</span>); <span class="hljs-comment">// =&gt; null</span>
-parseFromStandardPeriods(<span class="hljs-string">&quot;10d&quot;</span>);
-<span class="hljs-comment">// =&gt; { from: Dayjs(2019-10-12T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }</span>
-parseFromStandardPeriods(<span class="hljs-string">&quot;2w&quot;</span>);
-<span class="hljs-comment">// =&gt; { from: Dayjs(2019-10-07T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }</span>
-parseFromStandardPeriods(<span class="hljs-string">&quot;2m&quot;</span>);
-<span class="hljs-comment">// =&gt; { from: Dayjs(2019-08-01T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }</span>
-parseFromStandardPeriods(<span class="hljs-string">&quot;2y&quot;</span>);
+<span style="color: #795E26">parseFromStandardPeriods</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;&quot;</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; null</span>
+<span style="color: #795E26">parseFromStandardPeriods</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;wat&quot;</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; null</span>
+<span style="color: #795E26">parseFromStandardPeriods</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;10z&quot;</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; null</span>
+<span style="color: #795E26">parseFromStandardPeriods</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;10d&quot;</span><span style="color: #000000">);</span>
+<span style="color: #008000">// =&gt; { from: Dayjs(2019-10-12T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }</span>
+<span style="color: #795E26">parseFromStandardPeriods</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2w&quot;</span><span style="color: #000000">);</span>
+<span style="color: #008000">// =&gt; { from: Dayjs(2019-10-07T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }</span>
+<span style="color: #795E26">parseFromStandardPeriods</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2m&quot;</span><span style="color: #000000">);</span>
+<span style="color: #008000">// =&gt; { from: Dayjs(2019-08-01T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }</span>
+<span style="color: #795E26">parseFromStandardPeriods</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2y&quot;</span><span style="color: #000000">);</span>
 
-<span class="hljs-comment">// if the number is 0, it will go to the beginning of the period</span>
-parseFromStandardPeriods(<span class="hljs-string">&quot;0d&quot;</span>);
-<span class="hljs-comment">// =&gt; { from: Dayjs(2019-10-22T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }</span>
-parseFromStandardPeriods(<span class="hljs-string">&quot;0w&quot;</span>);
-<span class="hljs-comment">// =&gt; { from: Dayjs(2019-10-21T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }</span>
-parseFromStandardPeriods(<span class="hljs-string">&quot;0m&quot;</span>);
-<span class="hljs-comment">// =&gt; { from: Dayjs(2019-10-01T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }</span>
-parseFromStandardPeriods(<span class="hljs-string">&quot;0y&quot;</span>);
-<span class="hljs-comment">// =&gt; { from: Dayjs(2019-01-01T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }</span>
+<span style="color: #008000">// if the number is 0, it will go to the beginning of the period</span>
+<span style="color: #795E26">parseFromStandardPeriods</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;0d&quot;</span><span style="color: #000000">);</span>
+<span style="color: #008000">// =&gt; { from: Dayjs(2019-10-22T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }</span>
+<span style="color: #795E26">parseFromStandardPeriods</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;0w&quot;</span><span style="color: #000000">);</span>
+<span style="color: #008000">// =&gt; { from: Dayjs(2019-10-21T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }</span>
+<span style="color: #795E26">parseFromStandardPeriods</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;0m&quot;</span><span style="color: #000000">);</span>
+<span style="color: #008000">// =&gt; { from: Dayjs(2019-10-01T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }</span>
+<span style="color: #795E26">parseFromStandardPeriods</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;0y&quot;</span><span style="color: #000000">);</span>
+<span style="color: #008000">// =&gt; { from: Dayjs(2019-01-01T00:00:00.000Z), to: Dayjs(2019-10-22T23:59:59.999Z) }</span>
 
-<span class="hljs-comment">// with optional origin</span>
-<span class="hljs-keyword">const</span> d = parseDayjs(<span class="hljs-string">&quot;2019-05-10&quot;</span>);
-parseFromStandardPeriods(<span class="hljs-string">&quot;3d&quot;</span>, { <span class="hljs-attr">origin</span>: d });
-<span class="hljs-comment">// =&gt; { from: Dayjs(2019-05-07T00:00:00.000Z), to: Dayjs(2019-05-10T23:59:59.999Z) }</span></code></pre>
+<span style="color: #008000">// with optional origin</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">d</span><span style="color: #000000"> = </span><span style="color: #795E26">parseDayjs</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2019-05-10&quot;</span><span style="color: #000000">);</span>
+<span style="color: #795E26">parseFromStandardPeriods</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;3d&quot;</span><span style="color: #000000">, { </span><span style="color: #001080">origin:</span><span style="color: #000000"> </span><span style="color: #001080">d</span><span style="color: #000000"> });</span>
+<span style="color: #008000">// =&gt; { from: Dayjs(2019-05-07T00:00:00.000Z), to: Dayjs(2019-05-10T23:59:59.999Z) }</span>
+</code></pre>
 				<a href="#formatdate" id="formatdate" style="color: inherit; text-decoration: none;">
 					<h3><code>formatDate()</code></h3>
 				</a>
 				<p>Used to format a Dayjs object using the AdvancedFormat plugin. The default format is <code>&quot;Do MMM YYYY&quot;</code></p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { formatDate, parseDayjs } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@plandek-utils/ts-parse-dayjs&quot;</span>;
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">formatDate</span><span style="color: #000000">, </span><span style="color: #001080">parseDayjs</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@plandek-utils/ts-parse-dayjs&quot;</span><span style="color: #000000">;</span>
 
-formatDate(<span class="hljs-literal">null</span>); <span class="hljs-comment">// =&gt; null</span>
-formatDate(parseDayjs(<span class="hljs-string">&quot;2019-01-02&quot;</span>)); <span class="hljs-comment">// =&gt; &quot;2nd Jan 2019&quot;</span>
-formatDate(parseDayjs(<span class="hljs-string">&quot;2019-01-02&quot;</span>), <span class="hljs-string">&quot;Do ww MMMM YYYY&quot;</span>); <span class="hljs-comment">// =&gt; &quot;2nd 01 January 2019&quot;</span></code></pre>
+<span style="color: #795E26">formatDate</span><span style="color: #000000">(</span><span style="color: #0000FF">null</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; null</span>
+<span style="color: #795E26">formatDate</span><span style="color: #000000">(</span><span style="color: #795E26">parseDayjs</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2019-01-02&quot;</span><span style="color: #000000">)); </span><span style="color: #008000">// =&gt; &quot;2nd Jan 2019&quot;</span>
+<span style="color: #795E26">formatDate</span><span style="color: #000000">(</span><span style="color: #795E26">parseDayjs</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2019-01-02&quot;</span><span style="color: #000000">), </span><span style="color: #A31515">&quot;Do ww MMMM YYYY&quot;</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; &quot;2nd 01 January 2019&quot;</span>
+</code></pre>
 				<a href="#mindayjs-and-maxdayjs" id="mindayjs-and-maxdayjs" style="color: inherit; text-decoration: none;">
 					<h3><code>minDayjs()</code> and <code>maxDayjs()</code></h3>
 				</a>
 				<p>Used to compare an array of Dayjs objects and return the min (earliest) or max (latest).</p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { minDayjs, maxDayjs, parseDayjs } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@plandek-utils/ts-parse-dayjs&quot;</span>;
-<span class="hljs-keyword">const</span> d1 = parseDayjsOrError(<span class="hljs-string">&quot;2019-01-01&quot;</span>);
-<span class="hljs-keyword">const</span> d2 = parseDayjsOrError(<span class="hljs-string">&quot;2019-02-02&quot;</span>);
-<span class="hljs-keyword">const</span> d3 = parseDayjsOrError(<span class="hljs-string">&quot;2019-03-03&quot;</span>);
-<span class="hljs-keyword">const</span> d4 = parseDayjsOrError(<span class="hljs-string">&quot;2019-04-04&quot;</span>);
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">minDayjs</span><span style="color: #000000">, </span><span style="color: #001080">maxDayjs</span><span style="color: #000000">, </span><span style="color: #001080">parseDayjs</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@plandek-utils/ts-parse-dayjs&quot;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">d1</span><span style="color: #000000"> = </span><span style="color: #795E26">parseDayjsOrError</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2019-01-01&quot;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">d2</span><span style="color: #000000"> = </span><span style="color: #795E26">parseDayjsOrError</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2019-02-02&quot;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">d3</span><span style="color: #000000"> = </span><span style="color: #795E26">parseDayjsOrError</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2019-03-03&quot;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">d4</span><span style="color: #000000"> = </span><span style="color: #795E26">parseDayjsOrError</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2019-04-04&quot;</span><span style="color: #000000">);</span>
 
-minDayjs([]); <span class="hljs-comment">// =&gt; null</span>
-minDayjs([d3, d4, d1, d2]); <span class="hljs-comment">// =&gt; d1</span>
+<span style="color: #795E26">minDayjs</span><span style="color: #000000">([]); </span><span style="color: #008000">// =&gt; null</span>
+<span style="color: #795E26">minDayjs</span><span style="color: #000000">([</span><span style="color: #001080">d3</span><span style="color: #000000">, </span><span style="color: #001080">d4</span><span style="color: #000000">, </span><span style="color: #001080">d1</span><span style="color: #000000">, </span><span style="color: #001080">d2</span><span style="color: #000000">]); </span><span style="color: #008000">// =&gt; d1</span>
 
-maxDayjs([]); <span class="hljs-comment">// =&gt; null</span>
-maxDayjs([d3, d4, d1, d2]); <span class="hljs-comment">// =&gt; d4</span></code></pre>
+<span style="color: #795E26">maxDayjs</span><span style="color: #000000">([]); </span><span style="color: #008000">// =&gt; null</span>
+<span style="color: #795E26">maxDayjs</span><span style="color: #000000">([</span><span style="color: #001080">d3</span><span style="color: #000000">, </span><span style="color: #001080">d4</span><span style="color: #000000">, </span><span style="color: #001080">d1</span><span style="color: #000000">, </span><span style="color: #001080">d2</span><span style="color: #000000">]); </span><span style="color: #008000">// =&gt; d4</span>
+</code></pre>
 				<a href="#isstrictdayjsinput-and-isdayjsinput" id="isstrictdayjsinput-and-isdayjsinput" style="color: inherit; text-decoration: none;">
 					<h3><code>isStrictDayjsInput()</code> and <code>isDayjsInput()</code></h3>
 				</a>
@@ -238,39 +240,41 @@ maxDayjs([d3, d4, d1, d2]); <span class="hljs-comment">// =&gt; d4</span></code>
 					<h3><code>isValidDate()</code></h3>
 				</a>
 				<p>returns true if the given string, dayjs or Date object represent a valid date, false otherwise. It always returns false if given <code>null</code> or <code>undefined</code></p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { isValidDate, parseDayjs } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@plandek-utils/ts-parse-dayjs&quot;</span>;
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">isValidDate</span><span style="color: #000000">, </span><span style="color: #001080">parseDayjs</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@plandek-utils/ts-parse-dayjs&quot;</span><span style="color: #000000">;</span>
 
-isValidDate(<span class="hljs-literal">null</span>); <span class="hljs-comment">// =&gt; false</span>
-isValidDate(<span class="hljs-literal">undefined</span>); <span class="hljs-comment">// =&gt; false</span>
-isValidDate(<span class="hljs-string">&quot;2012-12-15&quot;</span>); <span class="hljs-comment">// =&gt; true</span>
-isValidDate(<span class="hljs-string">&quot;2012-12-15T12:31:31Z&quot;</span>); <span class="hljs-comment">// =&gt; true</span>
-isValidDate(<span class="hljs-string">&quot;2012-12-15T12:31:97Z&quot;</span>); <span class="hljs-comment">// =&gt; false</span>
-isValidDate(<span class="hljs-string">&quot;2012-12-32T12:31:00Z&quot;</span>); <span class="hljs-comment">// =&gt; false</span>
-isValidDate(<span class="hljs-string">&quot;2012-12-32&quot;</span>); <span class="hljs-comment">// =&gt; false</span>
-isValidDate(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">&quot;2012-12-15&quot;</span>)); <span class="hljs-comment">// =&gt; true</span>
-isValidDate(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">&quot;2012-12-15T12:31:31Z&quot;</span>)); <span class="hljs-comment">// =&gt; true</span>
-isValidDate(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">&quot;2012-12-15T12:31:97Z&quot;</span>)); <span class="hljs-comment">// =&gt; false</span>
-isValidDate(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">&quot;2012-12-32T12:31:00Z&quot;</span>)); <span class="hljs-comment">// =&gt; false</span>
-isValidDate(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">&quot;2012-12-32&quot;</span>)); <span class="hljs-comment">// =&gt; false</span>
-isValidDate(parseDayjs(<span class="hljs-string">&quot;2012-12-15&quot;</span>)); <span class="hljs-comment">// =&gt; true</span>
-isValidDate(parseDayjs(<span class="hljs-string">&quot;2012-12-15T12:31:31Z&quot;</span>)); <span class="hljs-comment">// =&gt; true</span>
-isValidDate(parseDayjs(<span class="hljs-string">&quot;2012-12-15T12:31:97Z&quot;</span>)); <span class="hljs-comment">// =&gt; false</span>
-isValidDate(parseDayjs(<span class="hljs-string">&quot;2012-12-32T12:31:00Z&quot;</span>)); <span class="hljs-comment">// =&gt; false</span>
-isValidDate(parseDayjs(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">&quot;2012-12-32&quot;</span>))); <span class="hljs-comment">// =&gt; false</span></code></pre>
+<span style="color: #795E26">isValidDate</span><span style="color: #000000">(</span><span style="color: #0000FF">null</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; false</span>
+<span style="color: #795E26">isValidDate</span><span style="color: #000000">(</span><span style="color: #0000FF">undefined</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; false</span>
+<span style="color: #795E26">isValidDate</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2012-12-15&quot;</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; true</span>
+<span style="color: #795E26">isValidDate</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2012-12-15T12:31:31Z&quot;</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; true</span>
+<span style="color: #795E26">isValidDate</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2012-12-15T12:31:97Z&quot;</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; false</span>
+<span style="color: #795E26">isValidDate</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2012-12-32T12:31:00Z&quot;</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; false</span>
+<span style="color: #795E26">isValidDate</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2012-12-32&quot;</span><span style="color: #000000">); </span><span style="color: #008000">// =&gt; false</span>
+<span style="color: #795E26">isValidDate</span><span style="color: #000000">(</span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">Date</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2012-12-15&quot;</span><span style="color: #000000">)); </span><span style="color: #008000">// =&gt; true</span>
+<span style="color: #795E26">isValidDate</span><span style="color: #000000">(</span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">Date</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2012-12-15T12:31:31Z&quot;</span><span style="color: #000000">)); </span><span style="color: #008000">// =&gt; true</span>
+<span style="color: #795E26">isValidDate</span><span style="color: #000000">(</span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">Date</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2012-12-15T12:31:97Z&quot;</span><span style="color: #000000">)); </span><span style="color: #008000">// =&gt; false</span>
+<span style="color: #795E26">isValidDate</span><span style="color: #000000">(</span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">Date</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2012-12-32T12:31:00Z&quot;</span><span style="color: #000000">)); </span><span style="color: #008000">// =&gt; false</span>
+<span style="color: #795E26">isValidDate</span><span style="color: #000000">(</span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">Date</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2012-12-32&quot;</span><span style="color: #000000">)); </span><span style="color: #008000">// =&gt; false</span>
+<span style="color: #795E26">isValidDate</span><span style="color: #000000">(</span><span style="color: #795E26">parseDayjs</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2012-12-15&quot;</span><span style="color: #000000">)); </span><span style="color: #008000">// =&gt; true</span>
+<span style="color: #795E26">isValidDate</span><span style="color: #000000">(</span><span style="color: #795E26">parseDayjs</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2012-12-15T12:31:31Z&quot;</span><span style="color: #000000">)); </span><span style="color: #008000">// =&gt; true</span>
+<span style="color: #795E26">isValidDate</span><span style="color: #000000">(</span><span style="color: #795E26">parseDayjs</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2012-12-15T12:31:97Z&quot;</span><span style="color: #000000">)); </span><span style="color: #008000">// =&gt; false</span>
+<span style="color: #795E26">isValidDate</span><span style="color: #000000">(</span><span style="color: #795E26">parseDayjs</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2012-12-32T12:31:00Z&quot;</span><span style="color: #000000">)); </span><span style="color: #008000">// =&gt; false</span>
+<span style="color: #795E26">isValidDate</span><span style="color: #000000">(</span><span style="color: #795E26">parseDayjs</span><span style="color: #000000">(</span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">Date</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2012-12-32&quot;</span><span style="color: #000000">))); </span><span style="color: #008000">// =&gt; false</span>
+</code></pre>
 				<a href="#durationbetweena-b" id="durationbetweena-b" style="color: inherit; text-decoration: none;">
 					<h3><code>durationBetween(a, b)</code></h3>
 				</a>
 				<p>returns the <code>Duration</code> type of <code>b.diff(a)</code></p>
 				<p>We also have <code>isDuration(x)</code> function.</p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { durationBetween, parseDayjsOrError } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@plandek-utils/ts-parse-dayjs&quot;</span>;
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">durationBetween</span><span style="color: #000000">, </span><span style="color: #001080">parseDayjsOrError</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@plandek-utils/ts-parse-dayjs&quot;</span><span style="color: #000000">;</span>
 
-<span class="hljs-keyword">const</span> a = parseDayjsOrError(<span class="hljs-string">&quot;2012-12-15T12:31:31Z&quot;</span>);
-<span class="hljs-keyword">const</span> b = parseDayjsOrError(<span class="hljs-string">&quot;2012-12-15T12:31:41Z&quot;</span>);
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">a</span><span style="color: #000000"> = </span><span style="color: #795E26">parseDayjsOrError</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2012-12-15T12:31:31Z&quot;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">b</span><span style="color: #000000"> = </span><span style="color: #795E26">parseDayjsOrError</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;2012-12-15T12:31:41Z&quot;</span><span style="color: #000000">);</span>
 
-<span class="hljs-keyword">const</span> d = durationBetween(a, b);
-d.asSeconds() <span class="hljs-comment">// =&gt; 10</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">d</span><span style="color: #000000"> = </span><span style="color: #795E26">durationBetween</span><span style="color: #000000">(</span><span style="color: #001080">a</span><span style="color: #000000">, </span><span style="color: #001080">b</span><span style="color: #000000">);</span>
+<span style="color: #001080">d</span><span style="color: #000000">.</span><span style="color: #795E26">asSeconds</span><span style="color: #000000">() </span><span style="color: #008000">// =&gt; 10</span>
 
-isDuration(d) <span class="hljs-comment">// =&gt; true</span></code></pre>
+<span style="color: #795E26">isDuration</span><span style="color: #000000">(</span><span style="color: #001080">d</span><span style="color: #000000">) </span><span style="color: #008000">// =&gt; true</span>
+</code></pre>
 				<a href="#development-commits-versioning-and-publishing" id="development-commits-versioning-and-publishing" style="color: inherit; text-decoration: none;">
 					<h2>Development, Commits, versioning and publishing</h2>
 				</a>
@@ -281,57 +285,63 @@ isDuration(d) <span class="hljs-comment">// =&gt; true</span></code></pre>
 							<h3>Commits and CHANGELOG</h3>
 						</a>
 						<p>For commits, you should use <a href="https://github.com/commitizen/cz-cli"><code>commitizen</code></a></p>
-						<pre><code class="language-sh">yarn global add commitizen
+						<pre><code class="language-sh"><span style="color: #000000">yarn global add commitizen</span>
 
-<span class="hljs-comment">#commit your changes:</span>
-git cz</code></pre>
+<span style="color: #008000">#commit your changes:</span>
+<span style="color: #000000">git cz</span>
+</code></pre>
 						<p>As typescript-starter docs state:</p>
 						<p>This project is tooled for <a href="https://github.com/conventional-changelog/conventional-changelog">conventional changelog</a> to make managing releases easier. See the <a href="https://github.com/conventional-changelog/standard-version">standard-version</a> documentation for more information on the workflow, or <a href="CHANGELOG.md"><code>CHANGELOG.md</code></a> for an example.</p>
-						<pre><code class="language-sh"><span class="hljs-comment"># bump package.json version, update CHANGELOG.md, git tag the release</span>
-yarn run version</code></pre>
+						<pre><code class="language-sh"><span style="color: #008000"># bump package.json version, update CHANGELOG.md, git tag the release</span>
+<span style="color: #000000">yarn run version</span>
+</code></pre>
 						<p>You may find a tool like <a href="https://github.com/bitjson/wip"><strong><code>wip</code></strong></a> helpful for managing work in progress before you&#39;re ready to create a meaningful commit.</p>
 						<a href="#creating-the-first-version" id="creating-the-first-version" style="color: inherit; text-decoration: none;">
 							<h3>Creating the first version</h3>
 						</a>
 						<p>Once you are ready to create the first version, run the following (note that <code>reset</code> is destructive and will remove all files not in the git repo from the directory).</p>
-						<pre><code class="language-sh"><span class="hljs-comment"># Reset the repo to the latest commit and build everything</span>
-yarn run reset &amp;&amp; yarn run <span class="hljs-built_in">test</span> &amp;&amp; yarn run doc:html
+						<pre><code class="language-sh"><span style="color: #008000"># Reset the repo to the latest commit and build everything</span>
+<span style="color: #000000">yarn run reset &amp;&amp; yarn run </span><span style="color: #795E26">test</span><span style="color: #000000"> &amp;&amp; yarn run doc:html</span>
 
-<span class="hljs-comment"># Then version it with standard-version options. e.g.:</span>
-<span class="hljs-comment"># don&#x27;t bump package.json version</span>
-yarn run version -- --first-release
+<span style="color: #008000"># Then version it with standard-version options. e.g.:</span>
+<span style="color: #008000"># don&#039;t bump package.json version</span>
+<span style="color: #000000">yarn run version -- --first-release</span>
 
-<span class="hljs-comment"># Other popular options include:</span>
+<span style="color: #008000"># Other popular options include:</span>
 
-<span class="hljs-comment"># PGP sign it:</span>
-<span class="hljs-comment"># $ yarn run version -- --sign</span>
+<span style="color: #008000"># PGP sign it:</span>
+<span style="color: #008000"># $ yarn run version -- --sign</span>
 
-<span class="hljs-comment"># alpha release:</span>
-<span class="hljs-comment"># $ yarn run version -- --prerelease alpha</span></code></pre>
+<span style="color: #008000"># alpha release:</span>
+<span style="color: #008000"># $ yarn run version -- --prerelease alpha</span>
+</code></pre>
 						<p>And after that, remember to <a href="#publish-the-docs">publish the docs</a>.</p>
 						<p>And finally push the new tags to github and publish the package to npm.</p>
-						<pre><code class="language-sh"><span class="hljs-comment"># Push to git</span>
-git push --follow-tags origin master
+						<pre><code class="language-sh"><span style="color: #008000"># Push to git</span>
+<span style="color: #000000">git push --follow-tags origin master</span>
 
-<span class="hljs-comment"># Publish to NPM (allowing public access, required if the package name is namespaced like `@somewhere/some-lib`)</span>
-yarn publish --access public</code></pre>
+<span style="color: #008000"># Publish to NPM (allowing public access, required if the package name is namespaced like `@somewhere/some-lib`)</span>
+<span style="color: #000000">yarn publish --access public</span>
+</code></pre>
 						<a href="#publish-the-docs" id="publish-the-docs" style="color: inherit; text-decoration: none;">
 							<h3>Publish the Docs</h3>
 						</a>
-						<pre><code class="language-sh">yarn run doc:html &amp;&amp; yarn run doc:publish</code></pre>
+						<pre><code class="language-sh"><span style="color: #000000">yarn run doc:html &amp;&amp; yarn run doc:publish</span>
+</code></pre>
 						<p>This will generate the docs and publish them in github pages.</p>
 						<a href="#generate-a-version" id="generate-a-version" style="color: inherit; text-decoration: none;">
 							<h3>Generate a version</h3>
 						</a>
 						<p>There is a single yarn command for preparing a new release. See <a href="https://github.com/bitjson/typescript-starter#one-step-publish-preparation-script">One-step publish preparation script in TypeScript-Starter</a></p>
-						<pre><code class="language-sh"><span class="hljs-comment"># Prepare a standard release</span>
-yarn prepare-release
+						<pre><code class="language-sh"><span style="color: #008000"># Prepare a standard release</span>
+<span style="color: #000000">yarn prepare-release</span>
 
-<span class="hljs-comment"># Push to git</span>
-git push --follow-tags origin master
+<span style="color: #008000"># Push to git</span>
+<span style="color: #000000">git push --follow-tags origin master</span>
 
-<span class="hljs-comment"># Publish to NPM (allowing public access, required if the package name is namespaced like `@somewhere/some-lib`)</span>
-yarn publish --access public</code></pre>
+<span style="color: #008000"># Publish to NPM (allowing public access, required if the package name is namespaced like `@somewhere/some-lib`)</span>
+<span style="color: #000000">yarn publish --access public</span>
+</code></pre>
 					</p>
 				</details>
 			</div>
@@ -339,9 +349,8 @@ yarn publish --access public</code></pre>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li><a href="index.html" class="title">README</a></li>
-					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
 					</li>
 				</ul>
 			</nav>
@@ -356,8 +365,14 @@ yarn publish --access public</code></pre>
 					<li class=" tsd-kind-enum">
 						<a href="enums/timeoverride.html" class="tsd-kind-icon">Time<wbr>Override</a>
 					</li>
+					<li class=" tsd-kind-class tsd-is-external">
+						<a href="classes/dayjs.html" class="tsd-kind-icon">Dayjs</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/invaliddateerror.html" class="tsd-kind-icon">Invalid<wbr>Date<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-is-external">
+						<a href="interfaces/duration.html" class="tsd-kind-icon">Duration</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/idayjsrange.html" class="tsd-kind-icon">IDayjs<wbr>Range</a>
@@ -365,134 +380,74 @@ yarn publish --access public</code></pre>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/idayjsrangestrict.html" class="tsd-kind-icon">IDayjs<wbr>Range<wbr>Strict</a>
 					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/iperiod.html" class="tsd-kind-icon">IPeriod</a>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#dayjsinput" class="tsd-kind-icon">Dayjs<wbr>Input</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-is-external">
+						<a href="modules.html#durationunittype" class="tsd-kind-icon">Duration<wbr>Unit<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-is-external">
+						<a href="modules.html#durationunitsobjecttype" class="tsd-kind-icon">Duration<wbr>Units<wbr>Object<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#dayjsinput" class="tsd-kind-icon">Dayjs<wbr>Input</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#emptyarray" class="tsd-kind-icon">Empty<wbr>Array</a>
+						<a href="modules.html#localeparam" class="tsd-kind-icon">Locale<wbr>Param</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#fulltimeoptions" class="tsd-kind-icon">Full<wbr>Time<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#localeoptions" class="tsd-kind-icon">Locale<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#localeparam" class="tsd-kind-icon">Locale<wbr>Param</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#nonemptyarray" class="tsd-kind-icon">Non<wbr>Empty<wbr>Array</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#nowoptions" class="tsd-kind-icon">Now<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#originoptions" class="tsd-kind-icon">Origin<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#parseoptions" class="tsd-kind-icon">Parse<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#parsestandardperiodoptions" class="tsd-kind-icon">Parse<wbr>Standard<wbr>Period<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#strictdayjsinput" class="tsd-kind-icon">Strict<wbr>Dayjs<wbr>Input</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#strictoptions" class="tsd-kind-icon">Strict<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#timeoverrideoptions" class="tsd-kind-icon">Time<wbr>Override<wbr>Options</a>
+						<a href="modules.html#strictdayjsinput" class="tsd-kind-icon">Strict<wbr>Dayjs<wbr>Input</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="globals.html#default_date_format" class="tsd-kind-icon">DEFAULT_<wbr>DATE_<wbr>FORMAT</a>
+						<a href="modules.html#default_date_format" class="tsd-kind-icon">DEFAULT_<wbr>DATE_<wbr>FORMAT</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="globals.html#default_locale" class="tsd-kind-icon">DEFAULT_<wbr>LOCALE</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="globals.html#periods" class="tsd-kind-icon">PERIODS</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="globals.html#duration" class="tsd-kind-icon">duration</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="globals.html#isduration" class="tsd-kind-icon">is<wbr>Duration</a>
+						<a href="modules.html#default_locale" class="tsd-kind-icon">DEFAULT_<wbr>LOCALE</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#adapttime" class="tsd-kind-icon">adapt<wbr>Time</a>
+						<a href="modules.html#dayjsnow" class="tsd-kind-icon">dayjs<wbr>Now</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#adapttimeoption" class="tsd-kind-icon">adapt<wbr>Time<wbr>Option</a>
+						<a href="modules.html#duration" class="tsd-kind-icon">duration</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#calculatefrom" class="tsd-kind-icon">calculate<wbr>From</a>
+						<a href="modules.html#durationbetween" class="tsd-kind-icon">duration<wbr>Between</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#createfrom" class="tsd-kind-icon">create<wbr>From</a>
+						<a href="modules.html#formatdate" class="tsd-kind-icon">format<wbr>Date</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-external">
+						<a href="modules.html#isdayjs" class="tsd-kind-icon">is<wbr>Dayjs</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#createnow" class="tsd-kind-icon">create<wbr>Now</a>
+						<a href="modules.html#isdayjsinput" class="tsd-kind-icon">is<wbr>Dayjs<wbr>Input</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#dayjsnow" class="tsd-kind-icon">dayjs<wbr>Now</a>
+						<a href="modules.html#isduration" class="tsd-kind-icon">is<wbr>Duration</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#defaulttooverride" class="tsd-kind-icon">default<wbr>ToOverride</a>
+						<a href="modules.html#isstrictdayjsinput" class="tsd-kind-icon">is<wbr>Strict<wbr>Dayjs<wbr>Input</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#durationbetween" class="tsd-kind-icon">duration<wbr>Between</a>
+						<a href="modules.html#isvaliddate" class="tsd-kind-icon">is<wbr>Valid<wbr>Date</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#extractinteger" class="tsd-kind-icon">extract<wbr>Integer</a>
+						<a href="modules.html#maxdayjs" class="tsd-kind-icon">max<wbr>Dayjs</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#extractperiod" class="tsd-kind-icon">extract<wbr>Period</a>
+						<a href="modules.html#mindayjs" class="tsd-kind-icon">min<wbr>Dayjs</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#formatdate" class="tsd-kind-icon">format<wbr>Date</a>
+						<a href="modules.html#parsedayjs" class="tsd-kind-icon">parse<wbr>Dayjs</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#isdayjsinput" class="tsd-kind-icon">is<wbr>Dayjs<wbr>Input</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#isemptyarray" class="tsd-kind-icon">is<wbr>Empty<wbr>Array</a>
+						<a href="modules.html#parsedayjsendofday" class="tsd-kind-icon">parse<wbr>Dayjs<wbr>End<wbr>OfDay</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#isstrictdayjsinput" class="tsd-kind-icon">is<wbr>Strict<wbr>Dayjs<wbr>Input</a>
+						<a href="modules.html#parsedayjsorerror" class="tsd-kind-icon">parse<wbr>Dayjs<wbr>OrError</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#isvaliddate" class="tsd-kind-icon">is<wbr>Valid<wbr>Date</a>
+						<a href="modules.html#parsedayjsstartofday" class="tsd-kind-icon">parse<wbr>Dayjs<wbr>Start<wbr>OfDay</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#isvalidnumber" class="tsd-kind-icon">is<wbr>Valid<wbr>Number</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#maxdayjs" class="tsd-kind-icon">max<wbr>Dayjs</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#mindayjs" class="tsd-kind-icon">min<wbr>Dayjs</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#parsedayjs" class="tsd-kind-icon">parse<wbr>Dayjs</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#parsedayjsendofday" class="tsd-kind-icon">parse<wbr>Dayjs<wbr>End<wbr>OfDay</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#parsedayjsorerror" class="tsd-kind-icon">parse<wbr>Dayjs<wbr>OrError</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#parsedayjsstartofday" class="tsd-kind-icon">parse<wbr>Dayjs<wbr>Start<wbr>OfDay</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#parsefromstandardperiods" class="tsd-kind-icon">parse<wbr>From<wbr>Standard<wbr>Periods</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#parseinteger" class="tsd-kind-icon">parse<wbr>Integer</a>
+						<a href="modules.html#parsefromstandardperiods" class="tsd-kind-icon">parse<wbr>From<wbr>Standard<wbr>Periods</a>
 					</li>
 				</ul>
 			</nav>
@@ -507,10 +462,7 @@ yarn publish --access public</code></pre>
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 			</ul>
 		</div>
 	</div>
