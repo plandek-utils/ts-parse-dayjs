@@ -19,7 +19,7 @@ import "dayjs/plugin/utc";
 import "dayjs/plugin/weekOfYear";
 
 import advancedFormat from "dayjs/plugin/advancedFormat";
-import durationPlugin, { Duration, DurationInputType } from "dayjs/plugin/duration";
+import durationPlugin, { Duration, DurationUnitsObjectType, DurationUnitType } from "dayjs/plugin/duration";
 import isBetween from "dayjs/plugin/isBetween";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
@@ -39,7 +39,7 @@ dayjs.extend(utc);
 dayjs.extend(weekOfYear);
 
 // exporting the type
-export { Dayjs, Duration, DurationInputType };
+export { Dayjs, Duration, DurationUnitsObjectType, DurationUnitType };
 
 // exporting the isDayjs function
 export { isDayjs };
