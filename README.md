@@ -18,14 +18,15 @@ utils to parse Dayjs objects in UTC
 ## Usage
 
 Note: it will return Dayjs objects with plugins:
- 
+
 - [`AdvancedFormat`](https://day.js.org/docs/en/plugin/advanced-format)
 - [`Duration`](https://day.js.org/docs/en/plugin/duration)
 - [`IsBetween`](https://day.js.org/docs/en/plugin/is-between)
 - [`IsSameOrAfter`](https://day.js.org/docs/en/plugin/is-same-or-after)
 - [`IsSameOrBefore`](https://day.js.org/docs/en/plugin/is-same-or-before)
 - [`MinMax`](https://day.js.org/docs/en/plugin/min-max)
-- [`UTC`](https://day.js.org/docs/en/plugin/utc) 
+- [`RelativeTime`](https://day.js.org/docs/en/plugin/relative-time)
+- [`UTC`](https://day.js.org/docs/en/plugin/utc)
 - [`WeekOfYear`](https://day.js.org/docs/en/plugin/week-of-year)
 
 ### `parseDayjs`
