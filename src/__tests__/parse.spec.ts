@@ -14,6 +14,7 @@ import {
   parseDayjsStartOfDay,
 } from "..";
 import { TimeDefault, TimeOverride } from "../time-options";
+import timekeeper from "timekeeper";
 
 dayjs.extend(utc);
 
@@ -44,6 +45,16 @@ describe("parseDayjs()", () => {
       const d = new Date("2018-01-01");
       const djs = dayjs.utc(d).locale(DEFAULT_LOCALE);
       expect(parseDayjs(d)).toEqual(djs);
+    });
+    it("returns a dayjs with `fromNow` enabled", async () => {
+      const s1 = "2018-01-01";
+      const s2 = "2018-01-03";
+      const d1 = parseDayjsOrError(s1);
+      const d2 = parseDayjsOrError(s2);
+
+      timekeeper.freeze(d2.toDate());
+      expect(d1.fromNow()).toEqual("2 days ago");
+      timekeeper.reset();
     });
   });
 
