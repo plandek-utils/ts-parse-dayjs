@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.2.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v4.1.0...v4.2.0) (2021-04-16)
+
+
+### Features
+
+* export types of Options + deps upgrade ([4990e5b](https://github.com/plandek-utils/ts-parse-dayjs/commit/4990e5b9d44d23756656eaeb6d1a6bf6b02197fc))
+
 ## [4.1.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v4.0.0...v4.1.0) (2021-04-07)
 
 
