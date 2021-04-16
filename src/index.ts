@@ -23,3 +23,4 @@ export { minDayjs, maxDayjs } from "./min-max";
 export * from "./parse";
 export * from "./parse-from-standard-periods";
 export * from "./time-options";
+export * from "./options";
