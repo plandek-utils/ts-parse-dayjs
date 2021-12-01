@@ -18,10 +18,12 @@ import "dayjs/plugin/minMax";
 import "dayjs/plugin/relativeTime";
 import "dayjs/plugin/utc";
 import "dayjs/plugin/weekOfYear";
+import "dayjs/plugin/updateLocale";
 
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import durationPlugin, { Duration, DurationUnitsObjectType, DurationUnitType } from "dayjs/plugin/duration";
 import isBetween from "dayjs/plugin/isBetween";
+import updateLocale from "dayjs/plugin/updateLocale";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
 import minMax from "dayjs/plugin/minMax";
@@ -40,6 +42,7 @@ dayjs.extend(minMax);
 dayjs.extend(relativeTime);
 dayjs.extend(utc);
 dayjs.extend(weekOfYear);
+dayjs.extend(updateLocale);
 
 // exporting the type
 export { Dayjs, Duration, DurationUnitsObjectType, DurationUnitType };
