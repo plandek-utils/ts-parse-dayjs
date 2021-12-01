@@ -241,9 +241,23 @@ const a = parseDayjsOrError("2012-12-15T12:31:31Z");
 const b = parseDayjsOrError("2012-12-15T12:31:41Z");
 
 const d = durationBetween(a, b);
-d.asSeconds() // => 10
+d.asSeconds(); // => 10
 
-isDuration(d) // => true
+isDuration(d); // => true
+```
+
+### `fromNow(value, withoutSuffix)`
+
+returns a string containing the humanized duration of the `value` from the current time.
+encapsulates locale configuration of formatting for `relativeTime`.
+optionally omits "ago" as the string suffix if `withoutSuffix` is true. By default is is applied.
+
+```typescript
+import { fromNow } from "@plandek-utils/ts-parse-dayjs";
+
+// if "now" is "2012-12-15T00:00:00Z"
+const a = parseDayjsOrError("2012-12-16T00:00:00Z");
+const res = fromNow(a); // "1 day ago"
 ```
 
 ## Development, Commits, versioning and publishing
