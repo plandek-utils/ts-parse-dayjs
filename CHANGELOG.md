@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.3.1](https://github.com/plandek-utils/ts-parse-dayjs/compare/v4.3.0...v4.3.1) (2021-12-01)
+
+
+### Bug Fixes
+
+* **export latest function:** export fromNow() ([#341](https://github.com/plandek-utils/ts-parse-dayjs/issues/341)) ([3f09b5c](https://github.com/plandek-utils/ts-parse-dayjs/commit/3f09b5ca8bbb300c4598e562d9d60027abaca656))
+
 ## [4.3.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v4.2.0...v4.3.0) (2021-12-01)
 
 
