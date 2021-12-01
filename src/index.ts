@@ -24,3 +24,4 @@ export * from "./parse";
 export * from "./parse-from-standard-periods";
 export * from "./time-options";
 export * from "./options";
+export * from "./from-now";
