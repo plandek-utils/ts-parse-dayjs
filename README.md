@@ -177,6 +177,19 @@ formatDate(parseDayjs("2019-01-02")); // => "2nd Jan 2019"
 formatDate(parseDayjs("2019-01-02"), "Do ww MMMM YYYY"); // => "2nd 01 January 2019"
 ```
 
+### `formatDateTime()`
+
+Same as `formatDate()` but with a different default format. The default format is `"Do MMM YYYY h:mm A"`
+
+```typescript
+import { formatDateTime, parseDayjs } from "@plandek-utils/ts-parse-dayjs";
+
+formatDateTime(null); // => null
+formatDateTime(parseDayjs("2019-01-02T13:24:12Z")); // => "2nd Jan 2019 1:24 PM"
+formatDateTime(parseDayjs("2019-01-02T13:24:12Z"), "Do ww MMMM YYYY h:mm A"); // => "2nd 01 January 2019 1:24 PM"
+formatDate(parseDayjs("2019-01-02T13:24:12Z"), "Do ww MMMM YYYY h:mm A"); // => "2nd 01 January 2019 1:24 PM"
+```
+
 ### `minDayjs()` and `maxDayjs()`
 
 Used to compare an array of Dayjs objects and return the min (earliest) or max (latest).
