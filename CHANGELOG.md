@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.5.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v4.4.0...v4.5.0) (2021-12-07)
+
+
+### Features
+
+* formatDateTime() and DEFAULT_DATETIME_FORMAT ([bef9541](https://github.com/plandek-utils/ts-parse-dayjs/commit/bef9541508a68fbe458d208576e59f3d5f19d5fa))
+
 ## [4.4.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v4.3.1...v4.4.0) (2021-12-07)
 
 
