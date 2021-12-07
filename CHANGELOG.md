@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.4.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v4.3.1...v4.4.0) (2021-12-07)
+
+
+### Features
+
+* fromNow(), toNow(), fromNowStrict() and toNowStrict() functions ([7ddb255](https://github.com/plandek-utils/ts-parse-dayjs/commit/7ddb255b9986482d24e51e86ddbc559472652fae))
+
 ### [4.3.1](https://github.com/plandek-utils/ts-parse-dayjs/compare/v4.3.0...v4.3.1) (2021-12-01)
 
 
