@@ -15,7 +15,6 @@ import "dayjs/plugin/isBetween";
 import "dayjs/plugin/isSameOrAfter";
 import "dayjs/plugin/isSameOrBefore";
 import "dayjs/plugin/minMax";
-import "dayjs/plugin/relativeTime";
 import "dayjs/plugin/utc";
 import "dayjs/plugin/weekOfYear";
 import "dayjs/plugin/updateLocale";
@@ -29,7 +28,7 @@ import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
 import minMax from "dayjs/plugin/minMax";
 import utc from "dayjs/plugin/utc";
 import weekOfYear from "dayjs/plugin/weekOfYear";
-import relativeTime from "dayjs/plugin/relativeTime";
+import { relativeTimeStrictPlugin } from "./relative-time-plugin";
 // tslint:enable:no-duplicate-imports
 // tslint:enable:no-submodule-imports
 
@@ -39,7 +38,7 @@ dayjs.extend(isBetween);
 dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);
 dayjs.extend(minMax);
-dayjs.extend(relativeTime);
+dayjs.extend(relativeTimeStrictPlugin);
 dayjs.extend(utc);
 dayjs.extend(weekOfYear);
 dayjs.extend(updateLocale);
