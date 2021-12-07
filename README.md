@@ -246,7 +246,7 @@ d.asSeconds(); // => 10
 isDuration(d); // => true
 ```
 
-### `fromNow(value, withoutSuffix)`
+### `fromNow(value, withoutSuffix)` and `toNow(value, withoutSuffix)`
 
 returns a string containing the humanized duration of the `value` from the current time.
 encapsulates locale configuration of formatting for `relativeTime`.
@@ -255,9 +255,26 @@ optionally omits "ago" as the string suffix if `withoutSuffix` is true. By defau
 ```typescript
 import { fromNow } from "@plandek-utils/ts-parse-dayjs";
 
-// if "now" is "2012-12-15T00:00:00Z"
-const a = parseDayjsOrError("2012-12-16T00:00:00Z");
-const res = fromNow(a); // "1 day ago"
+// if "now" is "2012-12-16T00:00:00Z"
+const a = parseDayjsOrError("2012-12-15T00:00:00Z");
+const res1 = fromNow(a); // "1 day ago"
+const res2 = toNow(a); // "in 1 day"
+```
+
+### `fromNowStrict(value, withoutSuffix)` and `toNowStrict(value, withoutSuffix)`
+
+Same as `fromNow()` and `toNow()`, but it will round down the numbers instead.
+
+```typescript
+import { fromNow, fromNowStrict } from "@plandek-utils/ts-parse-dayjs";
+
+// if "now" is "2012-12-16T23:00:00Z"
+const a = parseDayjsOrError("2012-12-15T00:00:00Z");
+const res1 = fromNow(a); // "2 days ago" (1d + 23h)
+const res2 = fromNowStrict(a); // "1 day ago" (1d + 23h)
+
+const res3 = toNow(a); // "in 2 days" (1d + 23h)
+const res4 = toNowStrict(a); // "in 1 day" (1d + 23h)
 ```
 
 ## Development, Commits, versioning and publishing
