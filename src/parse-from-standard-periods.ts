@@ -1,4 +1,4 @@
-import { Dayjs, OpUnitType } from "dayjs";
+import { Dayjs, ManipulateType, OpUnitType } from "dayjs";
 import { DEFAULT_LOCALE, LocaleParam } from "./base";
 import { dayjsNow } from "./dayjs-now";
 import { ParseStandardPeriodOptions } from "./options";
@@ -53,7 +53,16 @@ function calculateFrom(value: string, origin: Dayjs, locale: LocaleParam): Dayjs
   const period = extractPeriod(value);
   if (!period) return null;
 
-  return origin.locale(locale).subtract(period.q, period.unit).startOf(period.unit);
+  const subtr = manipulateTypeFromOpUnitType(period.unit);
+  return origin.locale(locale).subtract(period.q, subtr).startOf(period.unit);
+}
+
+/**
+ * @internal
+ */
+function manipulateTypeFromOpUnitType(unit: OpUnitType): ManipulateType {
+  if (unit === "date" || unit === "dates") return "day";
+  return unit;
 }
 
 /**

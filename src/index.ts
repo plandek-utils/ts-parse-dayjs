@@ -27,3 +27,7 @@ export * from "./parse-from-standard-periods";
 export * from "./time-options";
 export * from "./options";
 export * from "./relative-time";
+export * from "./granularity";
+export * from "./calculate-date-range-description";
+export * from "./is-relative";
+export * from "./print-utils";

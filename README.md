@@ -290,6 +290,167 @@ const res3 = toNow(a); // "in 2 days" (1d + 23h)
 const res4 = toNowStrict(a); // "in 1 day" (1d + 23h)
 ```
 
+### `isTodayOrFuture()` and `isTodayOrPast()`
+
+```ts
+import { isTodayOrFuture, isTodayOrPast } from "@plandek-utils/ts-parse-dayjs";
+
+isTodayOrFuture(today); // => true
+isTodayOrFuture(aSecondAgo); // => true
+isTodayOrFuture(aSecondInFuture); // => true
+isTodayOrFuture(aWeekAgo); // => false
+isTodayOrFuture(aWeekInFuture); // => true
+
+isTodayOrPast(today); // => true
+isTodayOrPast(aSecondAgo); // => true
+isTodayOrPast(aSecondInFuture); // => true
+isTodayOrPast(aWeekAgo); // => true
+isTodayOrPast(aWeekInFuture); // => false
+```
+
+### Granularity
+
+we export:
+
+- `GranularityEnumValues`: "day" | "week" | "month" | "year"
+- `GranularityDescriptionEnumValues` "daily" | "weekly" | "monthly" | "yearly"
+
+### `getGranularityDescription(granularity)`
+```ts
+import { getGranularityDescription } from "@plandek-utils/ts-parse-dayjs";
+
+// null -> daily
+getGranularityDescription(null) // => "daily"
+
+// day -> daily
+getGranularityDescription("day") // => "daily"
+
+// week -> weekly
+getGranularityDescription("week") // => "weekly"
+
+// month -> monthly
+getGranularityDescription("month") // => "monthly"
+
+// year -> yearly
+getGranularityDescription("year") // => "yearly"
+
+```
+
+### `getGranularityOptionsFromRange(range)`
+
+```ts
+// empty array with missing or invalid dates
+getGranularityOptionsFromRange({}) // => []
+getGranularityOptionsFromRange({ from: "2022-01-01" }) // => []
+getGranularityOptionsFromRange({ to: "2022-01-01" }) // => []
+getGranularityOptionsFromRange({ from: "nope", to: "2022-10-10" }) // => []
+
+// 2 days, starts Tue -> day
+getGranularityOptionsFromRange({ from: "2022-07-12", to: "2022-07-13" }) // => ["day"]
+
+// 10 days, starts Tue -> day
+getGranularityOptionsFromRange({ from: "2022-07-12", to: "2022-07-21" }) // => ["day"]
+
+// 20 days, starts Tue -> day
+getGranularityOptionsFromRange({ from: "2022-07-12", to: "2022-07-31" }) // => ["day"]
+
+// 21 days, starts Tue -> day
+getGranularityOptionsFromRange({ from: "2022-07-12", to: "2022-08-01" }) // => ["day"]
+
+// 41 days, starts Tue -> day
+getGranularityOptionsFromRange({ from: "2022-07-12", to: "2022-08-21" }) // => ["day"]
+
+
+// 2 days, starts Mon -> day
+getGranularityOptionsFromRange({ from: "2022-07-11", to: "2022-07-13" }) // => ["day"]
+
+// 10 days, starts Mon -> day, week
+getGranularityOptionsFromRange({ from: "2022-07-11", to: "2022-07-20" }) // => ["day", "week"]
+
+// 20 days, starts Mon -> day, week
+getGranularityOptionsFromRange({ from: "2022-07-11", to: "2022-07-30" }) // => ["day", "week"]
+
+// 21 days, starts Mon -> day, week
+getGranularityOptionsFromRange({ from: "2022-07-11", to: "2022-07-31" }) // => ["day", "week"]
+
+// 41 days, starts Mon -> day, week
+getGranularityOptionsFromRange({ from: "2022-07-11", to: "2022-07-31" }) // => ["day", "week"]
+
+
+// 2 days, starts Mon, Nov 1st -> day
+getGranularityOptionsFromRange({ from: "2021-11-01", to: "2021-11-02" }) // => ["day"]
+
+// 10 days, starts Mon, Nov 1st -> day, week
+getGranularityOptionsFromRange({ from: "2021-11-01", to: "2021-11-10" }) // => ["day", "week"]
+
+// 20 days, starts Mon, Nov 1st -> day, week
+getGranularityOptionsFromRange({ from: "2021-11-01", to: "2021-11-20" }) // => ["day", "week"]
+
+// 21 days, starts Mon, Nov 1st -> day, week
+getGranularityOptionsFromRange({ from: "2021-11-01", to: "2021-11-21" }) // => ["day", "week"]
+
+// 41 days, starts Mon, Nov 1st -> day, week, month
+getGranularityOptionsFromRange({ from: "2021-11-01", to: "2021-12-11" }) // => ["day", "week", "month"]
+
+// 500 days, starts Mon, Nov 1st -> day, week, month
+getGranularityOptionsFromRange({ from: "2021-11-01", to: "2023-03-16" }) // => ["day", "week", "month"]
+
+
+// 40 days, starts Friday, Jan 1st -> day, month
+getGranularityOptionsFromRange({ from: "2021-01-01", to: "2021-02-09" }) // => ["day", "month"]
+
+// 500 days, starts Friday, Jan 1st -> day, month, year
+getGranularityOptionsFromRange({ from: "2021-01-01", to: "2022-05-16" }) // => ["day", "month", "year"]
+
+
+// 40 days, starts Mon, Jan 1st -> day, week, month
+getGranularityOptionsFromRange({ from: "2018-01-01", to: "2018-02-09" }) // => ["day", "week", "month"]
+
+// 500 days, starts Mon, Jan 1st -> day, week, month, year
+getGranularityOptionsFromRange({ from: "2018-01-01", to: "2019-05-16" }) // => ["day", "week", "month", "year"]
+```
+
+### `calculateDateRangeDescription(opts)`
+
+```ts
+calculateDateRangeDescription({ from: dayjsFrom, to: dayjsTo }) // => "5th Aug 2017 - 15th Aug 2019"
+
+calculateDateRangeDescription({ from: today, to: today, granularity: "day" }) // => "Today"
+calculateDateRangeDescription({ from: today, to: today, granularity: "week" }) // => "This week"
+calculateDateRangeDescription({ from: today, to: today, granularity: "month" }) // => "This month"
+calculateDateRangeDescription({ from: today, to: today, granularity: "year" }) // => "This year"
+
+calculateDateRangeDescription({ from: thisMonday, to: dayjsTo, granularity: "week" }) // => "This week"
+```
+
+### Print utils
+
+We have a few print utils to help you print the date with a given static prefix. By default we export printSince and printStarted, but you can make your own function
+
+
+```ts
+import { printSince, printStarted, makePrintWithPrefix } from "@plandek-utils/ts-parse-dayjs";
+
+printSince("2020-01-01") // => "Since 1st Jan 2020"
+princeStarted("2020-01-01") // => "Started 1st Jan 2020"
+
+const fn = makePrintWithPrefix("Whatever ");
+fn("2020-01-01") // => "Whatever 1st Jan 2020"
+```
+
+You can also pass the format to use as a second argument.
+
+### Print range
+
+```ts
+
+// if dates are different - returns a from date and to date formatted as per the provided format separated by '-'
+printRange({ from: dayjsFrom, to: dayjsTo }) // => "5th Aug 2017 - 15th Aug 2019"
+
+// it("if dates are the same - returns a formatted from date with no separator
+printRange({ from: dayjsFrom, to: dayjsFrom }) // => "5th Aug 2017"
+```
+
 ## Development, Commits, versioning and publishing
 
 <details><summary>See documentation for development</summary>
