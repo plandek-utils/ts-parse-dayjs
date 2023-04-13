@@ -1,4 +1,4 @@
-import { Dayjs, ManipulateType, OpUnitType } from "dayjs";
+import { Dayjs } from "dayjs";
 import { DEFAULT_LOCALE, LocaleParam } from "./base";
 import { dayjsNow } from "./dayjs-now";
 import { ParseStandardPeriodOptions } from "./options";
@@ -17,25 +17,19 @@ export interface IDayjsRangeStrict {
 /**
  * @internal
  */
-interface IPeriod {
-  re: RegExp;
-  unit: OpUnitType;
-}
-
-/**
- * @internal
- */
-const PERIODS: IPeriod[] = [
+const PERIODS = [
   { re: /^([\d]+)y$/, unit: "year" },
   { re: /^([\d]+)m$/, unit: "month" },
   { re: /^([\d]+)w$/, unit: "week" },
   { re: /^([\d]+)d$/, unit: "day" },
-];
+] as const;
+
+type Unit = (typeof PERIODS)[number]["unit"];
 
 /**
  * @internal
  */
-function extractPeriod(value: string): { unit: OpUnitType; q: number } | null {
+function extractPeriod(value: string): { unit: Unit; q: number } | null {
   for (const { re, unit } of PERIODS) {
     const q = extractInteger(value, re);
     if (isValidNumber(q)) {
@@ -53,16 +47,7 @@ function calculateFrom(value: string, origin: Dayjs, locale: LocaleParam): Dayjs
   const period = extractPeriod(value);
   if (!period) return null;
 
-  const subtr = manipulateTypeFromOpUnitType(period.unit);
-  return origin.locale(locale).subtract(period.q, subtr).startOf(period.unit);
-}
-
-/**
- * @internal
- */
-function manipulateTypeFromOpUnitType(unit: OpUnitType): ManipulateType {
-  if (unit === "date" || unit === "dates") return "day";
-  return unit;
+  return origin.locale(locale).subtract(period.q, period.unit).startOf(period.unit);
 }
 
 /**

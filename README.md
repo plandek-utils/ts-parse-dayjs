@@ -190,6 +190,31 @@ formatDateTime(parseDayjs("2019-01-02T13:24:12Z"), "Do ww MMMM YYYY h:mm A"); //
 formatDate(parseDayjs("2019-01-02T13:24:12Z"), "Do ww MMMM YYYY h:mm A"); // => "2nd 01 January 2019 1:24 PM"
 ```
 
+### `toISOString()`, and types `ISODate`, `ISODateTime`, `ISOTime`
+
+Used to get an ISO 8601 string from a Dayjs object. 
+
+It is not possible to type more precisely (list every possible values for hours, etc.) as
+it would result in a warning from TypeScript: "Expression produces a union type that is too complex to represent. ts(2590)"
+
+```typescript
+import type { ISODate, ISODateTime, ISOTime } from "@plandek-utils/ts-parse-dayjs";
+import { parseDayjsOrError, toISOString} from "@plandek-utils/ts-parse-dayjs";
+
+const d = parseDayjsOrError("2020-01-01T12:34:56.789Z");
+toISOString(d); // => "2020-01-01T12:34:56.789Z"
+
+const x1: ISODate = "2020-01-01" // ok
+const x2: ISODate = "2020-02-31" // ok -> does not check for days of each month
+const x3: ISODate = "12-01-01" // ok -> only checks that the year is a number
+const b1: ISODate = "2020-13-01" // bad -> month is not between 01 and 12 
+const b2: ISODate = "2020-12-41" // bad -> day is not between 01 and 31 
+
+const t1: ISOTime = "12:34:56.789Z" // ok
+
+const dt1: ISODateTime = "2020-01-01T12:34:56.789Z" // ok
+````
+
 ### `minDayjs()` and `maxDayjs()`
 
 Used to compare an array of Dayjs objects and return the min (earliest) or max (latest).
