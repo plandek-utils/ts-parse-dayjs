@@ -9,25 +9,16 @@ import "dayjs/locale/en-ie";
 import "dayjs/locale/en-il";
 import "dayjs/locale/en-nz";
 import "dayjs/locale/en-sg";
-import "dayjs/plugin/advancedFormat";
-import "dayjs/plugin/duration";
-import "dayjs/plugin/isBetween";
-import "dayjs/plugin/isSameOrAfter";
-import "dayjs/plugin/isSameOrBefore";
-import "dayjs/plugin/minMax";
-import "dayjs/plugin/utc";
-import "dayjs/plugin/weekOfYear";
-import "dayjs/plugin/updateLocale";
-
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import durationPlugin, { Duration, DurationUnitsObjectType, DurationUnitType } from "dayjs/plugin/duration";
 import isBetween from "dayjs/plugin/isBetween";
-import updateLocale from "dayjs/plugin/updateLocale";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
 import minMax from "dayjs/plugin/minMax";
 import utc from "dayjs/plugin/utc";
 import weekOfYear from "dayjs/plugin/weekOfYear";
+import updateLocale from "dayjs/plugin/updateLocale";
+
 import { relativeTimeStrictPlugin } from "./relative-time-plugin";
 // tslint:enable:no-duplicate-imports
 // tslint:enable:no-submodule-imports

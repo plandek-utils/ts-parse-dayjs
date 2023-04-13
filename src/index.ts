@@ -31,3 +31,4 @@ export * from "./granularity";
 export * from "./calculate-date-range-description";
 export * from "./is-relative";
 export * from "./print-utils";
+export * from "./to-iso-string";

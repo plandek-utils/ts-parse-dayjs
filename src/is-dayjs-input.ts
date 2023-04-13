@@ -1,4 +1,4 @@
-import isNil from "lodash.isnil";
+import { isNil } from "lodash";
 import { isDayjs } from "dayjs";
 import { isValidNumber } from "./utils";
 import { StrictDayjsInput, DayjsInput } from "./base";
