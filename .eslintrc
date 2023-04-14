@@ -33,6 +33,8 @@
     "no-return-await": 2,
     //"import/no-cycle": [2,{"ignoreExternal": true}], // to avoid the silent runtime errors
     "import/no-cycle": 0, // we need to disable this until we can solve the issue with generated in api using Context type...
+    "import/no-duplicates": 0,
+    "no-duplicate-imports": 0,
     "@typescript-eslint/no-var-requires": 0, // needed for specific stuff (e.g. honeycomb)
     "import/no-named-as-default": 0, // produces issues with apollo-boost,
     "import/default": 0, // https://github.com/alexgorbatchev/eslint-import-resolver-typescript/issues/31#issuecomment-539751607

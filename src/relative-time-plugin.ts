@@ -1,5 +1,3 @@
-// tslint:disable:no-submodule-imports
-// tslint:disable:interface-name
 import { Dayjs, PluginFunc } from "dayjs";
 import relativeTimePlugin from "dayjs/plugin/relativeTime";
 

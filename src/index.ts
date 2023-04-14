@@ -16,6 +16,10 @@ export {
   isDuration,
   LocaleParam,
   StrictDayjsInput,
+  ISODate,
+  ISOTime,
+  ISODateString,
+  toISOString,
 } from "./base";
 export * from "./dayjs-now";
 export * from "./is-valid-date";
@@ -31,4 +35,3 @@ export * from "./granularity";
 export * from "./calculate-date-range-description";
 export * from "./is-relative";
 export * from "./print-utils";
-export * from "./to-iso-string";

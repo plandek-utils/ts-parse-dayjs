@@ -21,7 +21,6 @@ describe("isStrictDayjsInput", () => {
     expect(isStrictDayjsInput(false)).toBeFalsy();
   });
   it("isStrictDayjsInput(() => {})) => false", () => {
-    // tslint:disable-next-line:no-empty
     expect(isStrictDayjsInput(() => {})).toBeFalsy();
   });
 
@@ -53,7 +52,6 @@ describe("isDayjsInput", () => {
     expect(isDayjsInput(false)).toBeFalsy();
   });
   it("isDayjsInput(() => {})) => false", () => {
-    // tslint:disable-next-line:no-empty
     expect(isDayjsInput(() => {})).toBeFalsy();
   });
   it("isDayjsInput(null) => true", () => {
