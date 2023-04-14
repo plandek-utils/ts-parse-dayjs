@@ -1,8 +1,5 @@
 import dayjs from "dayjs";
-// tslint:disable:no-submodule-imports
-// @ts-ignore
 import utc from "dayjs/plugin/utc";
-// tslint:enable:no-submodule-imports
 import timekeeper from "timekeeper";
 import { dayjsNow, isDayjs } from "..";
 
