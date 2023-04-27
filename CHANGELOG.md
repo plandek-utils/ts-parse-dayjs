@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.7.2](https://github.com/plandek-utils/ts-parse-dayjs/compare/v4.7.1...v4.7.2) (2023-04-27)
+
+
+### Bug Fixes
+
+* refactor to ensure that we use the dayjs from base.ts and export those types ([718ca2f](https://github.com/plandek-utils/ts-parse-dayjs/commit/718ca2f230b54403ebd508be236fb8a816589d50))
+
 ### [4.7.1](https://github.com/plandek-utils/ts-parse-dayjs/compare/v4.7.0...v4.7.1) (2023-04-14)
 
 
