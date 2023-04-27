@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.7.3](https://github.com/plandek-utils/ts-parse-dayjs/compare/v4.7.2...v4.7.3) (2023-04-27)
+
+
+### Bug Fixes
+
+* import relative-time-plugin for fixing types ([334ea0e](https://github.com/plandek-utils/ts-parse-dayjs/commit/334ea0e0de9b2bfbbef14bbc6f6309f2e76d396f))
+
 ### [4.7.2](https://github.com/plandek-utils/ts-parse-dayjs/compare/v4.7.1...v4.7.2) (2023-04-27)
 
 
