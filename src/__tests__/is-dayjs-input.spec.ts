@@ -1,4 +1,4 @@
-import { isStrictDayjsInput, isDayjsInput } from "../is-dayjs-input";
+import { isDayjsInput, isStrictDayjsInput } from "../is-dayjs-input";
 import { parseDayjsOrError } from "../parse";
 
 describe("isStrictDayjsInput", () => {

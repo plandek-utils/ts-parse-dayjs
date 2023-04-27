@@ -1,4 +1,4 @@
-import { minDayjs, maxDayjs, parseDayjsOrError, Dayjs } from "..";
+import { Dayjs, maxDayjs, minDayjs, parseDayjsOrError } from "..";
 
 const d1 = parseDayjsOrError("2019-01-01");
 const d2 = parseDayjsOrError("2019-02-02");

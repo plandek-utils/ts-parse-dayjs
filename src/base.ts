@@ -15,9 +15,9 @@ import "dayjs/plugin/isBetween";
 import "dayjs/plugin/isSameOrAfter";
 import "dayjs/plugin/isSameOrBefore";
 import "dayjs/plugin/minMax";
+import "dayjs/plugin/updateLocale";
 import "dayjs/plugin/utc";
 import "dayjs/plugin/weekOfYear";
-import "dayjs/plugin/updateLocale";
 
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import durationPlugin, { Duration, DurationUnitsObjectType, DurationUnitType } from "dayjs/plugin/duration";
@@ -25,11 +25,11 @@ import isBetween from "dayjs/plugin/isBetween";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
 import minMax from "dayjs/plugin/minMax";
+import updateLocale from "dayjs/plugin/updateLocale";
 import utc from "dayjs/plugin/utc";
 import weekOfYear from "dayjs/plugin/weekOfYear";
-import updateLocale from "dayjs/plugin/updateLocale";
 
-import { relativeTimeStrictPlugin } from "./relative-time-plugin";
+import { relativeTimeStrictPlugin } from "./dayjs-plugin/relative-time-plugin";
 
 dayjs.extend(advancedFormat);
 dayjs.extend(durationPlugin);
@@ -44,15 +44,14 @@ dayjs.extend(updateLocale);
 
 // exporting the type
 export { Dayjs, Duration, DurationUnitsObjectType, DurationUnitType };
-
 // exporting the isDayjs function
 export { isDayjs };
 
-const duration = dayjs.duration;
-const isDuration = dayjs.isDuration;
+export const min = dayjs.min;
+export const max = dayjs.max;
 
-// exporting the duration functions
-export { duration, isDuration };
+export const duration = dayjs.duration;
+export const isDuration = dayjs.isDuration;
 
 type TYear = `${number}`;
 type TMonth = "01" | "02" | "03" | "04" | "05" | "06" | "07" | "08" | "09" | "10" | "11" | "12";
@@ -115,12 +114,30 @@ export function durationBetween(from: Dayjs, to: Dayjs): Duration {
   return duration(to.diff(from));
 }
 
+const relativeTimeConfig = {
+  future: "in %s",
+  past: "%s ago",
+  s: "a few seconds",
+  ss: "a few seconds",
+  m: "1 minute",
+  mm: "%d minutes",
+  h: "1 hour",
+  hh: "%d hours",
+  d: "1 day",
+  dd: "%d days",
+  M: "1 month",
+  MM: "%d months",
+  y: "1 year",
+  yy: "%d years",
+};
+
 /**
  * List of imported locales.
  * If you import more dayjs locales in your app, pass the actual locale object as param instead of the name
  */
 export enum AvailableLocales {
   EnglishUSA = "en",
+
   EnglishAU = "en-au",
   EnglishCA = "en-ca",
   EnglishGB = "en-gb",
@@ -129,6 +146,15 @@ export enum AvailableLocales {
   EnglishNZ = "en-nz",
   EnglishSG = "en-SG",
 }
+
+dayjs.updateLocale(AvailableLocales.EnglishAU, { relativeTime: relativeTimeConfig });
+dayjs.updateLocale(AvailableLocales.EnglishCA, { relativeTime: relativeTimeConfig });
+dayjs.updateLocale(AvailableLocales.EnglishGB, { relativeTime: relativeTimeConfig });
+dayjs.updateLocale(AvailableLocales.EnglishIE, { relativeTime: relativeTimeConfig });
+dayjs.updateLocale(AvailableLocales.EnglishIL, { relativeTime: relativeTimeConfig });
+dayjs.updateLocale(AvailableLocales.EnglishNZ, { relativeTime: relativeTimeConfig });
+dayjs.updateLocale(AvailableLocales.EnglishSG, { relativeTime: relativeTimeConfig });
+dayjs.updateLocale(AvailableLocales.EnglishUSA, { relativeTime: relativeTimeConfig });
 
 export const DEFAULT_LOCALE = AvailableLocales.EnglishGB;
 

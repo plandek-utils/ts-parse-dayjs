@@ -1,5 +1,4 @@
-import { Dayjs } from "dayjs";
-import { DEFAULT_LOCALE, LocaleParam } from "./base";
+import { Dayjs, DEFAULT_LOCALE, LocaleParam } from "./base";
 import { dayjsNow } from "./dayjs-now";
 import { ParseStandardPeriodOptions } from "./options";
 import { extractInteger, isValidNumber } from "./utils";

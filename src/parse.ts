@@ -1,5 +1,4 @@
-import { Dayjs } from "dayjs";
-import { createFrom, DayjsInput, DEFAULT_LOCALE } from "./base";
+import { createFrom, Dayjs, DayjsInput, DEFAULT_LOCALE } from "./base";
 import { InvalidDateError } from "./errors";
 import { ParseOptions } from "./options";
 import { TimeOverride } from "./time-options";

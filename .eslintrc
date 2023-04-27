@@ -20,6 +20,12 @@
     "@typescript-eslint/no-explicit-any": 0, // we use `any` sometimes
     "@typescript-eslint/camelcase": 0, // elasticsearch keys are lower_case
     "@typescript-eslint/no-empty-function": 0,
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["**/__tests__/**", "dayjs"]
+      }
+    ],
     "no-unused-vars": 0, // using the typescript one
     "@typescript-eslint/no-unused-vars": [
       2,
@@ -48,7 +54,22 @@
         "**/__tests__/*"
       ],
       "rules": {
-        "@typescript-eslint/ban-ts-comment": "off"
+        "@typescript-eslint/ban-ts-comment": "off",
+        "no-restricted-imports": "off"
+      }
+    },
+    {
+      "files": [
+        "base.ts",
+        "**/dayjs-plugin/**/*.ts"
+      ],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": ["**/__tests__/**"]
+          }
+        ]
       }
     }
   ],

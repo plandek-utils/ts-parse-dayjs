@@ -1,4 +1,4 @@
-import { parseDayjs, isValidDate } from "..";
+import { isValidDate, parseDayjs } from "..";
 
 describe("isValidDate()", () => {
   it("returns false with null", () => {
