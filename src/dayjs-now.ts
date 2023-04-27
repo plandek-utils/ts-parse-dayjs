@@ -1,5 +1,4 @@
-import { Dayjs } from "dayjs";
-import { createNow, DEFAULT_LOCALE } from "./base";
+import { createNow, Dayjs, DEFAULT_LOCALE } from "./base";
 import { NowOptions } from "./options";
 import { adaptTime } from "./utils";
 

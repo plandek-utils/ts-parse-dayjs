@@ -1,7 +1,6 @@
 import { isNil } from "lodash";
-import { isDayjs } from "dayjs";
+import { DayjsInput, isDayjs, StrictDayjsInput } from "./base";
 import { isValidNumber } from "./utils";
-import { StrictDayjsInput, DayjsInput } from "./base";
 
 /**
  * returns true if the given param is a Dayjs object, Date, number (except NaN) or string

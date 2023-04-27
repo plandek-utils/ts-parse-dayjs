@@ -1,4 +1,4 @@
-import { Dayjs } from "dayjs";
+import { Dayjs } from "./base";
 import { dayjsNow } from "./dayjs-now";
 
 export function isTodayOrFuture(date: Dayjs, now: Dayjs = dayjsNow()): boolean {

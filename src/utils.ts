@@ -1,5 +1,4 @@
-import { Dayjs } from "dayjs";
-import { DayjsInput } from "./base";
+import { Dayjs, DayjsInput } from "./base";
 import { TimeDefault, TimeOverride } from "./time-options";
 
 /**

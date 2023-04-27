@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import esLocale from "dayjs/locale/es";
 import utc from "dayjs/plugin/utc";
+import timekeeper from "timekeeper";
 import {
   AvailableLocales,
   DEFAULT_LOCALE,
@@ -11,7 +12,6 @@ import {
   parseDayjsStartOfDay,
 } from "..";
 import { TimeDefault, TimeOverride } from "../time-options";
-import timekeeper from "timekeeper";
 
 dayjs.extend(utc);
 

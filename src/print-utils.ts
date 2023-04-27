@@ -1,4 +1,5 @@
-import { Dayjs } from "dayjs";
+import { Dayjs } from "./base";
+
 import { DEFAULT_DATE_FORMAT, formatDate } from "./base";
 
 export function makePrintWithPrefix(

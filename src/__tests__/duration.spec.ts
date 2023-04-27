@@ -1,4 +1,4 @@
-import { parseDayjsOrError, durationBetween, Duration, isDuration } from "../index";
+import { Duration, durationBetween, isDuration, parseDayjsOrError } from "../index";
 
 const a = parseDayjsOrError("2020-01-01T00:00:10Z");
 const b = parseDayjsOrError("2020-01-01T00:00:20Z");
