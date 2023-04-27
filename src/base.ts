@@ -18,6 +18,7 @@ import "dayjs/plugin/minMax";
 import "dayjs/plugin/updateLocale";
 import "dayjs/plugin/utc";
 import "dayjs/plugin/weekOfYear";
+import "./dayjs-plugin/relative-time-plugin";
 
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import durationPlugin, { Duration, DurationUnitsObjectType, DurationUnitType } from "dayjs/plugin/duration";
