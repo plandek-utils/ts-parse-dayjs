@@ -29,7 +29,7 @@ type TimeOverrideOptions = { time?: TimeDefault | TimeOverride | null };
 /**
  * options for dayjsNow()
  */
-export type NowOptions = StrictOptions & LocaleOptions & TimeOverrideOptions;
+export type NowOptions = LocaleOptions & TimeOverrideOptions;
 
 /**
  * options for parseDayjs()

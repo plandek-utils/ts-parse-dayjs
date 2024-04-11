@@ -92,6 +92,31 @@ import esLocale from "dayjs/locale/es";
 dayjsNow({ locale: esLocale }); // => Dayjs with the current time, in UTC, locale es
 ```
 
+### `dayjsTodayEOD`
+
+returns a Dayjs (in UTC) of the current utc date at the end of date. It can accept a locale as optional argument (see [Locale](#locale))
+
+```typescript
+import {
+  dayjsNow,
+  dayjsTodayEOD,
+  AvailableLocales
+} from "@plandek-utils/ts-parse-dayjs";
+
+dayjsTodayEOD(); // => Dayjs object with the date at 23:59:59.999Z, in UTC (locale en-gb)
+dayjsTodayEOD({ locale: AvailableLocales.EnglishUSA }); // => same, with locale en
+
+dayjsNow({ time: TimeOverride.EndOfDay  }); // => equivalent to dayjsTodayEOD()
+
+import esLocale
+  from "dayjs/locale/es";
+import {
+  TimeOverride
+} from "./time-options";
+
+dayjsTodayEOD({ locale: esLocale }); // => Dayjs with the current time, in UTC, locale es
+```
+
 ### `parseDayjsOrError`
 
 same as [`parseDayjs`](#parseDayjs) but instead of returning `null` on an invalid date, it throws an `InvalidDateError`. It can accept an optional second argument locale (see [Locale](#locale))

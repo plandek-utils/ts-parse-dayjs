@@ -1,9 +1,22 @@
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timekeeper from "timekeeper";
-import { dayjsNow, isDayjs } from "..";
+import { AvailableLocales, dayjsNow, dayjsTodayEOD, isDayjs, TimeOverride } from "..";
 
 dayjs.extend(utc);
+
+describe("dayjsTodayEOD", () => {
+  it("returns a Dayjs (in UTC) of the current time at the end of the day", () => {
+    const expected = dayjsNow({ time: TimeOverride.EndOfDay });
+    const actual = dayjsTodayEOD();
+    expect(actual).toEqual(expected);
+  });
+  it("can specify locale", () => {
+    const expected = dayjsNow({ time: TimeOverride.EndOfDay, locale: AvailableLocales.EnglishAU });
+    const actual = dayjsTodayEOD({ locale: AvailableLocales.EnglishAU });
+    expect(actual).toEqual(expected);
+  });
+});
 
 describe("dayjsNow()", () => {
   it("returns a Dayjs (in UTC) of the current time", () => {

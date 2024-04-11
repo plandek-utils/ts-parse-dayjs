@@ -1,5 +1,6 @@
 import { createNow, Dayjs, DEFAULT_LOCALE } from "./base";
 import { NowOptions } from "./options";
+import { TimeOverride } from "./time-options";
 import { adaptTime } from "./utils";
 
 /**
@@ -13,4 +14,17 @@ import { adaptTime } from "./utils";
  */
 export function dayjsNow({ locale = DEFAULT_LOCALE, time }: NowOptions = {}): Dayjs {
   return adaptTime(createNow(locale), time);
+}
+
+/**
+ * calling dayjsNow with time: TimeOverride.EndOfDay
+ *
+ * @param options
+ * @param options.locale locale to use (by default DEFAULT_LOCALE)
+ * @see DEFAULT_LOCALE
+ * @see TimeOverride
+ * @see dayjsNow
+ */
+export function dayjsTodayEOD({ locale = DEFAULT_LOCALE }: Omit<NowOptions, "time"> = {}): Dayjs {
+  return dayjsNow({ time: TimeOverride.EndOfDay, locale });
 }
