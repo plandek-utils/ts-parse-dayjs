@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v4.7.3...v5.0.0) (2024-04-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* dayjsNow() to stop having `strict` option
+
+### Features
+
+* dayjsNow() and dayjsTodayEOD() ([3b80dce](https://github.com/plandek-utils/ts-parse-dayjs/commit/3b80dce00f6a67194b49dc344c3249c64e4f6c9b))
+
 ### [4.7.3](https://github.com/plandek-utils/ts-parse-dayjs/compare/v4.7.2...v4.7.3) (2023-04-27)
 
 
