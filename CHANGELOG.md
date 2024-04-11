@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v5.0.0...v5.1.0) (2024-04-11)
+
+
+### Features
+
+* toISODate() ([924a1f8](https://github.com/plandek-utils/ts-parse-dayjs/commit/924a1f86cb6abb7c7f9768fc9f225a50f88f5165))
+
 ## [5.0.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v4.7.3...v5.0.0) (2024-04-11)
 
 
