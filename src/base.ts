@@ -100,6 +100,16 @@ export function toISOString(d: Dayjs): ISODateString {
   return d.toISOString() as ISODateString;
 }
 
+const ISO_DATE_FORMAT = "YYYY-MM-DD";
+
+/**
+ * Converts a Dayjs object to an ISO date string. YYYY-MM-DD
+ * @param d
+ */
+export function toISODate(d: Dayjs): ISODate {
+  return d.format(ISO_DATE_FORMAT) as ISODate;
+}
+
 declare module "dayjs" {
   interface Dayjs {
     toISOString(): ISODateString;
