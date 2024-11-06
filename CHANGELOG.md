@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.2.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v5.1.0...v5.2.0) (2024-11-06)
+
+
+### Features
+
+* remove lodash ([51c6e43](https://github.com/plandek-utils/ts-parse-dayjs/commit/51c6e4355b5d8320db2cf4b67fb793baccdb9793))
+
 ## [5.1.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v5.0.0...v5.1.0) (2024-04-11)
 
 
