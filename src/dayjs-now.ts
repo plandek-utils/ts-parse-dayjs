@@ -1,5 +1,5 @@
-import { createNow, Dayjs, DEFAULT_LOCALE } from "./base";
-import { NowOptions } from "./options";
+import { DEFAULT_LOCALE, type Dayjs, createNow } from "./base";
+import type { NowOptions } from "./options";
 import { TimeOverride } from "./time-options";
 import { adaptTime } from "./utils";
 

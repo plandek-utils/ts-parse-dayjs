@@ -1,5 +1,4 @@
-import { isNil } from "lodash";
-import { DayjsInput, isDayjs, StrictDayjsInput } from "./base";
+import { type DayjsInput, type StrictDayjsInput, isDayjs } from "./base";
 import { isValidNumber } from "./utils";
 
 /**
@@ -7,7 +6,7 @@ import { isValidNumber } from "./utils";
  *
  * @param x
  */
-export function isStrictDayjsInput(x: any): x is StrictDayjsInput {
+export function isStrictDayjsInput(x: unknown): x is StrictDayjsInput {
   if (isNil(x)) return false;
   return isDayjs(x) || x instanceof Date || isValidNumber(x) || typeof x === "string";
 }
@@ -16,6 +15,10 @@ export function isStrictDayjsInput(x: any): x is StrictDayjsInput {
  * returns true if the given param is a Dayjs object, Date, number (except NaN), string, null or undefined
  * @param x
  */
-export function isDayjsInput(x: any): x is DayjsInput {
+export function isDayjsInput(x: unknown): x is DayjsInput {
   return isNil(x) || isStrictDayjsInput(x);
+}
+
+function isNil(x: unknown): x is null | undefined {
+  return x === null || x === undefined;
 }

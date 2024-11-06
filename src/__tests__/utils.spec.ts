@@ -1,3 +1,5 @@
+import { describe, expect, it } from "vitest";
+
 import { extractInteger, parseInteger } from "../utils";
 
 describe("parseInteger()", () => {
@@ -36,6 +38,6 @@ describe("extractInteger", () => {
     expect(extractInteger("123x", re)).toBeNull();
   });
   it('extractInteger("123x", /^(x+)$/) => throw error (invalid number extracted, bad regex?)', () => {
-    expect(() => extractInteger("xxx", /^([x]+)$/)).toThrowError(`invalid number parsed number from: xxx`);
+    expect(() => extractInteger("xxx", /^([x]+)$/)).toThrowError("invalid number parsed number from: xxx");
   });
 });

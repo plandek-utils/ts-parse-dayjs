@@ -1,4 +1,4 @@
-import { DayjsInput } from "./base";
+import type { DayjsInput } from "./base";
 import { parseDayjs } from "./parse";
 
 /**

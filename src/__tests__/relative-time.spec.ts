@@ -1,3 +1,5 @@
+import { describe, expect, it } from "vitest";
+
 import { dayjsNow, fromNow, fromNowStrict, toNow, toNowStrict } from "..";
 
 describe("fromNow()", () => {

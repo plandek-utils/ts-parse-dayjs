@@ -19,6 +19,7 @@
     ".editorconfig",
     ".eslintrc",
     ".github/*",
+    ".husky/*",
     ".gitiginore",
     ".npmignore",
     ".prettierignore",

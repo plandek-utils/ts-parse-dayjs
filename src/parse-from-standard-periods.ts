@@ -1,6 +1,6 @@
-import { Dayjs, DEFAULT_LOCALE, LocaleParam } from "./base";
+import { DEFAULT_LOCALE, type Dayjs, type LocaleParam } from "./base";
 import { dayjsNow } from "./dayjs-now";
-import { ParseStandardPeriodOptions } from "./options";
+import type { ParseStandardPeriodOptions } from "./options";
 import { extractInteger, isValidNumber } from "./utils";
 
 export interface IDayjsRange {
@@ -72,7 +72,7 @@ function calculateFrom(value: string, origin: Dayjs, locale: LocaleParam): Dayjs
  */
 export function parseFromStandardPeriods(
   value: string,
-  { locale = DEFAULT_LOCALE, origin }: ParseStandardPeriodOptions = {}
+  { locale = DEFAULT_LOCALE, origin }: ParseStandardPeriodOptions = {},
 ): IDayjsRangeStrict | null {
   const o = origin || dayjsNow({ locale });
   const from = calculateFrom(value, o, locale);

@@ -1,3 +1,5 @@
+import { describe, expect, it } from "vitest";
+
 import { calculateDateRangeDescription } from "../calculate-date-range-description";
 import { dayjsNow } from "../dayjs-now";
 import { parseDayjsEndOfDay, parseDayjsOrError, parseDayjsStartOfDay } from "../parse";
@@ -30,19 +32,19 @@ describe("calculateDateRangeDescription()", () => {
 
   it("returns 'today' if granularity = 'day' and toDate isTodayOrFuture and the from date is the same day as the nowDate", () => {
     expect(calculateDateRangeDescription({ from: dayjsFrom, to: now, granularity: "day", now: dayjsFrom })).toEqual(
-      "Today"
+      "Today",
     );
   });
 
   it("returns 'this week' if granularity = 'week' and toDate isTodayOrFuture and the from date is the same day as the nowDate", () => {
     expect(calculateDateRangeDescription({ from: dayjsFrom, to: now, granularity: "week", now: dayjsFrom })).toEqual(
-      "This week"
+      "This week",
     );
   });
 
   it("returns 'this month' if granularity = 'month' and toDate isTodayOrFuture and the from date is the same day as the nowDate", () => {
     expect(calculateDateRangeDescription({ from: dayjsFrom, to: now, granularity: "month", now: dayjsFrom })).toEqual(
-      "This month"
+      "This month",
     );
   });
 
@@ -55,7 +57,7 @@ describe("calculateDateRangeDescription()", () => {
     const dayjsFakeCurrent = parseDayjsOrError(parseDayjsEndOfDay(fakeCurrent));
 
     expect(calculateDateRangeDescription({ from: dayjsFrom, to: now, now: dayjsFakeCurrent })).toEqual(
-      "Since 12th Aug 2019"
+      "Since 12th Aug 2019",
     );
   });
 
@@ -68,7 +70,7 @@ describe("calculateDateRangeDescription()", () => {
     const dayjsFakeCurrent = parseDayjsOrError(parseDayjsEndOfDay(fakeCurrent));
 
     expect(
-      calculateDateRangeDescription({ from: dayjsFrom, to: now, granularity: "day", now: dayjsFakeCurrent })
+      calculateDateRangeDescription({ from: dayjsFrom, to: now, granularity: "day", now: dayjsFakeCurrent }),
     ).toEqual("Today");
   });
 
@@ -81,7 +83,7 @@ describe("calculateDateRangeDescription()", () => {
     const dayjsFakeCurrent = parseDayjsOrError(parseDayjsEndOfDay(fakeCurrent));
 
     expect(
-      calculateDateRangeDescription({ from: dayjsFrom, to: now, granularity: "week", now: dayjsFakeCurrent })
+      calculateDateRangeDescription({ from: dayjsFrom, to: now, granularity: "week", now: dayjsFakeCurrent }),
     ).toEqual("This week");
   });
 
@@ -94,7 +96,7 @@ describe("calculateDateRangeDescription()", () => {
     const dayjsFakeCurrent = parseDayjsOrError(parseDayjsEndOfDay(fakeCurrent));
 
     expect(
-      calculateDateRangeDescription({ from: dayjsFrom, to: now, granularity: "week", now: dayjsFakeCurrent })
+      calculateDateRangeDescription({ from: dayjsFrom, to: now, granularity: "week", now: dayjsFakeCurrent }),
     ).toEqual("This week");
   });
 
@@ -107,7 +109,7 @@ describe("calculateDateRangeDescription()", () => {
     const dayjsFakeCurrent = parseDayjsOrError(parseDayjsEndOfDay(fakeCurrent));
 
     expect(
-      calculateDateRangeDescription({ from: dayjsFrom, to: now, granularity: "month", now: dayjsFakeCurrent })
+      calculateDateRangeDescription({ from: dayjsFrom, to: now, granularity: "month", now: dayjsFakeCurrent }),
     ).toEqual("This month");
   });
 
@@ -120,7 +122,7 @@ describe("calculateDateRangeDescription()", () => {
     const dayjsFakeCurrent = parseDayjsOrError(parseDayjsEndOfDay(fakeCurrent));
 
     expect(
-      calculateDateRangeDescription({ from: dayjsFrom, to: now, granularity: "month", now: dayjsFakeCurrent })
+      calculateDateRangeDescription({ from: dayjsFrom, to: now, granularity: "month", now: dayjsFakeCurrent }),
     ).toEqual("This month");
   });
 
@@ -133,7 +135,7 @@ describe("calculateDateRangeDescription()", () => {
     const dayjsFakeCurrent = parseDayjsOrError(parseDayjsEndOfDay(fakeCurrent));
 
     expect(
-      calculateDateRangeDescription({ from: dayjsFrom, to: now, granularity: "year", now: dayjsFakeCurrent })
+      calculateDateRangeDescription({ from: dayjsFrom, to: now, granularity: "year", now: dayjsFakeCurrent }),
     ).toEqual("This year");
   });
 
@@ -146,7 +148,7 @@ describe("calculateDateRangeDescription()", () => {
     const dayjsFakeCurrent = parseDayjsOrError(parseDayjsEndOfDay(fakeCurrent));
 
     expect(
-      calculateDateRangeDescription({ from: dayjsFrom, to: now, granularity: "year", now: dayjsFakeCurrent })
+      calculateDateRangeDescription({ from: dayjsFrom, to: now, granularity: "year", now: dayjsFakeCurrent }),
     ).toEqual("This year");
   });
 
@@ -159,7 +161,7 @@ describe("calculateDateRangeDescription()", () => {
     const dayjsFakeCurrent = parseDayjsOrError(parseDayjsEndOfDay(fakeCurrent));
 
     expect(
-      calculateDateRangeDescription({ from: dayjsFrom, to: now, granularity: "day", now: dayjsFakeCurrent })
+      calculateDateRangeDescription({ from: dayjsFrom, to: now, granularity: "day", now: dayjsFakeCurrent }),
     ).toEqual("Since 1st Mar 2018");
   });
 });

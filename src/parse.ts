@@ -1,6 +1,6 @@
-import { createFrom, Dayjs, DayjsInput, DEFAULT_LOCALE } from "./base";
+import { DEFAULT_LOCALE, type Dayjs, type DayjsInput, createFrom } from "./base";
 import { InvalidDateError } from "./errors";
-import { ParseOptions } from "./options";
+import type { ParseOptions } from "./options";
 import { TimeOverride } from "./time-options";
 import { adaptTime, adaptTimeOption } from "./utils";
 
@@ -21,10 +21,10 @@ export function parseDayjs(value: DayjsInput, options: ParseOptions & { strict: 
 export function parseDayjs(value: DayjsInput, options?: ParseOptions): Dayjs | null;
 export function parseDayjs(
   value: DayjsInput,
-  { locale = DEFAULT_LOCALE, strict = false, time = null }: ParseOptions = {}
+  { locale = DEFAULT_LOCALE, strict = false, time = null }: ParseOptions = {},
 ): Dayjs | null {
   const d = createFrom(value, locale);
-  if (d && d.isValid()) {
+  if (d?.isValid()) {
     return adaptTime(d, adaptTimeOption(value, time || null));
   }
 

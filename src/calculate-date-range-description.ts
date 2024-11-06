@@ -1,6 +1,6 @@
-import { DayjsInput, formatDate } from "./base";
+import { type DayjsInput, formatDate } from "./base";
 import { dayjsNow } from "./dayjs-now";
-import { GranularityEnumValues } from "./granularity";
+import type { GranularityEnumValues } from "./granularity";
 import { isTodayOrFuture } from "./is-relative";
 import { parseDayjs } from "./parse";
 import { printRange, printSince } from "./print-utils";

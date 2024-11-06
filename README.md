@@ -1,7 +1,7 @@
 # `@plandek-utils/ts-parse-dayjs`
 
 [![npm version](https://badge.fury.io/js/%40plandek-utils%2Fts-parse-dayjs.svg)](https://badge.fury.io/js/%40plandek-utils%2Fts-parse-dayjs)
-[![Build Status](https://travis-ci.org/plandek-utils/ts-parse-dayjs.svg?branch=master)](https://travis-ci.org/plandek-utils/ts-parse-dayjs)
+![CI](https://github.com/github/plandek-utils/ts-parse-dayjs/workflows/ci-master.yml/badge.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/347bf1114fa660524fd8/maintainability)](https://codeclimate.com/github/plandek-utils/ts-parse-dayjs/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/347bf1114fa660524fd8/test_coverage)](https://codeclimate.com/github/plandek-utils/ts-parse-dayjs/test_coverage)
 
@@ -217,7 +217,7 @@ formatDate(parseDayjs("2019-01-02T13:24:12Z"), "Do ww MMMM YYYY h:mm A"); // => 
 
 ### `toISOString()`, and types `ISODate`, `ISODateTime`, `ISOTime`
 
-Used to get an ISO 8601 string from a Dayjs object. 
+Used to get an ISO 8601 string from a Dayjs object.
 
 It is not possible to type more precisely (list every possible values for hours, etc.) as
 it would result in a warning from TypeScript: "Expression produces a union type that is too complex to represent. ts(2590)"
@@ -232,8 +232,8 @@ toISOString(d); // => "2020-01-01T12:34:56.789Z"
 const x1: ISODate = "2020-01-01" // ok
 const x2: ISODate = "2020-02-31" // ok -> does not check for days of each month
 const x3: ISODate = "12-01-01" // ok -> only checks that the year is a number
-const b1: ISODate = "2020-13-01" // bad -> month is not between 01 and 12 
-const b2: ISODate = "2020-12-41" // bad -> day is not between 01 and 31 
+const b1: ISODate = "2020-13-01" // bad -> month is not between 01 and 12
+const b2: ISODate = "2020-12-41" // bad -> day is not between 01 and 31
 
 const t1: ISOTime = "12:34:56.789Z" // ok
 

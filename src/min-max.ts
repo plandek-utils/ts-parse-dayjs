@@ -1,7 +1,7 @@
-import { Dayjs, max, min } from "./base";
+import { type Dayjs, max, min } from "./base";
 
-type NonEmptyArray<T = any | never> = [T, ...T[]];
-type EmptyArray<T = any | never> = T[] & { length: 0 };
+type NonEmptyArray<T = unknown | never> = [T, ...T[]];
+type EmptyArray<T = unknown | never> = T[] & { length: 0 };
 
 function isEmptyArray<T>(x: T[]): x is EmptyArray<T> {
   return x.length === 0;

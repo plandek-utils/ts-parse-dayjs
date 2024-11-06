@@ -1,4 +1,4 @@
-import { Dayjs, PluginFunc } from "dayjs";
+import type { Dayjs, PluginFunc } from "dayjs";
 import relativeTimePlugin from "dayjs/plugin/relativeTime";
 
 type Input = Dayjs | Date | string | number | null | undefined;
@@ -8,7 +8,7 @@ type FromToBaseFn = (
   withoutSuffix: boolean | undefined,
   instance: Dayjs,
   isFrom?: boolean,
-  postFormat?: (x: string) => string
+  postFormat?: (x: string) => string,
 ) => string;
 
 declare module "dayjs" {
@@ -52,7 +52,7 @@ const OPTIONS_STRICT = {
   ],
 };
 
-export const relativeTimeStrictPlugin: PluginFunc<Record<any, never>> = (_o, c, d) => {
+export const relativeTimeStrictPlugin: PluginFunc<Record<string | number | symbol, never>> = (_o, c, d) => {
   const proto = c.prototype;
   // we call the original plugin
   relativeTimePlugin(OPTIONS_RELATIVE, c, d);

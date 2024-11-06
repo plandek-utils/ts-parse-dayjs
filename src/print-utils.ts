@@ -1,10 +1,10 @@
-import { Dayjs } from "./base";
+import type { Dayjs } from "./base";
 
 import { DEFAULT_DATE_FORMAT, formatDate } from "./base";
 
 export function makePrintWithPrefix(
   prefix: string,
-  defaultDateFormat: string
+  defaultDateFormat: string,
 ): (from: Dayjs, dateFormat?: string) => string {
   return function printWithPrefix(from, dateFormat = defaultDateFormat) {
     const fromFormatted = formatDate(from, dateFormat);

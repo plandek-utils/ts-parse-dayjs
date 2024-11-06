@@ -1,3 +1,5 @@
+import { describe, expect, it } from "vitest";
+
 import { isDayjsInput, isStrictDayjsInput } from "../is-dayjs-input";
 import { parseDayjsOrError } from "../parse";
 

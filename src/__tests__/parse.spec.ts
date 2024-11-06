@@ -1,3 +1,5 @@
+import { describe, expect, it } from "vitest";
+
 import dayjs from "dayjs";
 import esLocale from "dayjs/locale/es";
 import utc from "dayjs/plugin/utc";
@@ -55,10 +57,10 @@ describe("parseDayjs()", () => {
     });
   });
 
-  [
+  for (const { locale, suffix } of [
     { locale: esLocale, suffix: "imported locale object" },
     { locale: AvailableLocales.EnglishUSA, suffix: "AvailableLocale" },
-  ].forEach(({ locale, suffix }) => {
+  ]) {
     describe(`with 2nd param { locale: anotherLocale } (${suffix}) -> uses the given Locale`, () => {
       it("with null: returns null", async () => {
         expect(parseDayjs(null, { locale })).toBeNull();
@@ -87,7 +89,7 @@ describe("parseDayjs()", () => {
         expect(parseDayjs(d, { locale })).toEqual(djs);
       });
     });
-  });
+  }
 
   describe("with time option", () => {
     describe(TimeOverride.StartOfDay, () => {
@@ -95,14 +97,14 @@ describe("parseDayjs()", () => {
         expect(
           parseDayjs("2018-01-01T10:11:12.123Z", {
             time: TimeOverride.StartOfDay,
-          })
+          }),
         ).toEqual(dayjs.utc(new Date("2018-01-01T00:00:00.000Z")).locale(DEFAULT_LOCALE));
       });
 
       it("with a date: returns a Dayjs object at start of day", async () => {
         const d = dayjs.utc("2018-01-01T10:11:12.123Z").locale(DEFAULT_LOCALE);
         expect(parseDayjs(d, { time: TimeOverride.StartOfDay })).toEqual(
-          dayjs.utc(new Date("2018-01-01T00:00:00.000Z")).locale(DEFAULT_LOCALE)
+          dayjs.utc(new Date("2018-01-01T00:00:00.000Z")).locale(DEFAULT_LOCALE),
         );
       });
 
@@ -110,7 +112,7 @@ describe("parseDayjs()", () => {
         const d = new Date("2018-01-01T10:11:12.123Z");
         const djs = dayjs.utc(d).locale(DEFAULT_LOCALE);
         expect(parseDayjs(djs, { time: TimeOverride.StartOfDay })).toEqual(
-          dayjs.utc(new Date("2018-01-01T00:00:00.000Z")).locale(DEFAULT_LOCALE)
+          dayjs.utc(new Date("2018-01-01T00:00:00.000Z")).locale(DEFAULT_LOCALE),
         );
       });
     });
@@ -120,7 +122,7 @@ describe("parseDayjs()", () => {
         expect(
           parseDayjs("2018-01-01", {
             time: TimeDefault.StartOfDayIfMissing,
-          })
+          }),
         ).toEqual(dayjs.utc(new Date("2018-01-01T00:00:00.000Z")).locale(DEFAULT_LOCALE));
       });
 
@@ -128,14 +130,14 @@ describe("parseDayjs()", () => {
         expect(
           parseDayjs("2018-01-01T10:11:12.123Z", {
             time: TimeDefault.StartOfDayIfMissing,
-          })
+          }),
         ).toEqual(dayjs.utc(new Date("2018-01-01T10:11:12.123Z")).locale(DEFAULT_LOCALE));
       });
 
       it("with a date: returns a Dayjs object without adapting the time", async () => {
         const d = dayjs.utc("2018-01-01T10:11:12.123Z").locale(DEFAULT_LOCALE);
         expect(parseDayjs(d, { time: TimeDefault.StartOfDayIfMissing })).toEqual(
-          dayjs.utc(new Date("2018-01-01T10:11:12.123Z")).locale(DEFAULT_LOCALE)
+          dayjs.utc(new Date("2018-01-01T10:11:12.123Z")).locale(DEFAULT_LOCALE),
         );
       });
 
@@ -151,14 +153,14 @@ describe("parseDayjs()", () => {
         expect(
           parseDayjs("2018-01-01T10:11:12.123Z", {
             time: TimeOverride.EndOfDay,
-          })
+          }),
         ).toEqual(dayjs.utc(new Date("2018-01-01T23:59:59.999Z")).locale(DEFAULT_LOCALE));
       });
 
       it("with a date: returns a Dayjs object at end of day", async () => {
         const d = dayjs.utc("2018-01-01T10:11:12.123Z").locale(DEFAULT_LOCALE);
         expect(parseDayjs(d, { time: TimeOverride.EndOfDay })).toEqual(
-          dayjs.utc(new Date("2018-01-01T23:59:59.999Z")).locale(DEFAULT_LOCALE)
+          dayjs.utc(new Date("2018-01-01T23:59:59.999Z")).locale(DEFAULT_LOCALE),
         );
       });
 
@@ -166,7 +168,7 @@ describe("parseDayjs()", () => {
         const d = new Date("2018-01-01T10:11:12.123Z");
         const djs = dayjs.utc(d).locale(DEFAULT_LOCALE);
         expect(parseDayjs(djs, { time: TimeOverride.EndOfDay })).toEqual(
-          dayjs.utc(new Date("2018-01-01T23:59:59.999Z")).locale(DEFAULT_LOCALE)
+          dayjs.utc(new Date("2018-01-01T23:59:59.999Z")).locale(DEFAULT_LOCALE),
         );
       });
     });
@@ -176,7 +178,7 @@ describe("parseDayjs()", () => {
         expect(
           parseDayjs("2018-01-01", {
             time: TimeDefault.EndOfDayIfMissing,
-          })
+          }),
         ).toEqual(dayjs.utc(new Date("2018-01-01T23:59:59.999Z")).locale(DEFAULT_LOCALE));
       });
 
@@ -184,14 +186,14 @@ describe("parseDayjs()", () => {
         expect(
           parseDayjs("2018-01-01T10:11:12.123Z", {
             time: TimeDefault.EndOfDayIfMissing,
-          })
+          }),
         ).toEqual(dayjs.utc(new Date("2018-01-01T10:11:12.123Z")).locale(DEFAULT_LOCALE));
       });
 
       it("with a date: returns a Dayjs object without adapting the time", async () => {
         const d = dayjs.utc("2018-01-01T10:11:12.123Z").locale(DEFAULT_LOCALE);
         expect(parseDayjs(d, { time: TimeDefault.EndOfDayIfMissing })).toEqual(
-          dayjs.utc(new Date("2018-01-01T10:11:12.123Z")).locale(DEFAULT_LOCALE)
+          dayjs.utc(new Date("2018-01-01T10:11:12.123Z")).locale(DEFAULT_LOCALE),
         );
       });
 
@@ -249,7 +251,7 @@ describe("parseDayjsStartOfDay()", () => {
   it("with a valid date: returns Date at start of day", async () => {
     const d = parseDayjsStartOfDay("2018-01-01");
     expect(d).toEqual(dayjs.utc("2018-01-01T00:00:00.000Z").locale(DEFAULT_LOCALE));
-    expect(d && d.toISOString()).toEqual("2018-01-01T00:00:00.000Z");
+    expect(d?.toISOString()).toEqual("2018-01-01T00:00:00.000Z");
   });
 });
 
@@ -269,6 +271,6 @@ describe("parseDayjsEndOfDay()", () => {
   it("with a valid date: returns Date at end of day", async () => {
     const d = parseDayjsEndOfDay("2018-01-01");
     expect(d).toEqual(dayjs.utc("2018-01-01T23:59:59.999Z").locale(DEFAULT_LOCALE));
-    expect(d && d.toISOString()).toEqual("2018-01-01T23:59:59.999Z");
+    expect(d?.toISOString()).toEqual("2018-01-01T23:59:59.999Z");
   });
 });

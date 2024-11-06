@@ -1,4 +1,4 @@
-import { Dayjs } from "./base";
+import type { Dayjs } from "./base";
 
 export function fromNow(value: Dayjs, withoutSuffix?: boolean): string {
   return value.fromNow(withoutSuffix);
