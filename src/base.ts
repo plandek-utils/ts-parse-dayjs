@@ -1,4 +1,4 @@
-import dayjs, { Dayjs, isDayjs } from "dayjs";
+import dayjs, { type Dayjs, isDayjs } from "dayjs";
 import "dayjs/locale/en";
 import "dayjs/locale/en-au";
 import "dayjs/locale/en-ca";
@@ -21,7 +21,11 @@ import "dayjs/plugin/weekOfYear";
 import "./dayjs-plugin/relative-time-plugin";
 
 import advancedFormat from "dayjs/plugin/advancedFormat";
-import durationPlugin, { Duration, DurationUnitsObjectType, DurationUnitType } from "dayjs/plugin/duration";
+import durationPlugin, {
+  type Duration,
+  type DurationUnitsObjectType,
+  type DurationUnitType,
+} from "dayjs/plugin/duration";
 import isBetween from "dayjs/plugin/isBetween";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
@@ -44,7 +48,7 @@ dayjs.extend(weekOfYear);
 dayjs.extend(updateLocale);
 
 // exporting the type
-export { Dayjs, Duration, DurationUnitsObjectType, DurationUnitType };
+export type { Dayjs, Duration, DurationUnitsObjectType, DurationUnitType };
 // exporting the isDayjs function
 export { isDayjs };
 
