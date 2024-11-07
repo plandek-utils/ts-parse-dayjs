@@ -1,12 +1,14 @@
 {
   "name": "@plandek-utils/ts-parse-dayjs",
-  "version": "5.2.0",
+  "version": "5.2.1",
   "author": "Eduardo Turiño <eturino@plandek.com>",
   "description": "utils to parse Dayjs objects in UTC",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "commit": "git-cz",
     "build": "npm run build:tsup && npm run build:dts",

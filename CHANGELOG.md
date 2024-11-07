@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.2.1](https://github.com/plandek-utils/ts-parse-dayjs/compare/v5.2.0...v5.2.1) (2024-11-07)
+
+
+### Bug Fixes
+
+* emit d.ts using tsc directly to prevent issues with missing dayjs plugin imports ([f447302](https://github.com/plandek-utils/ts-parse-dayjs/commit/f447302243d1a5d9247ed09e2a26fc44307f4999))
+
 ## [5.2.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v5.1.0...v5.2.0) (2024-11-06)
 
 
