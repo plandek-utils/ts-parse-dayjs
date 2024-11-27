@@ -61,6 +61,9 @@ export declare const isoDateSchema: z.ZodType<`${number}-01-01` | `${number}-01-
  * Represent a string like `14:42:34.678`
  */
 export type ISOTime = `${THours}:${TMinutes}:${TSeconds}.${TMilliseconds}`;
+/**
+ *
+ */
 export declare const isoTimeSchema: z.ZodType<`${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}`, z.ZodTypeDef, `${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}`>;
 /**
  * Represent a string like `2021-01-08T14:42:34.678Z` (format: ISO 8601).
