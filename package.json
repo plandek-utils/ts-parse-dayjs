@@ -6,9 +6,7 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "commit": "git-cz",
     "build": "npm run build:tsup && npm run build:dts",
@@ -34,23 +32,26 @@
   "keywords": [],
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@commitlint/cli": "^19.5.0",
-    "@commitlint/config-conventional": "^19.5.0",
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
     "@commitlint/cz-commitlint": "^19.5.0",
-    "@types/node": "^22.9.0",
-    "@vitest/coverage-v8": "^2.1.4",
+    "@types/node": "^22.10.0",
+    "@vitest/coverage-v8": "^2.1.6",
     "commitizen": "^4.3.1",
-    "husky": "^9.1.6",
+    "husky": "^9.1.7",
     "inquirer": "^9.3.7",
     "standard-version": "^9.5.0",
     "timekeeper": "^2.3.1",
     "ts-enum-util": "^4.1.0",
     "tsup": "^8.3.5",
-    "typescript": "^5.6.3",
-    "vitest": "^2.1.4"
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.6"
   },
   "dependencies": {
-    "dayjs": "^1.11.13"
+    "dayjs": "1.11.13"
+  },
+  "peerDependencies": {
+    "zod": "3.23.8"
   },
   "config": {
     "commitizen": {

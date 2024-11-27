@@ -1,6 +1,4 @@
 node_modules
-build
-dist
 test
 src/**.js
 .idea/*
@@ -8,8 +6,15 @@ src/**.js
 yarn-error.log
 
 coverage
+/tmp_cov
+*.lcov
 .nyc_output
 *.log
 
+.npmrc
+
 .DS_Store
 README.pdf
+
+package-lock.json
+yarn.lock
