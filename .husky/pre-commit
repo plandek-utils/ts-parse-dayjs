@@ -1,3 +1,5 @@
+npm run fix
 npm run check
 npm run test
+npm run build
 git update-index --again
