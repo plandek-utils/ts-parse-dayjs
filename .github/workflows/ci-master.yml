@@ -27,6 +27,14 @@ jobs:
           coverageCommand: npm run test
           coverageLocations: |
             ${{github.workspace}}/coverage/lcov.info:lcov
+
+      - name: Run release-please
+        id: release_please
+        uses: googleapis/release-please-action@v4
+        with:
+          release-type: node
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - uses: JS-DevTools/npm-publish@v3
         id: publish
         with:
