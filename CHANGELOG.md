@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.3.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v5.2.1...v5.3.0) (2024-11-27)
+
+
+### Features
+
+* add dist to the repo so we can install from branch ([327911e](https://github.com/plandek-utils/ts-parse-dayjs/commit/327911ed9bf74c69fd7bb6ff0fba30f4fb9a9d59))
+* adding zod schemas ([e7e5e13](https://github.com/plandek-utils/ts-parse-dayjs/commit/e7e5e13e35271fa2aa202fe102865a0dd5793f96))
+* lock specific dependency versions ([04bdeb5](https://github.com/plandek-utils/ts-parse-dayjs/commit/04bdeb56ee11864403967868e0099c9156706fb0))
+
+
+### Bug Fixes
+
+* fixing build ([071c327](https://github.com/plandek-utils/ts-parse-dayjs/commit/071c327f492ec47f5f2eb0edef303ab03ddc780f))
+
 ### [5.2.1](https://github.com/plandek-utils/ts-parse-dayjs/compare/v5.2.0...v5.2.1) (2024-11-07)
 
 
