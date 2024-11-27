@@ -81,6 +81,57 @@ import minMax from "dayjs/plugin/minMax";
 import updateLocale from "dayjs/plugin/updateLocale";
 import utc from "dayjs/plugin/utc";
 import weekOfYear from "dayjs/plugin/weekOfYear";
+import { z } from "zod";
+
+// src/time-options.ts
+var TimeOverride = /* @__PURE__ */ ((TimeOverride2) => {
+  TimeOverride2["StartOfDay"] = "startOfDay";
+  TimeOverride2["EndOfDay"] = "endOfDay";
+  return TimeOverride2;
+})(TimeOverride || {});
+var TimeDefault = /* @__PURE__ */ ((TimeDefault2) => {
+  TimeDefault2["StartOfDayIfMissing"] = "startOfDayIfMissing";
+  TimeDefault2["EndOfDayIfMissing"] = "endOfDayIfMissing";
+  return TimeDefault2;
+})(TimeDefault || {});
+
+// src/utils.ts
+function isValidNumber(value) {
+  return typeof value === "number" && !Number.isNaN(value);
+}
+function parseInteger(value) {
+  return Number.parseInt(value.trim(), 10);
+}
+function extractInteger(timeString, re) {
+  const result = re.exec(timeString);
+  if (!result) return null;
+  const quantity = parseInteger(result[1]);
+  if (Number.isNaN(quantity)) {
+    throw new Error(`invalid number parsed number from: ${timeString}`);
+  }
+  return quantity;
+}
+function defaultToOverride(time) {
+  if (time === "endOfDayIfMissing" /* EndOfDayIfMissing */) return "endOfDay" /* EndOfDay */;
+  if (time === "startOfDayIfMissing" /* StartOfDayIfMissing */) return "startOfDay" /* StartOfDay */;
+  return time;
+}
+function adaptTimeOption(value, time) {
+  if (!time) return null;
+  if (typeof value !== "string" || value.includes("T")) return time;
+  return defaultToOverride(time);
+}
+function adaptTime(d, override) {
+  if (override === "startOfDay" /* StartOfDay */) {
+    return d.startOf("day");
+  }
+  if (override === "endOfDay" /* EndOfDay */) {
+    return d.endOf("day");
+  }
+  return d;
+}
+
+// src/base.ts
 dayjs.extend(advancedFormat);
 dayjs.extend(durationPlugin);
 dayjs.extend(isBetween);
@@ -95,6 +146,90 @@ var min = dayjs.min;
 var max = dayjs.max;
 var duration = dayjs.duration;
 var isDuration = dayjs.isDuration;
+var dayjsSchemaStrict = z.instanceof(dayjs);
+var YEAR_REGEX = /^-?\d+$/;
+var tYearSchema = z.custom((val) => {
+  return typeof val === "string" ? YEAR_REGEX.test(val) : false;
+});
+var tMonthSchema = z.enum(["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]);
+var tDaySchema = z.enum([
+  "01",
+  "02",
+  "03",
+  "04",
+  "05",
+  "06",
+  "07",
+  "08",
+  "09",
+  "10",
+  "11",
+  "12",
+  "13",
+  "14",
+  "15",
+  "16",
+  "17",
+  "18",
+  "19",
+  "20",
+  "21",
+  "22",
+  "23",
+  "24",
+  "25",
+  "26",
+  "27",
+  "28",
+  "29",
+  "30",
+  "31"
+]);
+var TWO_DIGIT_NUMBER_REGEX = /^\d{2}$/;
+var THREE_DIGIT_NUMBER_REGEX = /^\d{3}$/;
+var tHoursSchema = z.custom((val) => {
+  if (typeof val !== "string") return false;
+  if (!TWO_DIGIT_NUMBER_REGEX.test(val)) return false;
+  const parsed = parseInteger(val);
+  return parsed >= 0 && parsed <= 23;
+});
+var tMinutesSchema = z.custom((val) => {
+  if (typeof val !== "string") return false;
+  if (!TWO_DIGIT_NUMBER_REGEX.test(val)) return false;
+  const parsed = parseInteger(val);
+  return parsed >= 0 && parsed <= 59;
+});
+var tSecondsSchema = tMinutesSchema;
+var tMillisecondsSchema = z.custom((val) => {
+  if (typeof val !== "string") return false;
+  return THREE_DIGIT_NUMBER_REGEX.test(val);
+});
+var isoDateSchema = z.custom((val) => {
+  if (typeof val !== "string") return false;
+  const [year, month, day] = val.split("-");
+  if (!tYearSchema.safeParse(year).success) return false;
+  if (!tMonthSchema.safeParse(month).success) return false;
+  if (!tDaySchema.safeParse(day).success) return false;
+  return true;
+});
+var isoTimeSchema = z.custom((val) => {
+  if (typeof val !== "string") return false;
+  const [hours, minutes, seconds] = val.split(":");
+  const [secondsPart, milliseconds] = (seconds ?? "").split(".");
+  if (!tHoursSchema.safeParse(hours).success) return false;
+  if (!tMinutesSchema.safeParse(minutes).success) return false;
+  if (!tSecondsSchema.safeParse(secondsPart).success) return false;
+  if (!tMillisecondsSchema.safeParse(milliseconds).success) return false;
+  return true;
+});
+var isoDateStringSchema = z.custom((val) => {
+  if (typeof val !== "string") return false;
+  const [date, rest] = val.split("T");
+  if (!isoDateSchema.safeParse(date).success) return false;
+  if (!rest.endsWith("Z")) return false;
+  const time = rest.slice(0, -1);
+  return isoTimeSchema.safeParse(time).success;
+});
 function toISOString(d) {
   return d.toISOString();
 }
@@ -156,54 +291,6 @@ function createFrom(value, locale) {
   if (!value) return null;
   const d = isDayjs(value) ? value : dayjs.utc(value).locale(locale);
   return d.isValid() ? d : null;
-}
-
-// src/time-options.ts
-var TimeOverride = /* @__PURE__ */ ((TimeOverride2) => {
-  TimeOverride2["StartOfDay"] = "startOfDay";
-  TimeOverride2["EndOfDay"] = "endOfDay";
-  return TimeOverride2;
-})(TimeOverride || {});
-var TimeDefault = /* @__PURE__ */ ((TimeDefault2) => {
-  TimeDefault2["StartOfDayIfMissing"] = "startOfDayIfMissing";
-  TimeDefault2["EndOfDayIfMissing"] = "endOfDayIfMissing";
-  return TimeDefault2;
-})(TimeDefault || {});
-
-// src/utils.ts
-function isValidNumber(value) {
-  return typeof value === "number" && !Number.isNaN(value);
-}
-function parseInteger(value) {
-  return Number.parseInt(value.trim(), 10);
-}
-function extractInteger(timeString, re) {
-  const result = re.exec(timeString);
-  if (!result) return null;
-  const quantity = parseInteger(result[1]);
-  if (Number.isNaN(quantity)) {
-    throw new Error(`invalid number parsed number from: ${timeString}`);
-  }
-  return quantity;
-}
-function defaultToOverride(time) {
-  if (time === "endOfDayIfMissing" /* EndOfDayIfMissing */) return "endOfDay" /* EndOfDay */;
-  if (time === "startOfDayIfMissing" /* StartOfDayIfMissing */) return "startOfDay" /* StartOfDay */;
-  return time;
-}
-function adaptTimeOption(value, time) {
-  if (!time) return null;
-  if (typeof value !== "string" || value.includes("T")) return time;
-  return defaultToOverride(time);
-}
-function adaptTime(d, override) {
-  if (override === "startOfDay" /* StartOfDay */) {
-    return d.startOf("day");
-  }
-  if (override === "endOfDay" /* EndOfDay */) {
-    return d.endOf("day");
-  }
-  return d;
 }
 
 // src/dayjs-now.ts
@@ -391,6 +478,38 @@ function toNow(value, withoutSuffix) {
 function toNowStrict(value, withoutSuffix) {
   return value.toNowStrict(withoutSuffix);
 }
+
+// src/zod-schema.ts
+import { z as z2 } from "zod";
+var serializedDateSchema = z2.string().refine(
+  (x) => {
+    const d = parseDayjs(x);
+    return !!d;
+  },
+  { message: "String must be a serialized date that can be parsed" }
+);
+var serializedDateSchemaForParsing = z2.union([z2.string(), z2.number(), z2.date(), dayjsSchemaStrict]).transform((x, ctx) => {
+  const res = parseDayjs(x);
+  if (!res) {
+    ctx.addIssue({
+      code: z2.ZodIssueCode.custom,
+      message: "String must be a serialized date that can be parsed"
+    });
+    return z2.NEVER;
+  }
+  return res;
+});
+var serializedDateSchemaForSerialize = z2.union([z2.string(), z2.number(), z2.date(), dayjsSchemaStrict]).transform((x, ctx) => {
+  const res = parseDayjs(x);
+  if (!res) {
+    ctx.addIssue({
+      code: z2.ZodIssueCode.custom,
+      message: "String must be a serialized date that can be parsed"
+    });
+    return z2.NEVER;
+  }
+  return res.toISOString();
+});
 export {
   AvailableLocales,
   DEFAULT_DATETIME_FORMAT,
@@ -403,6 +522,7 @@ export {
   createFrom,
   createNow,
   dayjsNow,
+  dayjsSchemaStrict,
   dayjsTodayEOD,
   duration,
   durationBetween,
@@ -419,6 +539,9 @@ export {
   isTodayOrFuture,
   isTodayOrPast,
   isValidDate,
+  isoDateSchema,
+  isoDateStringSchema,
+  isoTimeSchema,
   makePrintWithPrefix,
   max,
   maxDayjs,
@@ -432,6 +555,16 @@ export {
   printRange,
   printSince,
   printStarted,
+  serializedDateSchema,
+  serializedDateSchemaForParsing,
+  serializedDateSchemaForSerialize,
+  tDaySchema,
+  tHoursSchema,
+  tMillisecondsSchema,
+  tMinutesSchema,
+  tMonthSchema,
+  tSecondsSchema,
+  tYearSchema,
   toISODate,
   toISOString,
   toNow,
