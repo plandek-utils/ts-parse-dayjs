@@ -7,14 +7,7 @@
     "editor.defaultFormatter": "biomejs.biome"
   },
   "cSpell.language": "en-GB",
-  "cSpell.words": [
-    "commitlint",
-    "falsey",
-    "lcov",
-    "plandek",
-    "tsup",
-    "Turiño"
-  ],
+  "cSpell.words": ["commitlint", "falsey", "fastify", "lcov", "nickcharlton", "plandek", "tsup", "Turiño"],
   "[javascript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
   }

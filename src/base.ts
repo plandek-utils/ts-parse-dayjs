@@ -170,6 +170,10 @@ export const isoDateSchema = z.custom<ISODate>((val) => {
  * Represent a string like `14:42:34.678`
  */
 export type ISOTime = `${THours}:${TMinutes}:${TSeconds}.${TMilliseconds}`;
+
+/**
+ *
+ */
 export const isoTimeSchema = z.custom<ISOTime>((val) => {
   if (typeof val !== "string") return false;
 

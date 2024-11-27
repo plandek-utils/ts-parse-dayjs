@@ -17,6 +17,9 @@ jobs:
       - run: npm install
       - run: npm run check
       - run: npm run build
+      - uses: nickcharlton/diff-check@main
+        with:
+          message: "Please make sure to run 'npm run fix && npm run build' before committing."
       - uses: paambaati/codeclimate-action@v9.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
