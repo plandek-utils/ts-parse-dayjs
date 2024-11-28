@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { dayjsSchemaStrict } from "./base";
+import { Dayjs, dayjsSchemaStrict, ISODateString } from "./base";
 import { parseDayjs } from "./parse";
 
 export const serializedDateSchema = z.string().refine(
@@ -12,7 +12,7 @@ export const serializedDateSchema = z.string().refine(
 
 export const serializedDateSchemaForParsing = z
   .union([z.string(), z.number(), z.date(), dayjsSchemaStrict])
-  .transform((x, ctx) => {
+  .transform<Dayjs>((x, ctx) => {
     const res = parseDayjs(x);
     if (!res) {
       ctx.addIssue({
@@ -27,7 +27,7 @@ export const serializedDateSchemaForParsing = z
 
 export const serializedDateSchemaForSerialize = z
   .union([z.string(), z.number(), z.date(), dayjsSchemaStrict])
-  .transform((x, ctx) => {
+  .transform<ISODateString>((x, ctx) => {
     const res = parseDayjs(x);
     if (!res) {
       ctx.addIssue({
@@ -39,3 +39,8 @@ export const serializedDateSchemaForSerialize = z
 
     return res.toISOString();
   });
+
+export const dayjsSchema = z.union([
+  dayjsSchemaStrict,
+  serializedDateSchemaForParsing,
+]);
