@@ -41,6 +41,7 @@ __export(src_exports, {
   createFrom: () => createFrom,
   createNow: () => createNow,
   dayjsNow: () => dayjsNow,
+  dayjsSchema: () => dayjsSchema,
   dayjsSchemaStrict: () => dayjsSchemaStrict,
   dayjsTodayEOD: () => dayjsTodayEOD,
   duration: () => duration,
@@ -603,6 +604,10 @@ var serializedDateSchemaForSerialize = import_zod2.z.union([import_zod2.z.string
   }
   return res.toISOString();
 });
+var dayjsSchema = import_zod2.z.union([
+  dayjsSchemaStrict,
+  serializedDateSchemaForParsing
+]);
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   AvailableLocales,
@@ -616,6 +621,7 @@ var serializedDateSchemaForSerialize = import_zod2.z.union([import_zod2.z.string
   createFrom,
   createNow,
   dayjsNow,
+  dayjsSchema,
   dayjsSchemaStrict,
   dayjsTodayEOD,
   duration,

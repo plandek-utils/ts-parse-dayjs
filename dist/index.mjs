@@ -510,6 +510,10 @@ var serializedDateSchemaForSerialize = z2.union([z2.string(), z2.number(), z2.da
   }
   return res.toISOString();
 });
+var dayjsSchema = z2.union([
+  dayjsSchemaStrict,
+  serializedDateSchemaForParsing
+]);
 export {
   AvailableLocales,
   DEFAULT_DATETIME_FORMAT,
@@ -522,6 +526,7 @@ export {
   createFrom,
   createNow,
   dayjsNow,
+  dayjsSchema,
   dayjsSchemaStrict,
   dayjsTodayEOD,
   duration,
