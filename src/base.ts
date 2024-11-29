@@ -75,58 +75,38 @@ export type DeepEqual<T, U> = (T extends U ? (U extends T ? true : never) : neve
 // see https://github.com/colinhacks/zod/discussions/1259#discussioncomment-3954250
 export const dayjsSchemaStrict = z.instanceof(dayjs as unknown as typeof Dayjs);
 
-export type TYear = `${number}`;
-
+const TWO_DIGIT_NUMBER_REGEX = /^\d{2}$/;
+const THREE_DIGIT_NUMBER_REGEX = /^\d{3}$/;
 const YEAR_REGEX = /^-?\d+$/;
+
+export type TYear = `${number}`;
 export const tYearSchema = z.custom<TYear>((val) => {
   return typeof val === "string" ? YEAR_REGEX.test(val) : false;
 });
 
-export const tMonthSchema = z.enum(["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]);
-export type TMonth = z.infer<typeof tMonthSchema>;
+export type TMonth = `${number}${number}`;
+export const tMonthSchema = z.custom<TMonth>((val) => {
+  if (typeof val !== "string") return false;
+  if (!TWO_DIGIT_NUMBER_REGEX.test(val)) return false;
 
-export const tDaySchema = z.enum([
-  "01",
-  "02",
-  "03",
-  "04",
-  "05",
-  "06",
-  "07",
-  "08",
-  "09",
-  "10",
-  "11",
-  "12",
-  "13",
-  "14",
-  "15",
-  "16",
-  "17",
-  "18",
-  "19",
-  "20",
-  "21",
-  "22",
-  "23",
-  "24",
-  "25",
-  "26",
-  "27",
-  "28",
-  "29",
-  "30",
-  "31",
-]);
-export type TDay = z.infer<typeof tDaySchema>;
+  const parsed = parseInteger(val);
+  return parsed >= 1 && parsed <= 12;
+});
 
-const TWO_DIGIT_NUMBER_REGEX = /^\d{2}$/;
-const THREE_DIGIT_NUMBER_REGEX = /^\d{3}$/;
+export type TDay = `${number}${number}`;
+export const tDaySchema = z.custom<TDay>((val) => {
+  if (typeof val !== "string") return false;
+  if (!TWO_DIGIT_NUMBER_REGEX.test(val)) return false;
+
+  const parsed = parseInteger(val);
+  return parsed >= 1 && parsed <= 31;
+});
 
 export type THours = `${number}${number}`;
 export const tHoursSchema = z.custom<THours>((val) => {
   if (typeof val !== "string") return false;
   if (!TWO_DIGIT_NUMBER_REGEX.test(val)) return false;
+
   const parsed = parseInteger(val);
   return parsed >= 0 && parsed <= 23;
 });
@@ -144,8 +124,7 @@ export const tSecondsSchema = tMinutesSchema;
 
 type TMilliseconds = `${number}${number}${number}`;
 export const tMillisecondsSchema = z.custom<TMilliseconds>((val) => {
-  if (typeof val !== "string") return false;
-  return THREE_DIGIT_NUMBER_REGEX.test(val);
+  return typeof val === "string" ? THREE_DIGIT_NUMBER_REGEX.test(val) : false;
 });
 
 /**
@@ -171,9 +150,7 @@ export const isoDateSchema = z.custom<ISODate>((val) => {
  */
 export type ISOTime = `${THours}:${TMinutes}:${TSeconds}.${TMilliseconds}`;
 
-/**
- *
- */
+/** */
 export const isoTimeSchema = z.custom<ISOTime>((val) => {
   if (typeof val !== "string") return false;
 

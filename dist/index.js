@@ -242,46 +242,24 @@ var max = import_dayjs.default.max;
 var duration = import_dayjs.default.duration;
 var isDuration = import_dayjs.default.isDuration;
 var dayjsSchemaStrict = import_zod.z.instanceof(import_dayjs.default);
+var TWO_DIGIT_NUMBER_REGEX = /^\d{2}$/;
+var THREE_DIGIT_NUMBER_REGEX = /^\d{3}$/;
 var YEAR_REGEX = /^-?\d+$/;
 var tYearSchema = import_zod.z.custom((val) => {
   return typeof val === "string" ? YEAR_REGEX.test(val) : false;
 });
-var tMonthSchema = import_zod.z.enum(["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]);
-var tDaySchema = import_zod.z.enum([
-  "01",
-  "02",
-  "03",
-  "04",
-  "05",
-  "06",
-  "07",
-  "08",
-  "09",
-  "10",
-  "11",
-  "12",
-  "13",
-  "14",
-  "15",
-  "16",
-  "17",
-  "18",
-  "19",
-  "20",
-  "21",
-  "22",
-  "23",
-  "24",
-  "25",
-  "26",
-  "27",
-  "28",
-  "29",
-  "30",
-  "31"
-]);
-var TWO_DIGIT_NUMBER_REGEX = /^\d{2}$/;
-var THREE_DIGIT_NUMBER_REGEX = /^\d{3}$/;
+var tMonthSchema = import_zod.z.custom((val) => {
+  if (typeof val !== "string") return false;
+  if (!TWO_DIGIT_NUMBER_REGEX.test(val)) return false;
+  const parsed = parseInteger(val);
+  return parsed >= 1 && parsed <= 12;
+});
+var tDaySchema = import_zod.z.custom((val) => {
+  if (typeof val !== "string") return false;
+  if (!TWO_DIGIT_NUMBER_REGEX.test(val)) return false;
+  const parsed = parseInteger(val);
+  return parsed >= 1 && parsed <= 31;
+});
 var tHoursSchema = import_zod.z.custom((val) => {
   if (typeof val !== "string") return false;
   if (!TWO_DIGIT_NUMBER_REGEX.test(val)) return false;
@@ -296,8 +274,7 @@ var tMinutesSchema = import_zod.z.custom((val) => {
 });
 var tSecondsSchema = tMinutesSchema;
 var tMillisecondsSchema = import_zod.z.custom((val) => {
-  if (typeof val !== "string") return false;
-  return THREE_DIGIT_NUMBER_REGEX.test(val);
+  return typeof val === "string" ? THREE_DIGIT_NUMBER_REGEX.test(val) : false;
 });
 var isoDateSchema = import_zod.z.custom((val) => {
   if (typeof val !== "string") return false;

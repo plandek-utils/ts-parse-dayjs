@@ -147,46 +147,24 @@ var max = dayjs.max;
 var duration = dayjs.duration;
 var isDuration = dayjs.isDuration;
 var dayjsSchemaStrict = z.instanceof(dayjs);
+var TWO_DIGIT_NUMBER_REGEX = /^\d{2}$/;
+var THREE_DIGIT_NUMBER_REGEX = /^\d{3}$/;
 var YEAR_REGEX = /^-?\d+$/;
 var tYearSchema = z.custom((val) => {
   return typeof val === "string" ? YEAR_REGEX.test(val) : false;
 });
-var tMonthSchema = z.enum(["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]);
-var tDaySchema = z.enum([
-  "01",
-  "02",
-  "03",
-  "04",
-  "05",
-  "06",
-  "07",
-  "08",
-  "09",
-  "10",
-  "11",
-  "12",
-  "13",
-  "14",
-  "15",
-  "16",
-  "17",
-  "18",
-  "19",
-  "20",
-  "21",
-  "22",
-  "23",
-  "24",
-  "25",
-  "26",
-  "27",
-  "28",
-  "29",
-  "30",
-  "31"
-]);
-var TWO_DIGIT_NUMBER_REGEX = /^\d{2}$/;
-var THREE_DIGIT_NUMBER_REGEX = /^\d{3}$/;
+var tMonthSchema = z.custom((val) => {
+  if (typeof val !== "string") return false;
+  if (!TWO_DIGIT_NUMBER_REGEX.test(val)) return false;
+  const parsed = parseInteger(val);
+  return parsed >= 1 && parsed <= 12;
+});
+var tDaySchema = z.custom((val) => {
+  if (typeof val !== "string") return false;
+  if (!TWO_DIGIT_NUMBER_REGEX.test(val)) return false;
+  const parsed = parseInteger(val);
+  return parsed >= 1 && parsed <= 31;
+});
 var tHoursSchema = z.custom((val) => {
   if (typeof val !== "string") return false;
   if (!TWO_DIGIT_NUMBER_REGEX.test(val)) return false;
@@ -201,8 +179,7 @@ var tMinutesSchema = z.custom((val) => {
 });
 var tSecondsSchema = tMinutesSchema;
 var tMillisecondsSchema = z.custom((val) => {
-  if (typeof val !== "string") return false;
-  return THREE_DIGIT_NUMBER_REGEX.test(val);
+  return typeof val === "string" ? THREE_DIGIT_NUMBER_REGEX.test(val) : false;
 });
 var isoDateSchema = z.custom((val) => {
   if (typeof val !== "string") return false;
