@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.4.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v5.3.0...v5.4.0) (2024-11-29)
+
+
+### Features
+
+* dayjsSchema + fixing transform types ([e042daf](https://github.com/plandek-utils/ts-parse-dayjs/commit/e042daf4a976b1063ae7702a3c5d7567ea93c003))
+* SerializedDateString and its zod schema ([049a6a3](https://github.com/plandek-utils/ts-parse-dayjs/commit/049a6a352658aaf47cd9089d53ef3fdd832304e4))
+
+
+### Bug Fixes
+
+* adding dist ([28d3f65](https://github.com/plandek-utils/ts-parse-dayjs/commit/28d3f65b18199b3aff0a6104c0d3033f16aefd24))
+
 ## [5.3.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v5.2.1...v5.3.0) (2024-11-27)
 
 
