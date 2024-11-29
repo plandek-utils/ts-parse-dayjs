@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v5.4.0...v6.0.0) (2024-11-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* Simplified types of TMonth and TDay to be about 2 numbers
+
+### Features
+
+* simplified types of MONTH and DAY to avoid TypeScript overhead ([0a74cab](https://github.com/plandek-utils/ts-parse-dayjs/commit/0a74cabb9ebf4ffa11d0247b3e0c93660121d04d))
+
 ## [5.4.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v5.3.0...v5.4.0) (2024-11-29)
 
 
