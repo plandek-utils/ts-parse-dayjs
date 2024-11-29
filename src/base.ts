@@ -208,6 +208,9 @@ export const isoDateStringSchema = z.custom<ISODateString>((val) => {
   return isoTimeSchema.safeParse(time).success;
 });
 
+export const serializedDateStringSchema = z.union([isoDateSchema, isoDateStringSchema]);
+export type SerializedDateString = z.infer<typeof serializedDateStringSchema>;
+
 /**
  * Convert a Dayjs object to an ISO string.
  * @param d

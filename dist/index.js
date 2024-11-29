@@ -78,6 +78,7 @@ __export(src_exports, {
   serializedDateSchema: () => serializedDateSchema,
   serializedDateSchemaForParsing: () => serializedDateSchemaForParsing,
   serializedDateSchemaForSerialize: () => serializedDateSchemaForSerialize,
+  serializedDateStringSchema: () => serializedDateStringSchema,
   tDaySchema: () => tDaySchema,
   tHoursSchema: () => tHoursSchema,
   tMillisecondsSchema: () => tMillisecondsSchema,
@@ -324,6 +325,7 @@ var isoDateStringSchema = import_zod.z.custom((val) => {
   const time = rest.slice(0, -1);
   return isoTimeSchema.safeParse(time).success;
 });
+var serializedDateStringSchema = import_zod.z.union([isoDateSchema, isoDateStringSchema]);
 function toISOString(d) {
   return d.toISOString();
 }
@@ -604,10 +606,7 @@ var serializedDateSchemaForSerialize = import_zod2.z.union([import_zod2.z.string
   }
   return res.toISOString();
 });
-var dayjsSchema = import_zod2.z.union([
-  dayjsSchemaStrict,
-  serializedDateSchemaForParsing
-]);
+var dayjsSchema = import_zod2.z.union([dayjsSchemaStrict, serializedDateSchemaForParsing]);
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   AvailableLocales,
@@ -658,6 +657,7 @@ var dayjsSchema = import_zod2.z.union([
   serializedDateSchema,
   serializedDateSchemaForParsing,
   serializedDateSchemaForSerialize,
+  serializedDateStringSchema,
   tDaySchema,
   tHoursSchema,
   tMillisecondsSchema,

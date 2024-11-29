@@ -230,6 +230,7 @@ var isoDateStringSchema = z.custom((val) => {
   const time = rest.slice(0, -1);
   return isoTimeSchema.safeParse(time).success;
 });
+var serializedDateStringSchema = z.union([isoDateSchema, isoDateStringSchema]);
 function toISOString(d) {
   return d.toISOString();
 }
@@ -510,10 +511,7 @@ var serializedDateSchemaForSerialize = z2.union([z2.string(), z2.number(), z2.da
   }
   return res.toISOString();
 });
-var dayjsSchema = z2.union([
-  dayjsSchemaStrict,
-  serializedDateSchemaForParsing
-]);
+var dayjsSchema = z2.union([dayjsSchemaStrict, serializedDateSchemaForParsing]);
 export {
   AvailableLocales,
   DEFAULT_DATETIME_FORMAT,
@@ -563,6 +561,7 @@ export {
   serializedDateSchema,
   serializedDateSchemaForParsing,
   serializedDateSchemaForSerialize,
+  serializedDateStringSchema,
   tDaySchema,
   tHoursSchema,
   tMillisecondsSchema,
