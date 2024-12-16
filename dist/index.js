@@ -72,6 +72,8 @@ __export(src_exports, {
   parseDayjsOrError: () => parseDayjsOrError,
   parseDayjsStartOfDay: () => parseDayjsStartOfDay,
   parseFromStandardPeriods: () => parseFromStandardPeriods,
+  parseISODateString: () => parseISODateString,
+  parseISODateStringOrError: () => parseISODateStringOrError,
   parseToISOStringOrError: () => parseToISOStringOrError,
   printRange: () => printRange,
   printSince: () => printSince,
@@ -409,9 +411,14 @@ function parseDayjsStartOfDay(value, options = {}) {
 function parseDayjsEndOfDay(value, options = {}) {
   return parseDayjs(value, { ...options, time: "endOfDay" /* EndOfDay */ });
 }
-function parseToISOStringOrError(value, options = {}) {
+function parseISODateStringOrError(value, options = {}) {
   const d = parseDayjsOrError(value, options);
   return toISOString(d);
+}
+var parseToISOStringOrError = parseISODateStringOrError;
+function parseISODateString(value, options = {}) {
+  const d = parseDayjs(value, options);
+  return d ? toISOString(d) : null;
 }
 
 // src/print-utils.ts
@@ -633,6 +640,8 @@ var dayjsSchema = import_zod2.z.union([dayjsSchemaStrict, serializedDateSchemaFo
   parseDayjsOrError,
   parseDayjsStartOfDay,
   parseFromStandardPeriods,
+  parseISODateString,
+  parseISODateStringOrError,
   parseToISOStringOrError,
   printRange,
   printSince,

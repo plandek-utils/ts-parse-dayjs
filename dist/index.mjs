@@ -313,9 +313,14 @@ function parseDayjsStartOfDay(value, options = {}) {
 function parseDayjsEndOfDay(value, options = {}) {
   return parseDayjs(value, { ...options, time: "endOfDay" /* EndOfDay */ });
 }
-function parseToISOStringOrError(value, options = {}) {
+function parseISODateStringOrError(value, options = {}) {
   const d = parseDayjsOrError(value, options);
   return toISOString(d);
+}
+var parseToISOStringOrError = parseISODateStringOrError;
+function parseISODateString(value, options = {}) {
+  const d = parseDayjs(value, options);
+  return d ? toISOString(d) : null;
 }
 
 // src/print-utils.ts
@@ -536,6 +541,8 @@ export {
   parseDayjsOrError,
   parseDayjsStartOfDay,
   parseFromStandardPeriods,
+  parseISODateString,
+  parseISODateStringOrError,
   parseToISOStringOrError,
   printRange,
   printSince,
