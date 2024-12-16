@@ -72,6 +72,7 @@ __export(src_exports, {
   parseDayjsOrError: () => parseDayjsOrError,
   parseDayjsStartOfDay: () => parseDayjsStartOfDay,
   parseFromStandardPeriods: () => parseFromStandardPeriods,
+  parseToISOStringOrError: () => parseToISOStringOrError,
   printRange: () => printRange,
   printSince: () => printSince,
   printStarted: () => printStarted,
@@ -408,6 +409,10 @@ function parseDayjsStartOfDay(value, options = {}) {
 function parseDayjsEndOfDay(value, options = {}) {
   return parseDayjs(value, { ...options, time: "endOfDay" /* EndOfDay */ });
 }
+function parseToISOStringOrError(value, options = {}) {
+  const d = parseDayjsOrError(value, options);
+  return toISOString(d);
+}
 
 // src/print-utils.ts
 function makePrintWithPrefix(prefix, defaultDateFormat) {
@@ -628,6 +633,7 @@ var dayjsSchema = import_zod2.z.union([dayjsSchemaStrict, serializedDateSchemaFo
   parseDayjsOrError,
   parseDayjsStartOfDay,
   parseFromStandardPeriods,
+  parseToISOStringOrError,
   printRange,
   printSince,
   printStarted,

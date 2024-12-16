@@ -12,6 +12,7 @@ import {
   parseDayjsEndOfDay,
   parseDayjsOrError,
   parseDayjsStartOfDay,
+  parseToISOStringOrError,
 } from "..";
 import { TimeDefault, TimeOverride } from "../time-options";
 
@@ -206,32 +207,40 @@ describe("parseDayjs()", () => {
   });
 });
 
-describe("parseDayjsOrError()", () => {
+describe("parseDayjsOrError() and parseToISOStringOrError()", () => {
   it("with null: throws error", async () => {
     expect(() => parseDayjsOrError(null)).toThrowError(InvalidDateError);
+    expect(() => parseToISOStringOrError(null)).toThrowError(InvalidDateError);
   });
 
   it("with empty string: throws error", async () => {
     expect(() => parseDayjsOrError("")).toThrowError(InvalidDateError);
+    expect(() => parseToISOStringOrError("")).toThrowError(InvalidDateError);
   });
 
   it("with an invalid date: throws error", async () => {
     expect(() => parseDayjsOrError("waa")).toThrowError(InvalidDateError);
+    expect(() => parseToISOStringOrError("waa")).toThrowError(InvalidDateError);
   });
 
   it("with a valid date: returns Dayjs", async () => {
     expect(parseDayjsOrError("2018-01-01")).toEqual(dayjs.utc(new Date("2018-01-01")).locale(DEFAULT_LOCALE));
+    expect(parseToISOStringOrError("2018-01-01")).toEqual(
+      dayjs.utc(new Date("2018-01-01")).locale(DEFAULT_LOCALE).toISOString(),
+    );
   });
 
   it("with a date: returns the object", async () => {
     const d = dayjs.utc("2018-01-01").locale(DEFAULT_LOCALE);
     expect(parseDayjsOrError(d)).toBe(d);
+    expect(parseToISOStringOrError(d)).toEqual(d.toISOString());
   });
 
   it("with a dayjs: returns the dayjs object", async () => {
     const d = new Date("2018-01-01");
     const djs = dayjs.utc(d).locale(DEFAULT_LOCALE);
     expect(parseDayjsOrError(d)).toEqual(djs);
+    expect(parseToISOStringOrError(d)).toEqual(djs.toISOString());
   });
 });
 

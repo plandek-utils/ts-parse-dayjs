@@ -313,6 +313,10 @@ function parseDayjsStartOfDay(value, options = {}) {
 function parseDayjsEndOfDay(value, options = {}) {
   return parseDayjs(value, { ...options, time: "endOfDay" /* EndOfDay */ });
 }
+function parseToISOStringOrError(value, options = {}) {
+  const d = parseDayjsOrError(value, options);
+  return toISOString(d);
+}
 
 // src/print-utils.ts
 function makePrintWithPrefix(prefix, defaultDateFormat) {
@@ -532,6 +536,7 @@ export {
   parseDayjsOrError,
   parseDayjsStartOfDay,
   parseFromStandardPeriods,
+  parseToISOStringOrError,
   printRange,
   printSince,
   printStarted,

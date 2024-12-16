@@ -1,4 +1,4 @@
-import { type Dayjs, type DayjsInput } from "./base";
+import { type Dayjs, type DayjsInput, type ISODateString } from "./base";
 import type { ParseOptions } from "./options";
 /**
  * it returns a Dayjs object (in UTC) representing the given date, unless:
@@ -45,3 +45,15 @@ export declare function parseDayjsStartOfDay(value: DayjsInput, options?: Omit<P
  * @see TimeOverride.EndOfDay
  */
 export declare function parseDayjsEndOfDay(value: DayjsInput, options?: Omit<ParseOptions, "time">): Dayjs | null;
+/**
+ * it returns a Dayjs object (in UTC) serialized as ISODateString representing the given date, unless:
+ * - it receives null, or empty string (then throws an error)
+ * - it produces an invalid Dayjs (then throws an error)
+ * - it receives a Dayjs object (then returns the same object)
+ *
+ * @param value
+ * @param options
+ * @see parseDayjsOrError
+ * @see toISOString
+ */
+export declare function parseToISOStringOrError(value: DayjsInput, options?: Omit<ParseOptions, "strict">): ISODateString;

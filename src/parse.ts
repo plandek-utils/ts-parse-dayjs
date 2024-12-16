@@ -1,4 +1,4 @@
-import { DEFAULT_LOCALE, type Dayjs, type DayjsInput, createFrom } from "./base";
+import { DEFAULT_LOCALE, type Dayjs, type DayjsInput, type ISODateString, createFrom, toISOString } from "./base";
 import { InvalidDateError } from "./errors";
 import type { ParseOptions } from "./options";
 import { TimeOverride } from "./time-options";
@@ -69,4 +69,20 @@ export function parseDayjsStartOfDay(value: DayjsInput, options: Omit<ParseOptio
  */
 export function parseDayjsEndOfDay(value: DayjsInput, options: Omit<ParseOptions, "time"> = {}): Dayjs | null {
   return parseDayjs(value, { ...options, time: TimeOverride.EndOfDay });
+}
+
+/**
+ * it returns a Dayjs object (in UTC) serialized as ISODateString representing the given date, unless:
+ * - it receives null, or empty string (then throws an error)
+ * - it produces an invalid Dayjs (then throws an error)
+ * - it receives a Dayjs object (then returns the same object)
+ *
+ * @param value
+ * @param options
+ * @see parseDayjsOrError
+ * @see toISOString
+ */
+export function parseToISOStringOrError(value: DayjsInput, options: Omit<ParseOptions, "strict"> = {}): ISODateString {
+  const d = parseDayjsOrError(value, options);
+  return toISOString(d);
 }
