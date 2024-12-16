@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.1.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v6.0.0...v6.1.0) (2024-12-16)
+
+
+### Features
+
+* add parseToISOStringOrError() function, same as parseDayjsOrError and toISOString() concatenated ([52856f6](https://github.com/plandek-utils/ts-parse-dayjs/commit/52856f6f60cf58e0014d2e811360554852e76727))
+
 ### [6.0.1](https://github.com/plandek-utils/ts-parse-dayjs/compare/v6.0.0...v6.0.1) (2024-12-05)
 
 ## [6.0.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v5.4.0...v6.0.0) (2024-11-29)
