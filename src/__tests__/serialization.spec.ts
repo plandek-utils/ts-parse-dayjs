@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { TimeOverride, parseDayjsOrError } from "..";
+import { TimeOverride, parseDayjsOrError } from "../mod";
 
 describe("serialization testing", () => {
   it("should serialize", () => {

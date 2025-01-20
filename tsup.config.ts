@@ -1,9 +1,16 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig({
-  entry: ["src/index.ts"],
+  entry: ["src/mod.ts"],
+  outDir: "dist",
   clean: true,
-  format: ["cjs", "esm"],
-  dts: false,  // we will use `tsc` directly for it to prevent issues with `dayjs` plugin imports in the d.ts file
+  format: ["esm", "cjs"],
+  dts: false,
   sourcemap: true,
+  splitting: false,
+  treeshake: true,
+  minify: false,
+  bundle: true,
+  platform: "node",
+  target: "node18",
 });

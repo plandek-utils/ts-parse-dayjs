@@ -14,7 +14,7 @@ import {
   parseDayjsStartOfDay,
   parseISODateString,
   parseISODateStringOrError,
-} from "..";
+} from "../mod";
 import { TimeDefault, TimeOverride } from "../time-options";
 
 dayjs.extend(utc);

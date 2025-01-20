@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timekeeper from "timekeeper";
-import { AvailableLocales, TimeOverride, dayjsNow, dayjsTodayEOD, isDayjs } from "..";
+import { AvailableLocales, TimeOverride, dayjsNow, dayjsTodayEOD, isDayjs } from "../mod";
 
 dayjs.extend(utc);
 

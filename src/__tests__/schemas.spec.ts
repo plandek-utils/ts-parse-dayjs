@@ -16,7 +16,7 @@ import {
   tMonthSchema,
   tSecondsSchema,
   tYearSchema,
-} from "..";
+} from "../mod";
 
 describe("Schemas", () => {
   describe("tYear", () => {

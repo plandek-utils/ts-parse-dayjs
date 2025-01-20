@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { formatDate, formatDateTime, parseDayjs } from "..";
+import { formatDate, formatDateTime, parseDayjs } from "../mod";
 
 describe("formatDate()", () => {
   it("formatDate(null) => null", () => {

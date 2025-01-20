@@ -1,5 +1,4 @@
 import { defineConfig } from "vitest/config";
-
 export default defineConfig({
   test: {
     globals: true,
@@ -7,6 +6,6 @@ export default defineConfig({
     coverage: {
       include: ["src/**/*.ts"],
       reporter: ["text", "lcov"],
-    }
+    },
   },
 });

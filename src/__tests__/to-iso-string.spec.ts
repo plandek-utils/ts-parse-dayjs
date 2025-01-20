@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { type ISODate, type ISODateString, parseDayjsOrError, toISODate, toISOString } from "..";
+import { type ISODate, type ISODateString, parseDayjsOrError, toISODate, toISOString } from "../mod";
 
 describe("toISOString", () => {
   it("should return the ISO string of the given Dayjs", () => {

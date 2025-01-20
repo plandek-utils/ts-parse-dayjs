@@ -1,25 +1,41 @@
-// src/base.ts
-import dayjs, { isDayjs } from "dayjs";
-import "dayjs/locale/en";
-import "dayjs/locale/en-au";
-import "dayjs/locale/en-ca";
-import "dayjs/locale/en-gb";
-import "dayjs/locale/en-ie";
-import "dayjs/locale/en-il";
-import "dayjs/locale/en-nz";
-import "dayjs/locale/en-sg";
-import "dayjs/plugin/advancedFormat";
-import "dayjs/plugin/duration";
-import "dayjs/plugin/isBetween";
-import "dayjs/plugin/isSameOrAfter";
-import "dayjs/plugin/isSameOrBefore";
-import "dayjs/plugin/minMax";
-import "dayjs/plugin/updateLocale";
-import "dayjs/plugin/utc";
-import "dayjs/plugin/weekOfYear";
+'use strict';
 
-// src/dayjs-plugin/relative-time-plugin.ts
-import relativeTimePlugin from "dayjs/plugin/relativeTime";
+var dayjs = require('dayjs');
+require('dayjs/locale/en');
+require('dayjs/locale/en-au');
+require('dayjs/locale/en-ca');
+require('dayjs/locale/en-gb');
+require('dayjs/locale/en-ie');
+require('dayjs/locale/en-il');
+require('dayjs/locale/en-nz');
+require('dayjs/locale/en-sg');
+var advancedFormat = require('dayjs/plugin/advancedFormat');
+var durationPlugin = require('dayjs/plugin/duration');
+var isBetween = require('dayjs/plugin/isBetween');
+var isSameOrAfter = require('dayjs/plugin/isSameOrAfter');
+var isSameOrBefore = require('dayjs/plugin/isSameOrBefore');
+var minMax = require('dayjs/plugin/minMax');
+var updateLocale = require('dayjs/plugin/updateLocale');
+var utc = require('dayjs/plugin/utc');
+var weekOfYear = require('dayjs/plugin/weekOfYear');
+var relativeTimePlugin = require('dayjs/plugin/relativeTime');
+var zod = require('zod');
+
+function _interopDefault (e) { return e && e.__esModule ? e : { default: e }; }
+
+var dayjs__default = /*#__PURE__*/_interopDefault(dayjs);
+var advancedFormat__default = /*#__PURE__*/_interopDefault(advancedFormat);
+var durationPlugin__default = /*#__PURE__*/_interopDefault(durationPlugin);
+var isBetween__default = /*#__PURE__*/_interopDefault(isBetween);
+var isSameOrAfter__default = /*#__PURE__*/_interopDefault(isSameOrAfter);
+var isSameOrBefore__default = /*#__PURE__*/_interopDefault(isSameOrBefore);
+var minMax__default = /*#__PURE__*/_interopDefault(minMax);
+var updateLocale__default = /*#__PURE__*/_interopDefault(updateLocale);
+var utc__default = /*#__PURE__*/_interopDefault(utc);
+var weekOfYear__default = /*#__PURE__*/_interopDefault(weekOfYear);
+var relativeTimePlugin__default = /*#__PURE__*/_interopDefault(relativeTimePlugin);
+
+// src/base.ts
 var OPTIONS_RELATIVE = {};
 var OPTIONS_STRICT = {
   rounding: Math.floor,
@@ -40,9 +56,9 @@ var OPTIONS_STRICT = {
 };
 var relativeTimeStrictPlugin = (_o, c, d) => {
   const proto = c.prototype;
-  relativeTimePlugin(OPTIONS_RELATIVE, c, d);
+  relativeTimePlugin__default.default(OPTIONS_RELATIVE, c, d);
   const fromToBaseRelative = c.prototype.fromToBase;
-  relativeTimePlugin(OPTIONS_STRICT, c, d);
+  relativeTimePlugin__default.default(OPTIONS_STRICT, c, d);
   const fromToBaseStrict = c.prototype.fromToBase;
   proto.to = function(input, withoutSuffix) {
     return fromToBaseRelative(input, withoutSuffix, this, true);
@@ -70,18 +86,6 @@ var relativeTimeStrictPlugin = (_o, c, d) => {
     return this.fromStrict(makeNow(this), withoutSuffix);
   };
 };
-
-// src/base.ts
-import advancedFormat from "dayjs/plugin/advancedFormat";
-import durationPlugin from "dayjs/plugin/duration";
-import isBetween from "dayjs/plugin/isBetween";
-import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
-import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
-import minMax from "dayjs/plugin/minMax";
-import updateLocale from "dayjs/plugin/updateLocale";
-import utc from "dayjs/plugin/utc";
-import weekOfYear from "dayjs/plugin/weekOfYear";
-import { z } from "zod";
 
 // src/time-options.ts
 var TimeOverride = /* @__PURE__ */ ((TimeOverride2) => {
@@ -132,56 +136,56 @@ function adaptTime(d, override) {
 }
 
 // src/base.ts
-dayjs.extend(advancedFormat);
-dayjs.extend(durationPlugin);
-dayjs.extend(isBetween);
-dayjs.extend(isSameOrAfter);
-dayjs.extend(isSameOrBefore);
-dayjs.extend(minMax);
-dayjs.extend(relativeTimeStrictPlugin);
-dayjs.extend(utc);
-dayjs.extend(weekOfYear);
-dayjs.extend(updateLocale);
-var min = dayjs.min;
-var max = dayjs.max;
-var duration = dayjs.duration;
-var isDuration = dayjs.isDuration;
-var dayjsSchemaStrict = z.instanceof(dayjs);
+dayjs__default.default.extend(advancedFormat__default.default);
+dayjs__default.default.extend(durationPlugin__default.default);
+dayjs__default.default.extend(isBetween__default.default);
+dayjs__default.default.extend(isSameOrAfter__default.default);
+dayjs__default.default.extend(isSameOrBefore__default.default);
+dayjs__default.default.extend(minMax__default.default);
+dayjs__default.default.extend(relativeTimeStrictPlugin);
+dayjs__default.default.extend(utc__default.default);
+dayjs__default.default.extend(weekOfYear__default.default);
+dayjs__default.default.extend(updateLocale__default.default);
+var min = dayjs__default.default.min;
+var max = dayjs__default.default.max;
+var duration = dayjs__default.default.duration;
+var isDuration = dayjs__default.default.isDuration;
+var dayjsSchemaStrict = zod.z.instanceof(dayjs__default.default);
 var TWO_DIGIT_NUMBER_REGEX = /^\d{2}$/;
 var THREE_DIGIT_NUMBER_REGEX = /^\d{3}$/;
 var YEAR_REGEX = /^-?\d+$/;
-var tYearSchema = z.custom((val) => {
+var tYearSchema = zod.z.custom((val) => {
   return typeof val === "string" ? YEAR_REGEX.test(val) : false;
 });
-var tMonthSchema = z.custom((val) => {
+var tMonthSchema = zod.z.custom((val) => {
   if (typeof val !== "string") return false;
   if (!TWO_DIGIT_NUMBER_REGEX.test(val)) return false;
   const parsed = parseInteger(val);
   return parsed >= 1 && parsed <= 12;
 });
-var tDaySchema = z.custom((val) => {
+var tDaySchema = zod.z.custom((val) => {
   if (typeof val !== "string") return false;
   if (!TWO_DIGIT_NUMBER_REGEX.test(val)) return false;
   const parsed = parseInteger(val);
   return parsed >= 1 && parsed <= 31;
 });
-var tHoursSchema = z.custom((val) => {
+var tHoursSchema = zod.z.custom((val) => {
   if (typeof val !== "string") return false;
   if (!TWO_DIGIT_NUMBER_REGEX.test(val)) return false;
   const parsed = parseInteger(val);
   return parsed >= 0 && parsed <= 23;
 });
-var tMinutesSchema = z.custom((val) => {
+var tMinutesSchema = zod.z.custom((val) => {
   if (typeof val !== "string") return false;
   if (!TWO_DIGIT_NUMBER_REGEX.test(val)) return false;
   const parsed = parseInteger(val);
   return parsed >= 0 && parsed <= 59;
 });
 var tSecondsSchema = tMinutesSchema;
-var tMillisecondsSchema = z.custom((val) => {
+var tMillisecondsSchema = zod.z.custom((val) => {
   return typeof val === "string" ? THREE_DIGIT_NUMBER_REGEX.test(val) : false;
 });
-var isoDateSchema = z.custom((val) => {
+var isoDateSchema = zod.z.custom((val) => {
   if (typeof val !== "string") return false;
   const [year, month, day] = val.split("-");
   if (!tYearSchema.safeParse(year).success) return false;
@@ -189,7 +193,7 @@ var isoDateSchema = z.custom((val) => {
   if (!tDaySchema.safeParse(day).success) return false;
   return true;
 });
-var isoTimeSchema = z.custom((val) => {
+var isoTimeSchema = zod.z.custom((val) => {
   if (typeof val !== "string") return false;
   const [hours, minutes, seconds] = val.split(":");
   const [secondsPart, milliseconds] = (seconds ?? "").split(".");
@@ -199,7 +203,7 @@ var isoTimeSchema = z.custom((val) => {
   if (!tMillisecondsSchema.safeParse(milliseconds).success) return false;
   return true;
 });
-var isoDateStringSchema = z.custom((val) => {
+var isoDateStringSchema = zod.z.custom((val) => {
   if (typeof val !== "string") return false;
   const [date, rest] = val.split("T");
   if (!isoDateSchema.safeParse(date).success) return false;
@@ -207,7 +211,7 @@ var isoDateStringSchema = z.custom((val) => {
   const time = rest.slice(0, -1);
   return isoTimeSchema.safeParse(time).success;
 });
-var serializedDateStringSchema = z.union([isoDateSchema, isoDateStringSchema]);
+var serializedDateStringSchema = zod.z.union([isoDateSchema, isoDateStringSchema]);
 function toISOString(d) {
   return d.toISOString();
 }
@@ -245,14 +249,14 @@ var AvailableLocales = /* @__PURE__ */ ((AvailableLocales2) => {
   AvailableLocales2["EnglishSG"] = "en-SG";
   return AvailableLocales2;
 })(AvailableLocales || {});
-dayjs.updateLocale("en-au" /* EnglishAU */, { relativeTime: relativeTimeConfig });
-dayjs.updateLocale("en-ca" /* EnglishCA */, { relativeTime: relativeTimeConfig });
-dayjs.updateLocale("en-gb" /* EnglishGB */, { relativeTime: relativeTimeConfig });
-dayjs.updateLocale("en-ie" /* EnglishIE */, { relativeTime: relativeTimeConfig });
-dayjs.updateLocale("en-il" /* EnglishIL */, { relativeTime: relativeTimeConfig });
-dayjs.updateLocale("en-nz" /* EnglishNZ */, { relativeTime: relativeTimeConfig });
-dayjs.updateLocale("en-SG" /* EnglishSG */, { relativeTime: relativeTimeConfig });
-dayjs.updateLocale("en" /* EnglishUSA */, { relativeTime: relativeTimeConfig });
+dayjs__default.default.updateLocale("en-au" /* EnglishAU */, { relativeTime: relativeTimeConfig });
+dayjs__default.default.updateLocale("en-ca" /* EnglishCA */, { relativeTime: relativeTimeConfig });
+dayjs__default.default.updateLocale("en-gb" /* EnglishGB */, { relativeTime: relativeTimeConfig });
+dayjs__default.default.updateLocale("en-ie" /* EnglishIE */, { relativeTime: relativeTimeConfig });
+dayjs__default.default.updateLocale("en-il" /* EnglishIL */, { relativeTime: relativeTimeConfig });
+dayjs__default.default.updateLocale("en-nz" /* EnglishNZ */, { relativeTime: relativeTimeConfig });
+dayjs__default.default.updateLocale("en-SG" /* EnglishSG */, { relativeTime: relativeTimeConfig });
+dayjs__default.default.updateLocale("en" /* EnglishUSA */, { relativeTime: relativeTimeConfig });
 var DEFAULT_LOCALE = "en-gb" /* EnglishGB */;
 var DEFAULT_DATE_FORMAT = "Do MMM YYYY";
 var DEFAULT_DATETIME_FORMAT = "Do MMM YYYY h:mm A";
@@ -263,11 +267,11 @@ function formatDateTime(date, dateFormat = DEFAULT_DATETIME_FORMAT) {
   return formatDate(date, dateFormat);
 }
 function createNow(locale) {
-  return dayjs.utc().locale(locale);
+  return dayjs__default.default.utc().locale(locale);
 }
 function createFrom(value, locale) {
   if (!value) return null;
-  const d = isDayjs(value) ? value : dayjs.utc(value).locale(locale);
+  const d = dayjs.isDayjs(value) ? value : dayjs__default.default.utc(value).locale(locale);
   return d.isValid() ? d : null;
 }
 
@@ -391,13 +395,13 @@ function getGranularityOptionsFromRange({ from, to }) {
 // src/is-dayjs-input.ts
 function isStrictDayjsInput(x) {
   if (isNil(x)) return false;
-  return isDayjs(x) || x instanceof Date || isValidNumber(x) || typeof x === "string";
+  return dayjs.isDayjs(x) || x instanceof Date || isValidNumber(x) || typeof x === "string";
 }
 function isDayjsInput(x) {
   return isNil(x) || isStrictDayjsInput(x);
 }
 function isNil(x) {
-  return x === null || x === void 0;
+  return x === null || x === undefined;
 }
 
 // src/is-valid-date.ts
@@ -465,102 +469,102 @@ function toNow(value, withoutSuffix) {
 function toNowStrict(value, withoutSuffix) {
   return value.toNowStrict(withoutSuffix);
 }
-
-// src/zod-schema.ts
-import { z as z2 } from "zod";
-var serializedDateSchema = z2.string().refine(
+var serializedDateSchema = zod.z.string().refine(
   (x) => {
     const d = parseDayjs(x);
     return !!d;
   },
   { message: "String must be a serialized date that can be parsed" }
 );
-var serializedDateSchemaForParsing = z2.union([z2.string(), z2.number(), z2.date(), dayjsSchemaStrict]).transform((x, ctx) => {
+var serializedDateSchemaForParsing = zod.z.union([zod.z.string(), zod.z.number(), zod.z.date(), dayjsSchemaStrict]).transform((x, ctx) => {
   const res = parseDayjs(x);
   if (!res) {
     ctx.addIssue({
-      code: z2.ZodIssueCode.custom,
+      code: zod.z.ZodIssueCode.custom,
       message: "String must be a serialized date that can be parsed"
     });
-    return z2.NEVER;
+    return zod.z.NEVER;
   }
   return res;
 });
-var serializedDateSchemaForSerialize = z2.union([z2.string(), z2.number(), z2.date(), dayjsSchemaStrict]).transform((x, ctx) => {
+var serializedDateSchemaForSerialize = zod.z.union([zod.z.string(), zod.z.number(), zod.z.date(), dayjsSchemaStrict]).transform((x, ctx) => {
   const res = parseDayjs(x);
   if (!res) {
     ctx.addIssue({
-      code: z2.ZodIssueCode.custom,
+      code: zod.z.ZodIssueCode.custom,
       message: "String must be a serialized date that can be parsed"
     });
-    return z2.NEVER;
+    return zod.z.NEVER;
   }
   return res.toISOString();
 });
-var dayjsSchema = z2.union([dayjsSchemaStrict, serializedDateSchemaForParsing]);
-export {
-  AvailableLocales,
-  DEFAULT_DATETIME_FORMAT,
-  DEFAULT_DATE_FORMAT,
-  DEFAULT_LOCALE,
-  InvalidDateError,
-  TimeDefault,
-  TimeOverride,
-  calculateDateRangeDescription,
-  createFrom,
-  createNow,
-  dayjsNow,
-  dayjsSchema,
-  dayjsSchemaStrict,
-  dayjsTodayEOD,
-  duration,
-  durationBetween,
-  formatDate,
-  formatDateTime,
-  fromNow,
-  fromNowStrict,
-  getGranularityDescription,
-  getGranularityOptionsFromRange,
-  isDayjs,
-  isDayjsInput,
-  isDuration,
-  isStrictDayjsInput,
-  isTodayOrFuture,
-  isTodayOrPast,
-  isValidDate,
-  isoDateSchema,
-  isoDateStringSchema,
-  isoTimeSchema,
-  makePrintWithPrefix,
-  max,
-  maxDayjs,
-  min,
-  minDayjs,
-  parseDayjs,
-  parseDayjsEndOfDay,
-  parseDayjsOrError,
-  parseDayjsStartOfDay,
-  parseFromStandardPeriods,
-  parseISODateString,
-  parseISODateStringOrError,
-  parseToISOStringOrError,
-  printRange,
-  printSince,
-  printStarted,
-  serializedDateSchema,
-  serializedDateSchemaForParsing,
-  serializedDateSchemaForSerialize,
-  serializedDateStringSchema,
-  tDaySchema,
-  tHoursSchema,
-  tMillisecondsSchema,
-  tMinutesSchema,
-  tMonthSchema,
-  tSecondsSchema,
-  tYearSchema,
-  toISODate,
-  toISOString,
-  toNow,
-  toNowStrict
-};
-//# sourceMappingURL=index.mjs.map
+var dayjsSchema = zod.z.union([dayjsSchemaStrict, serializedDateSchemaForParsing]);
+
+Object.defineProperty(exports, "isDayjs", {
+  enumerable: true,
+  get: function () { return dayjs.isDayjs; }
+});
+exports.AvailableLocales = AvailableLocales;
+exports.DEFAULT_DATETIME_FORMAT = DEFAULT_DATETIME_FORMAT;
+exports.DEFAULT_DATE_FORMAT = DEFAULT_DATE_FORMAT;
+exports.DEFAULT_LOCALE = DEFAULT_LOCALE;
+exports.InvalidDateError = InvalidDateError;
+exports.TimeDefault = TimeDefault;
+exports.TimeOverride = TimeOverride;
+exports.calculateDateRangeDescription = calculateDateRangeDescription;
+exports.createFrom = createFrom;
+exports.createNow = createNow;
+exports.dayjsNow = dayjsNow;
+exports.dayjsSchema = dayjsSchema;
+exports.dayjsSchemaStrict = dayjsSchemaStrict;
+exports.dayjsTodayEOD = dayjsTodayEOD;
+exports.duration = duration;
+exports.durationBetween = durationBetween;
+exports.formatDate = formatDate;
+exports.formatDateTime = formatDateTime;
+exports.fromNow = fromNow;
+exports.fromNowStrict = fromNowStrict;
+exports.getGranularityDescription = getGranularityDescription;
+exports.getGranularityOptionsFromRange = getGranularityOptionsFromRange;
+exports.isDayjsInput = isDayjsInput;
+exports.isDuration = isDuration;
+exports.isStrictDayjsInput = isStrictDayjsInput;
+exports.isTodayOrFuture = isTodayOrFuture;
+exports.isTodayOrPast = isTodayOrPast;
+exports.isValidDate = isValidDate;
+exports.isoDateSchema = isoDateSchema;
+exports.isoDateStringSchema = isoDateStringSchema;
+exports.isoTimeSchema = isoTimeSchema;
+exports.makePrintWithPrefix = makePrintWithPrefix;
+exports.max = max;
+exports.maxDayjs = maxDayjs;
+exports.min = min;
+exports.minDayjs = minDayjs;
+exports.parseDayjs = parseDayjs;
+exports.parseDayjsEndOfDay = parseDayjsEndOfDay;
+exports.parseDayjsOrError = parseDayjsOrError;
+exports.parseDayjsStartOfDay = parseDayjsStartOfDay;
+exports.parseFromStandardPeriods = parseFromStandardPeriods;
+exports.parseISODateString = parseISODateString;
+exports.parseISODateStringOrError = parseISODateStringOrError;
+exports.parseToISOStringOrError = parseToISOStringOrError;
+exports.printRange = printRange;
+exports.printSince = printSince;
+exports.printStarted = printStarted;
+exports.serializedDateSchema = serializedDateSchema;
+exports.serializedDateSchemaForParsing = serializedDateSchemaForParsing;
+exports.serializedDateSchemaForSerialize = serializedDateSchemaForSerialize;
+exports.serializedDateStringSchema = serializedDateStringSchema;
+exports.tDaySchema = tDaySchema;
+exports.tHoursSchema = tHoursSchema;
+exports.tMillisecondsSchema = tMillisecondsSchema;
+exports.tMinutesSchema = tMinutesSchema;
+exports.tMonthSchema = tMonthSchema;
+exports.tSecondsSchema = tSecondsSchema;
+exports.tYearSchema = tYearSchema;
+exports.toISODate = toISODate;
+exports.toISOString = toISOString;
+exports.toNow = toNow;
+exports.toNowStrict = toNowStrict;
+//# sourceMappingURL=mod.cjs.map
+//# sourceMappingURL=mod.cjs.map

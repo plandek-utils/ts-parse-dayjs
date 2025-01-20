@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { dayjsNow, fromNow, fromNowStrict, toNow, toNowStrict } from "..";
+import { dayjsNow, fromNow, fromNowStrict, toNow, toNowStrict } from "../mod";
 
 describe("fromNow()", () => {
   describe("seconds", () => {

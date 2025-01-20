@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import timekeeper from "timekeeper";
-import { type Dayjs, parseDayjsOrError, parseFromStandardPeriods } from "..";
+import { type Dayjs, parseDayjsOrError, parseFromStandardPeriods } from "../mod";
 
 function frozenTime(time: Dayjs, fn: () => void): void {
   timekeeper.freeze(time.toDate());
