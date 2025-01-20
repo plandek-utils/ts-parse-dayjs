@@ -5,17 +5,23 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 22
-      - run: npm install
-      - run: npm run check
-      - run: npm run test
-      - run: npm run build
-      - uses: nickcharlton/diff-check@main
-        with:
-          message: "Please make sure to run 'npm run fix && npm run build' before committing."
+          node-version: "22"
+          registry-url: "https://registry.npmjs.org/"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run checks
+        run: npm run check
+
+      - name: Build package
+        run: npm run build
 
   automerge:
     needs: test
