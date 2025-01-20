@@ -1,3 +1,8 @@
+## [6.3.1] - January 20, 2025
+
+### Changes
+- Release notes generated for version [6.3.1](.release-notes/6.3.1/release.md)
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
