@@ -16,5 +16,4 @@ coverage
 .DS_Store
 README.pdf
 
-package-lock.json
 yarn.lock
