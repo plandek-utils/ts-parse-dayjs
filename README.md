@@ -2,8 +2,6 @@
 
 [![npm version](https://badge.fury.io/js/%40plandek-utils%2Fts-parse-dayjs.svg)](https://badge.fury.io/js/%40plandek-utils%2Fts-parse-dayjs)
 ![CI](https://github.com/github/plandek-utils/ts-parse-dayjs/workflows/ci-master.yml/badge.svg)
-[![Maintainability](https://api.codeclimate.com/v1/badges/347bf1114fa660524fd8/maintainability)](https://codeclimate.com/github/plandek-utils/ts-parse-dayjs/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/347bf1114fa660524fd8/test_coverage)](https://codeclimate.com/github/plandek-utils/ts-parse-dayjs/test_coverage)
 
 [TypeDoc generated docs in here](https://plandek-utils.github.io/ts-parse-dayjs)
 
