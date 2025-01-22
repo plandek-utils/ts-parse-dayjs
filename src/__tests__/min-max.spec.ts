@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { type Dayjs, maxDayjs, minDayjs, parseDayjsOrError } from "../mod";
+import { type Dayjs, maxDayjs, minDayjs, parseDayjsOrError } from "..";
 
 const d1 = parseDayjsOrError("2019-01-01");
 const d2 = parseDayjsOrError("2019-02-02");

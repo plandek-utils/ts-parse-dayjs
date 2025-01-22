@@ -3,9 +3,9 @@
   "version": "6.3.1",
   "author": "Eduardo Turiño <eturino@plandek.com>",
   "description": "utils to parse Dayjs objects in UTC",
-  "main": "dist/mod.js",
-  "types": "dist/mod.d.ts",
-  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "files": [
     "dist",
     "src"

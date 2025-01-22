@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { parseDayjsEndOfDay, parseDayjsOrError, parseDayjsStartOfDay } from "../parse";
-import { printRange, printSince } from "../print-utils";
+import { parseDayjsEndOfDay, parseDayjsOrError, parseDayjsStartOfDay, printRange, printSince } from "..";
 
 describe("print utils", () => {
   const from = "2017-08-05";

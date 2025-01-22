@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { type Duration, durationBetween, isDuration, parseDayjsOrError } from "../mod";
+import { type Duration, durationBetween, isDuration, parseDayjsOrError } from "..";
 
 const a = parseDayjsOrError("2020-01-01T00:00:10Z");
 const b = parseDayjsOrError("2020-01-01T00:00:20Z");

@@ -1,8 +1,12 @@
 import { describe, expect, it } from "vitest";
 
-import { calculateDateRangeDescription } from "../calculate-date-range-description";
-import { dayjsNow } from "../dayjs-now";
-import { parseDayjsEndOfDay, parseDayjsOrError, parseDayjsStartOfDay } from "../parse";
+import {
+  calculateDateRangeDescription,
+  dayjsNow,
+  parseDayjsEndOfDay,
+  parseDayjsOrError,
+  parseDayjsStartOfDay,
+} from "..";
 
 describe("calculateDateRangeDescription()", () => {
   const from = "2017-08-05";

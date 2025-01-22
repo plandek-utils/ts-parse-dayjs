@@ -8,14 +8,15 @@ import {
   AvailableLocales,
   DEFAULT_LOCALE,
   InvalidDateError,
+  TimeDefault,
+  TimeOverride,
   parseDayjs,
   parseDayjsEndOfDay,
   parseDayjsOrError,
   parseDayjsStartOfDay,
   parseISODateString,
   parseISODateStringOrError,
-} from "../mod";
-import { TimeDefault, TimeOverride } from "../time-options";
+} from "..";
 
 dayjs.extend(utc);
 

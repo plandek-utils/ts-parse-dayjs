@@ -486,5 +486,5 @@ var serializedDateSchemaForSerialize = z.union([z.string(), z.number(), z.date()
 var dayjsSchema = z.union([dayjsSchemaStrict, serializedDateSchemaForParsing]);
 
 export { AvailableLocales, DEFAULT_DATETIME_FORMAT, DEFAULT_DATE_FORMAT, DEFAULT_LOCALE, InvalidDateError, TimeDefault, TimeOverride, calculateDateRangeDescription, createFrom, createNow, dayjsNow, dayjsSchema, dayjsSchemaStrict, dayjsTodayEOD, duration, durationBetween, formatDate, formatDateTime, fromNow, fromNowStrict, getGranularityDescription, getGranularityOptionsFromRange, isDayjsInput, isDuration, isStrictDayjsInput, isTodayOrFuture, isTodayOrPast, isValidDate, isoDateSchema, isoDateStringSchema, isoTimeSchema, makePrintWithPrefix, max, maxDayjs, min, minDayjs, parseDayjs, parseDayjsEndOfDay, parseDayjsOrError, parseDayjsStartOfDay, parseFromStandardPeriods, parseISODateString, parseISODateStringOrError, parseToISOStringOrError, printRange, printSince, printStarted, serializedDateSchema, serializedDateSchemaForParsing, serializedDateSchemaForSerialize, serializedDateStringSchema, tDaySchema, tHoursSchema, tMillisecondsSchema, tMinutesSchema, tMonthSchema, tSecondsSchema, tYearSchema, toISODate, toISOString, toNow, toNowStrict };
-//# sourceMappingURL=mod.js.map
-//# sourceMappingURL=mod.js.map
+//# sourceMappingURL=index.mjs.map
+//# sourceMappingURL=index.mjs.map

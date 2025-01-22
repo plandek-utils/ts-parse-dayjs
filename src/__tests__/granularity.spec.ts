@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { getGranularityDescription, getGranularityOptionsFromRange } from "../granularity";
+import { getGranularityDescription, getGranularityOptionsFromRange } from "..";
 
 describe("getGranularityDescription", () => {
   it("null -> daily", () => {

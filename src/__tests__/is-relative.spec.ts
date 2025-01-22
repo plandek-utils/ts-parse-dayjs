@@ -2,8 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import type { Dayjs } from "dayjs";
 import { withFreeze } from "timekeeper";
-import { isTodayOrFuture, isTodayOrPast } from "../is-relative";
-import { parseDayjsOrError } from "../parse";
+import { isTodayOrFuture, isTodayOrPast, parseDayjsOrError } from "..";
 
 describe("relative functions", () => {
   type Dates = {

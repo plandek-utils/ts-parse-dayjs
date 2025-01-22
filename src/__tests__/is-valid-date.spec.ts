@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { isValidDate, parseDayjs } from "../mod";
+import { isValidDate, parseDayjs } from "..";
 
 describe("isValidDate()", () => {
   it("returns false with null", () => {

@@ -566,5 +566,5 @@ exports.toISODate = toISODate;
 exports.toISOString = toISOString;
 exports.toNow = toNow;
 exports.toNowStrict = toNowStrict;
-//# sourceMappingURL=mod.cjs.map
-//# sourceMappingURL=mod.cjs.map
+//# sourceMappingURL=index.js.map
+//# sourceMappingURL=index.js.map
