@@ -1,6 +1,6 @@
 {
   "name": "@plandek-utils/ts-parse-dayjs",
-  "version": "6.4.0",
+  "version": "6.4.1",
   "author": "Eduardo Turiño <eturino@plandek.com>",
   "description": "utils to parse Dayjs objects in UTC",
   "main": "dist/index.js",

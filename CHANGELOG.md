@@ -7,6 +7,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.4.1](https://github.com/plandek-utils/ts-parse-dayjs/compare/v6.4.0...v6.4.1) (2025-01-31)
+
+
+### Bug Fixes
+
+* deps and adding dist and src to package ([2df7312](https://github.com/plandek-utils/ts-parse-dayjs/commit/2df73122c8fc1547e98658aadfcff89e797f2194))
+
 ## [6.4.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v6.3.2...v6.4.0) (2025-01-31)
 
 
