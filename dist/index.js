@@ -187,8 +187,14 @@ var tMillisecondsSchema = zod.z.custom((val) => {
 });
 var isoDateSchema = zod.z.custom((val) => {
   if (typeof val !== "string") return false;
-  const [year, month, day] = val.split("-");
-  if (!tYearSchema.safeParse(year).success) return false;
+  let yearPrefix = "";
+  let strToSplit = val;
+  if (strToSplit.startsWith("-")) {
+    yearPrefix = "-";
+    strToSplit = strToSplit.slice(1);
+  }
+  const [year, month, day] = strToSplit.split("-");
+  if (!tYearSchema.safeParse(`${yearPrefix}${year}`).success) return false;
   if (!tMonthSchema.safeParse(month).success) return false;
   if (!tDaySchema.safeParse(day).success) return false;
   return true;
@@ -212,9 +218,14 @@ var isoDateStringSchema = zod.z.custom((val) => {
   return isoTimeSchema.safeParse(time).success;
 });
 var serializedDateStringSchema = zod.z.union([isoDateSchema, isoDateStringSchema]);
+var ISO_DATE_STRING_REGEX = /^-?\d+-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$/;
+function isISODateString(x) {
+  return typeof x === "string" && ISO_DATE_STRING_REGEX.test(x);
+}
 function toISOString(d) {
   return d.toISOString();
 }
+var toISODateString = toISOString;
 var ISO_DATE_FORMAT = "YYYY-MM-DD";
 function toISODate(d) {
   return d.format(ISO_DATE_FORMAT);
@@ -325,6 +336,14 @@ var parseToISOStringOrError = parseISODateStringOrError;
 function parseISODateString(value, options = {}) {
   const d = parseDayjs(value, options);
   return d ? toISOString(d) : null;
+}
+function asISODateString(x) {
+  if (isISODateString(x)) return x;
+  return parseISODateString(x);
+}
+function asISODateStringOrError(x) {
+  if (isISODateString(x)) return x;
+  return parseISODateStringOrError(x);
 }
 
 // src/print-utils.ts
@@ -508,9 +527,12 @@ exports.AvailableLocales = AvailableLocales;
 exports.DEFAULT_DATETIME_FORMAT = DEFAULT_DATETIME_FORMAT;
 exports.DEFAULT_DATE_FORMAT = DEFAULT_DATE_FORMAT;
 exports.DEFAULT_LOCALE = DEFAULT_LOCALE;
+exports.ISO_DATE_STRING_REGEX = ISO_DATE_STRING_REGEX;
 exports.InvalidDateError = InvalidDateError;
 exports.TimeDefault = TimeDefault;
 exports.TimeOverride = TimeOverride;
+exports.asISODateString = asISODateString;
+exports.asISODateStringOrError = asISODateStringOrError;
 exports.calculateDateRangeDescription = calculateDateRangeDescription;
 exports.createFrom = createFrom;
 exports.createNow = createNow;
@@ -528,6 +550,7 @@ exports.getGranularityDescription = getGranularityDescription;
 exports.getGranularityOptionsFromRange = getGranularityOptionsFromRange;
 exports.isDayjsInput = isDayjsInput;
 exports.isDuration = isDuration;
+exports.isISODateString = isISODateString;
 exports.isStrictDayjsInput = isStrictDayjsInput;
 exports.isTodayOrFuture = isTodayOrFuture;
 exports.isTodayOrPast = isTodayOrPast;
@@ -563,6 +586,7 @@ exports.tMonthSchema = tMonthSchema;
 exports.tSecondsSchema = tSecondsSchema;
 exports.tYearSchema = tYearSchema;
 exports.toISODate = toISODate;
+exports.toISODateString = toISODateString;
 exports.toISOString = toISOString;
 exports.toNow = toNow;
 exports.toNowStrict = toNowStrict;

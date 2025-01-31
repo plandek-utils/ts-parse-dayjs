@@ -172,8 +172,14 @@ var tMillisecondsSchema = z.custom((val) => {
 });
 var isoDateSchema = z.custom((val) => {
   if (typeof val !== "string") return false;
-  const [year, month, day] = val.split("-");
-  if (!tYearSchema.safeParse(year).success) return false;
+  let yearPrefix = "";
+  let strToSplit = val;
+  if (strToSplit.startsWith("-")) {
+    yearPrefix = "-";
+    strToSplit = strToSplit.slice(1);
+  }
+  const [year, month, day] = strToSplit.split("-");
+  if (!tYearSchema.safeParse(`${yearPrefix}${year}`).success) return false;
   if (!tMonthSchema.safeParse(month).success) return false;
   if (!tDaySchema.safeParse(day).success) return false;
   return true;
@@ -197,9 +203,14 @@ var isoDateStringSchema = z.custom((val) => {
   return isoTimeSchema.safeParse(time).success;
 });
 var serializedDateStringSchema = z.union([isoDateSchema, isoDateStringSchema]);
+var ISO_DATE_STRING_REGEX = /^-?\d+-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$/;
+function isISODateString(x) {
+  return typeof x === "string" && ISO_DATE_STRING_REGEX.test(x);
+}
 function toISOString(d) {
   return d.toISOString();
 }
+var toISODateString = toISOString;
 var ISO_DATE_FORMAT = "YYYY-MM-DD";
 function toISODate(d) {
   return d.format(ISO_DATE_FORMAT);
@@ -310,6 +321,14 @@ var parseToISOStringOrError = parseISODateStringOrError;
 function parseISODateString(value, options = {}) {
   const d = parseDayjs(value, options);
   return d ? toISOString(d) : null;
+}
+function asISODateString(x) {
+  if (isISODateString(x)) return x;
+  return parseISODateString(x);
+}
+function asISODateStringOrError(x) {
+  if (isISODateString(x)) return x;
+  return parseISODateStringOrError(x);
 }
 
 // src/print-utils.ts
@@ -485,6 +504,6 @@ var serializedDateSchemaForSerialize = z.union([z.string(), z.number(), z.date()
 });
 var dayjsSchema = z.union([dayjsSchemaStrict, serializedDateSchemaForParsing]);
 
-export { AvailableLocales, DEFAULT_DATETIME_FORMAT, DEFAULT_DATE_FORMAT, DEFAULT_LOCALE, InvalidDateError, TimeDefault, TimeOverride, calculateDateRangeDescription, createFrom, createNow, dayjsNow, dayjsSchema, dayjsSchemaStrict, dayjsTodayEOD, duration, durationBetween, formatDate, formatDateTime, fromNow, fromNowStrict, getGranularityDescription, getGranularityOptionsFromRange, isDayjsInput, isDuration, isStrictDayjsInput, isTodayOrFuture, isTodayOrPast, isValidDate, isoDateSchema, isoDateStringSchema, isoTimeSchema, makePrintWithPrefix, max, maxDayjs, min, minDayjs, parseDayjs, parseDayjsEndOfDay, parseDayjsOrError, parseDayjsStartOfDay, parseFromStandardPeriods, parseISODateString, parseISODateStringOrError, parseToISOStringOrError, printRange, printSince, printStarted, serializedDateSchema, serializedDateSchemaForParsing, serializedDateSchemaForSerialize, serializedDateStringSchema, tDaySchema, tHoursSchema, tMillisecondsSchema, tMinutesSchema, tMonthSchema, tSecondsSchema, tYearSchema, toISODate, toISOString, toNow, toNowStrict };
+export { AvailableLocales, DEFAULT_DATETIME_FORMAT, DEFAULT_DATE_FORMAT, DEFAULT_LOCALE, ISO_DATE_STRING_REGEX, InvalidDateError, TimeDefault, TimeOverride, asISODateString, asISODateStringOrError, calculateDateRangeDescription, createFrom, createNow, dayjsNow, dayjsSchema, dayjsSchemaStrict, dayjsTodayEOD, duration, durationBetween, formatDate, formatDateTime, fromNow, fromNowStrict, getGranularityDescription, getGranularityOptionsFromRange, isDayjsInput, isDuration, isISODateString, isStrictDayjsInput, isTodayOrFuture, isTodayOrPast, isValidDate, isoDateSchema, isoDateStringSchema, isoTimeSchema, makePrintWithPrefix, max, maxDayjs, min, minDayjs, parseDayjs, parseDayjsEndOfDay, parseDayjsOrError, parseDayjsStartOfDay, parseFromStandardPeriods, parseISODateString, parseISODateStringOrError, parseToISOStringOrError, printRange, printSince, printStarted, serializedDateSchema, serializedDateSchemaForParsing, serializedDateSchemaForSerialize, serializedDateStringSchema, tDaySchema, tHoursSchema, tMillisecondsSchema, tMinutesSchema, tMonthSchema, tSecondsSchema, tYearSchema, toISODate, toISODateString, toISOString, toNow, toNowStrict };
 //# sourceMappingURL=index.mjs.map
 //# sourceMappingURL=index.mjs.map

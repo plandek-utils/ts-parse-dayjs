@@ -35,8 +35,8 @@ export declare const isDuration: typeof dayjs.isDuration;
  */
 export type DeepEqual<T, U> = (T extends U ? (U extends T ? true : never) : never) & (keyof T extends keyof U ? (keyof U extends keyof T ? true : never) : never);
 export declare const dayjsSchemaStrict: z.ZodType<dayjs.Dayjs, z.ZodTypeDef, dayjs.Dayjs>;
-export type TYear = `${number}`;
-export declare const tYearSchema: z.ZodType<`${number}`, z.ZodTypeDef, `${number}`>;
+export type TYear = `${number}` | `-${number}`;
+export declare const tYearSchema: z.ZodType<TYear, z.ZodTypeDef, TYear>;
 export type TMonth = `${number}${number}`;
 export declare const tMonthSchema: z.ZodType<`${number}${number}`, z.ZodTypeDef, `${number}${number}`>;
 export type TDay = `${number}${number}`;
@@ -56,7 +56,7 @@ export declare const tMillisecondsSchema: z.ZodType<`${number}${number}${number}
  * Only checks that the year is a number.
  */
 export type ISODate = `${TYear}-${TMonth}-${TDay}`;
-export declare const isoDateSchema: z.ZodType<`${number}-${number}${number}-${number}${number}`, z.ZodTypeDef, `${number}-${number}${number}-${number}${number}`>;
+export declare const isoDateSchema: z.ZodType<`${number}-${number}${number}-${number}${number}` | `-${number}-${number}${number}-${number}${number}`, z.ZodTypeDef, `${number}-${number}${number}-${number}${number}` | `-${number}-${number}${number}-${number}${number}`>;
 /**
  * Represent a string like `14:42:34.678`
  */
@@ -71,14 +71,17 @@ export declare const isoTimeSchema: z.ZodType<`${number}${number}:${number}${num
  *   "Expression produces a union type that is too complex to represent. ts(2590)"
  */
 export type ISODateString = `${ISODate}T${ISOTime}Z`;
-export declare const isoDateStringSchema: z.ZodType<`${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z`, z.ZodTypeDef, `${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z`>;
-export declare const serializedDateStringSchema: z.ZodUnion<[z.ZodType<`${number}-${number}${number}-${number}${number}`, z.ZodTypeDef, `${number}-${number}${number}-${number}${number}`>, z.ZodType<`${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z`, z.ZodTypeDef, `${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z`>]>;
+export declare const isoDateStringSchema: z.ZodType<`${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z` | `-${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z`, z.ZodTypeDef, `${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z` | `-${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z`>;
+export declare const serializedDateStringSchema: z.ZodUnion<[z.ZodType<`${number}-${number}${number}-${number}${number}` | `-${number}-${number}${number}-${number}${number}`, z.ZodTypeDef, `${number}-${number}${number}-${number}${number}` | `-${number}-${number}${number}-${number}${number}`>, z.ZodType<`${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z` | `-${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z`, z.ZodTypeDef, `${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z` | `-${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z`>]>;
 export type SerializedDateString = z.infer<typeof serializedDateStringSchema>;
+export declare const ISO_DATE_STRING_REGEX: RegExp;
+export declare function isISODateString(x: unknown): x is ISODateString;
 /**
  * Convert a Dayjs object to an ISO string.
  * @param d
  */
 export declare function toISOString(d: Dayjs): ISODateString;
+export declare const toISODateString: typeof toISOString;
 /**
  * Converts a Dayjs object to an ISO date string. YYYY-MM-DD
  * @param d

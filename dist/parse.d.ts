@@ -73,3 +73,13 @@ export declare const parseToISOStringOrError: typeof parseISODateStringOrError;
  * @see toISOString
  */
 export declare function parseISODateString(value: DayjsInput, options?: ParseOptions): ISODateString | null;
+/**
+ * Speedy version of parseISODateString without parsing options, and returns the same ISODateString if it detects it is a valid one by REGEX (won't check that the date itself is valid, just the shape of the string)
+ * @param x
+ */
+export declare function asISODateString(x: DayjsInput): ISODateString | null;
+/**
+ * Speedy version of parseISODateStringOrError without parsing options, and returns the same ISODateString if it detects it is a valid one by REGEX (won't check that the date itself is valid, just the shape of the string)
+ * @param x
+ */
+export declare function asISODateStringOrError(x: DayjsInput): ISODateString;

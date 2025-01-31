@@ -238,6 +238,17 @@ const t1: ISOTime = "12:34:56.789Z" // ok
 const dt1: ISODateTime = "2020-01-01T12:34:56.789Z" // ok
 ````
 
+### `parseISODateString()`, `parseISODateStringOrError()`, `asISODateString()`, `asISODateStringOrError()`, `isISODateString()`
+
+- `parseISODateString` is equivalent to `parseDayjs()` followed by `toISOString`
+- `parseISODateStringOrError` is equivalent to `parseDayjsOrError()` followed by `toISOString`
+
+We also have speedier versions that first uses regex to figure out if the SHAPE of the given string is the right one, and if it is it will assume it is a valid ISODateString. Use this with caution since it won't detect invalid dates like the 32nd of the month 15th, etc.
+
+- `isISODateString()` type predicate for the string with the right shape of an ISODateTime
+- `asISODateString()` if isISODateString() is true, it returns it, otherwise does the same as `parseISODateString()`
+- `parseISODateStringOrError()` if isISODateString() is true, it returns it, otherwise does the same as `parseISODateStringOrError()`
+
 ### `minDayjs()` and `maxDayjs()`
 
 Used to compare an array of Dayjs objects and return the min (earliest) or max (latest).

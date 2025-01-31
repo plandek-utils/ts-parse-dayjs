@@ -48,6 +48,7 @@ dayjs.extend(weekOfYear);
 dayjs.extend(updateLocale);
 
 import { z } from "zod";
+import { parseDayjs } from "./parse";
 import { parseInteger } from "./utils";
 
 // exporting the type
@@ -79,7 +80,7 @@ const TWO_DIGIT_NUMBER_REGEX = /^\d{2}$/;
 const THREE_DIGIT_NUMBER_REGEX = /^\d{3}$/;
 const YEAR_REGEX = /^-?\d+$/;
 
-export type TYear = `${number}`;
+export type TYear = `${number}` | `-${number}`;
 export const tYearSchema = z.custom<TYear>((val) => {
   return typeof val === "string" ? YEAR_REGEX.test(val) : false;
 });
@@ -136,9 +137,15 @@ export const tMillisecondsSchema = z.custom<TMilliseconds>((val) => {
 export type ISODate = `${TYear}-${TMonth}-${TDay}`;
 export const isoDateSchema = z.custom<ISODate>((val) => {
   if (typeof val !== "string") return false;
-  const [year, month, day] = val.split("-");
+  let yearPrefix = "";
+  let strToSplit = val;
+  if (strToSplit.startsWith("-")) {
+    yearPrefix = "-";
+    strToSplit = strToSplit.slice(1);
+  }
+  const [year, month, day] = strToSplit.split("-");
 
-  if (!tYearSchema.safeParse(year).success) return false;
+  if (!tYearSchema.safeParse(`${yearPrefix}${year}`).success) return false;
   if (!tMonthSchema.safeParse(month).success) return false;
   if (!tDaySchema.safeParse(day).success) return false;
 
@@ -188,6 +195,11 @@ export const isoDateStringSchema = z.custom<ISODateString>((val) => {
 export const serializedDateStringSchema = z.union([isoDateSchema, isoDateStringSchema]);
 export type SerializedDateString = z.infer<typeof serializedDateStringSchema>;
 
+export const ISO_DATE_STRING_REGEX = /^-?\d+-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$/;
+export function isISODateString(x: unknown): x is ISODateString {
+  return typeof x === "string" && ISO_DATE_STRING_REGEX.test(x);
+}
+
 /**
  * Convert a Dayjs object to an ISO string.
  * @param d
@@ -195,6 +207,8 @@ export type SerializedDateString = z.infer<typeof serializedDateStringSchema>;
 export function toISOString(d: Dayjs): ISODateString {
   return d.toISOString() as ISODateString;
 }
+
+export const toISODateString = toISOString;
 
 const ISO_DATE_FORMAT = "YYYY-MM-DD";
 

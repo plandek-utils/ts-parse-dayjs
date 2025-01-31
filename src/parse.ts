@@ -1,4 +1,12 @@
-import { DEFAULT_LOCALE, type Dayjs, type DayjsInput, type ISODateString, createFrom, toISOString } from "./base";
+import {
+  DEFAULT_LOCALE,
+  type Dayjs,
+  type DayjsInput,
+  type ISODateString,
+  createFrom,
+  isISODateString,
+  toISOString,
+} from "./base";
 import { InvalidDateError } from "./errors";
 import type { ParseOptions } from "./options";
 import { TimeOverride } from "./time-options";
@@ -109,4 +117,22 @@ export const parseToISOStringOrError = parseISODateStringOrError;
 export function parseISODateString(value: DayjsInput, options: ParseOptions = {}): ISODateString | null {
   const d = parseDayjs(value, options);
   return d ? toISOString(d) : null;
+}
+
+/**
+ * Speedy version of parseISODateString without parsing options, and returns the same ISODateString if it detects it is a valid one by REGEX (won't check that the date itself is valid, just the shape of the string)
+ * @param x
+ */
+export function asISODateString(x: DayjsInput): ISODateString | null {
+  if (isISODateString(x)) return x;
+  return parseISODateString(x);
+}
+
+/**
+ * Speedy version of parseISODateStringOrError without parsing options, and returns the same ISODateString if it detects it is a valid one by REGEX (won't check that the date itself is valid, just the shape of the string)
+ * @param x
+ */
+export function asISODateStringOrError(x: DayjsInput): ISODateString {
+  if (isISODateString(x)) return x;
+  return parseISODateStringOrError(x);
 }
