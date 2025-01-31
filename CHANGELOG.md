@@ -7,6 +7,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.4.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v6.3.2...v6.4.0) (2025-01-31)
+
+
+### Features
+
+* isISODateString and asISODateString ([5030709](https://github.com/plandek-utils/ts-parse-dayjs/commit/5030709340a8503c11b098587e1b755fb1426ccb))
+
 ## [6.3.2](https://github.com/plandek-utils/ts-parse-dayjs/compare/v6.3.1...v6.3.2) (2025-01-22)
 
 
