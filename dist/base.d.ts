@@ -76,6 +76,8 @@ export declare const serializedDateStringSchema: z.ZodUnion<[z.ZodType<`${number
 export type SerializedDateString = z.infer<typeof serializedDateStringSchema>;
 export declare const ISO_DATE_STRING_REGEX: RegExp;
 export declare function isISODateString(x: unknown): x is ISODateString;
+export declare const ISO_DATE_REGEX: RegExp;
+export declare function isISODate(x: unknown): x is ISODate;
 /**
  * Convert a Dayjs object to an ISO string.
  * @param d

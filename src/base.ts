@@ -200,6 +200,11 @@ export function isISODateString(x: unknown): x is ISODateString {
   return typeof x === "string" && ISO_DATE_STRING_REGEX.test(x);
 }
 
+export const ISO_DATE_REGEX = /^-?\d+-\d{2}-\d{2}$/;
+export function isISODate(x: unknown): x is ISODate {
+  return typeof x === "string" && ISO_DATE_REGEX.test(x);
+}
+
 /**
  * Convert a Dayjs object to an ISO string.
  * @param d

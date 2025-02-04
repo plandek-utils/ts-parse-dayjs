@@ -10,30 +10,36 @@ import {
   InvalidDateError,
   TimeDefault,
   TimeOverride,
+  asISODate,
   asISODateString,
   asISODateStringOrError,
   parseDayjs,
   parseDayjsEndOfDay,
   parseDayjsOrError,
   parseDayjsStartOfDay,
+  parseISODate,
   parseISODateString,
   parseISODateStringOrError,
 } from "..";
 
 dayjs.extend(utc);
 
-describe("parseDayjs() and parseISODateString() and asISODateString()", () => {
+describe("parseDayjs() and parseISODateString() and asISODateString() and parseISODate() and asISODate()", () => {
   describe("without 2nd param (uses DEFAULT_LOCALE)", () => {
     it("with null: returns null", async () => {
       expect(parseDayjs(null)).toBeNull();
       expect(parseISODateString(null)).toBeNull();
       expect(asISODateString(null)).toBeNull();
+      expect(parseISODate(null)).toBeNull();
+      expect(asISODate(null)).toBeNull();
     });
 
     it("with empty string: returns null", async () => {
       expect(parseDayjs("")).toBeNull();
       expect(parseISODateString("")).toBeNull();
       expect(asISODateString("")).toBeNull();
+      expect(parseISODate("")).toBeNull();
+      expect(asISODate("")).toBeNull();
     });
 
     it("with an invalid date: returns null", async () => {
@@ -47,26 +53,36 @@ describe("parseDayjs() and parseISODateString() and asISODateString()", () => {
       expect(parseDayjs("2018-01-01")).toEqual(d);
       expect(parseISODateString("2018-01-01")).toEqual(d.toISOString());
       expect(asISODateString("2018-01-01")).toEqual(d.toISOString());
+      expect(parseISODate("2018-01-01")).toEqual("2018-01-01");
+      expect(asISODate("2018-01-01")).toEqual("2018-01-01");
     });
 
     it("with a valid dateString", async () => {
+      const date = "2018-01-01";
       const str = "2018-01-01T10:11:12.123Z";
       expect(parseDayjs(str)).toEqual(dayjs.utc(new Date(str)).locale(DEFAULT_LOCALE));
       expect(parseISODateString(str)).toEqual(str);
       expect(asISODateString(str)).toEqual(str);
+      expect(parseISODate(str)).toEqual(date);
+      expect(asISODate(str)).toEqual(date);
     });
 
-    it("with an invalid date in a valid-shape dateString -> asISODateStringOrError() is fine with it, the others fail", async () => {
+    it("with an invalid date in a valid-shape dateString -> asISODateString() is fine with it, the others fail", async () => {
       const str = "2018-18-41T10:11:12.123Z";
       expect(parseDayjs(str)).toBeNull();
       expect(parseISODateString(str)).toBeNull();
       expect(asISODateString(str)).toEqual(str);
+      expect(parseISODate(str)).toBeNull();
+      expect(asISODate(str)).toBeNull();
     });
 
     it("with a date: returns the object", async () => {
       const d = dayjs.utc("2018-01-01").locale(DEFAULT_LOCALE);
       expect(parseDayjs(d)).toBe(d);
       expect(parseISODateString(d)).toEqual(d.toISOString());
+      expect(asISODateString(d)).toEqual(d.toISOString());
+      expect(parseISODate(d)).toEqual("2018-01-01");
+      expect(asISODate(d)).toEqual("2018-01-01");
     });
 
     it("with a dayjs: returns the dayjs object", async () => {
@@ -74,8 +90,12 @@ describe("parseDayjs() and parseISODateString() and asISODateString()", () => {
       const djs = dayjs.utc(d).locale(DEFAULT_LOCALE);
       expect(parseDayjs(d)).toEqual(djs);
       expect(parseISODateString(d)).toEqual(djs.toISOString());
+      expect(asISODateString(d)).toEqual(d.toISOString());
+      expect(parseISODate(d)).toEqual("2018-01-01");
+      expect(asISODate(d)).toEqual("2018-01-01");
     });
-    it("returns a dayjs with `fromNow` enabled", async () => {
+
+    it("parseDayjs returns a dayjs with `fromNow` enabled", async () => {
       const s1 = "2018-01-01";
       const s2 = "2018-01-03";
       const d1 = parseDayjsOrError(s1);

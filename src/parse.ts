@@ -2,9 +2,12 @@ import {
   DEFAULT_LOCALE,
   type Dayjs,
   type DayjsInput,
+  type ISODate,
   type ISODateString,
   createFrom,
+  isISODate,
   isISODateString,
+  toISODate,
   toISOString,
 } from "./base";
 import { InvalidDateError } from "./errors";
@@ -135,4 +138,54 @@ export function asISODateString(x: DayjsInput): ISODateString | null {
 export function asISODateStringOrError(x: DayjsInput): ISODateString {
   if (isISODateString(x)) return x;
   return parseISODateStringOrError(x);
+}
+
+/**
+ * it returns a Dayjs object (in UTC) serialized as ISODate representing the given date, unless:
+ * - it receives null, or empty string (then throws an error)
+ * - it produces an invalid Dayjs (then throws an error)
+ * - it receives a Dayjs object (then returns the ISODate)
+ *
+ * @param value
+ * @param options
+ * @see parseDayjsOrError
+ * @see toISODate
+ */
+export function parseISODateOrError(value: DayjsInput, options: Omit<ParseOptions, "strict"> = {}): ISODate {
+  const d = parseDayjsOrError(value, options);
+  return toISODate(d);
+}
+
+/**
+ * it returns a Dayjs object (in UTC) serialized as ISODate representing the given date, unless:
+ * - it receives null, or empty string (then returns null)
+ * - it produces an invalid Dayjs (then returns null)
+ * - it receives a Dayjs object (then returns the ISODate)
+ *
+ * @param value
+ * @param options
+ * @see parseDayjs
+ * @see toISODate
+ */
+export function parseISODate(value: DayjsInput, options: ParseOptions = {}): ISODate | null {
+  const d = parseDayjs(value, options);
+  return d ? toISODate(d) : null;
+}
+
+/**
+ * Speedy version of parseISODate without parsing options, and returns the same ISODate if it detects it is a valid one by REGEX (won't check that the date itself is valid, just the shape of the string)
+ * @param x
+ */
+export function asISODate(x: DayjsInput): ISODate | null {
+  if (isISODate(x)) return x;
+  return parseISODate(x);
+}
+
+/**
+ * Speedy version of parseISODateOrError without parsing options, and returns the same ISODate if it detects it is a valid one by REGEX (won't check that the date itself is valid, just the shape of the string)
+ * @param x
+ */
+export function asISODateOrError(x: DayjsInput): ISODate {
+  if (isISODate(x)) return x;
+  return parseISODateOrError(x);
 }

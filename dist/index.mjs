@@ -207,6 +207,10 @@ var ISO_DATE_STRING_REGEX = /^-?\d+-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$/;
 function isISODateString(x) {
   return typeof x === "string" && ISO_DATE_STRING_REGEX.test(x);
 }
+var ISO_DATE_REGEX = /^-?\d+-\d{2}-\d{2}$/;
+function isISODate(x) {
+  return typeof x === "string" && ISO_DATE_REGEX.test(x);
+}
 function toISOString(d) {
   return d.toISOString();
 }
@@ -329,6 +333,22 @@ function asISODateString(x) {
 function asISODateStringOrError(x) {
   if (isISODateString(x)) return x;
   return parseISODateStringOrError(x);
+}
+function parseISODateOrError(value, options = {}) {
+  const d = parseDayjsOrError(value, options);
+  return toISODate(d);
+}
+function parseISODate(value, options = {}) {
+  const d = parseDayjs(value, options);
+  return d ? toISODate(d) : null;
+}
+function asISODate(x) {
+  if (isISODate(x)) return x;
+  return parseISODate(x);
+}
+function asISODateOrError(x) {
+  if (isISODate(x)) return x;
+  return parseISODateOrError(x);
 }
 
 // src/print-utils.ts
@@ -504,6 +524,6 @@ var serializedDateSchemaForSerialize = z.union([z.string(), z.number(), z.date()
 });
 var dayjsSchema = z.union([dayjsSchemaStrict, serializedDateSchemaForParsing]);
 
-export { AvailableLocales, DEFAULT_DATETIME_FORMAT, DEFAULT_DATE_FORMAT, DEFAULT_LOCALE, ISO_DATE_STRING_REGEX, InvalidDateError, TimeDefault, TimeOverride, asISODateString, asISODateStringOrError, calculateDateRangeDescription, createFrom, createNow, dayjsNow, dayjsSchema, dayjsSchemaStrict, dayjsTodayEOD, duration, durationBetween, formatDate, formatDateTime, fromNow, fromNowStrict, getGranularityDescription, getGranularityOptionsFromRange, isDayjsInput, isDuration, isISODateString, isStrictDayjsInput, isTodayOrFuture, isTodayOrPast, isValidDate, isoDateSchema, isoDateStringSchema, isoTimeSchema, makePrintWithPrefix, max, maxDayjs, min, minDayjs, parseDayjs, parseDayjsEndOfDay, parseDayjsOrError, parseDayjsStartOfDay, parseFromStandardPeriods, parseISODateString, parseISODateStringOrError, parseToISOStringOrError, printRange, printSince, printStarted, serializedDateSchema, serializedDateSchemaForParsing, serializedDateSchemaForSerialize, serializedDateStringSchema, tDaySchema, tHoursSchema, tMillisecondsSchema, tMinutesSchema, tMonthSchema, tSecondsSchema, tYearSchema, toISODate, toISODateString, toISOString, toNow, toNowStrict };
+export { AvailableLocales, DEFAULT_DATETIME_FORMAT, DEFAULT_DATE_FORMAT, DEFAULT_LOCALE, ISO_DATE_REGEX, ISO_DATE_STRING_REGEX, InvalidDateError, TimeDefault, TimeOverride, asISODate, asISODateOrError, asISODateString, asISODateStringOrError, calculateDateRangeDescription, createFrom, createNow, dayjsNow, dayjsSchema, dayjsSchemaStrict, dayjsTodayEOD, duration, durationBetween, formatDate, formatDateTime, fromNow, fromNowStrict, getGranularityDescription, getGranularityOptionsFromRange, isDayjsInput, isDuration, isISODate, isISODateString, isStrictDayjsInput, isTodayOrFuture, isTodayOrPast, isValidDate, isoDateSchema, isoDateStringSchema, isoTimeSchema, makePrintWithPrefix, max, maxDayjs, min, minDayjs, parseDayjs, parseDayjsEndOfDay, parseDayjsOrError, parseDayjsStartOfDay, parseFromStandardPeriods, parseISODate, parseISODateOrError, parseISODateString, parseISODateStringOrError, parseToISOStringOrError, printRange, printSince, printStarted, serializedDateSchema, serializedDateSchemaForParsing, serializedDateSchemaForSerialize, serializedDateStringSchema, tDaySchema, tHoursSchema, tMillisecondsSchema, tMinutesSchema, tMonthSchema, tSecondsSchema, tYearSchema, toISODate, toISODateString, toISOString, toNow, toNowStrict };
 //# sourceMappingURL=index.mjs.map
 //# sourceMappingURL=index.mjs.map

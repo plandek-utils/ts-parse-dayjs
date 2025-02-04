@@ -222,6 +222,10 @@ var ISO_DATE_STRING_REGEX = /^-?\d+-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$/;
 function isISODateString(x) {
   return typeof x === "string" && ISO_DATE_STRING_REGEX.test(x);
 }
+var ISO_DATE_REGEX = /^-?\d+-\d{2}-\d{2}$/;
+function isISODate(x) {
+  return typeof x === "string" && ISO_DATE_REGEX.test(x);
+}
 function toISOString(d) {
   return d.toISOString();
 }
@@ -344,6 +348,22 @@ function asISODateString(x) {
 function asISODateStringOrError(x) {
   if (isISODateString(x)) return x;
   return parseISODateStringOrError(x);
+}
+function parseISODateOrError(value, options = {}) {
+  const d = parseDayjsOrError(value, options);
+  return toISODate(d);
+}
+function parseISODate(value, options = {}) {
+  const d = parseDayjs(value, options);
+  return d ? toISODate(d) : null;
+}
+function asISODate(x) {
+  if (isISODate(x)) return x;
+  return parseISODate(x);
+}
+function asISODateOrError(x) {
+  if (isISODate(x)) return x;
+  return parseISODateOrError(x);
 }
 
 // src/print-utils.ts
@@ -527,10 +547,13 @@ exports.AvailableLocales = AvailableLocales;
 exports.DEFAULT_DATETIME_FORMAT = DEFAULT_DATETIME_FORMAT;
 exports.DEFAULT_DATE_FORMAT = DEFAULT_DATE_FORMAT;
 exports.DEFAULT_LOCALE = DEFAULT_LOCALE;
+exports.ISO_DATE_REGEX = ISO_DATE_REGEX;
 exports.ISO_DATE_STRING_REGEX = ISO_DATE_STRING_REGEX;
 exports.InvalidDateError = InvalidDateError;
 exports.TimeDefault = TimeDefault;
 exports.TimeOverride = TimeOverride;
+exports.asISODate = asISODate;
+exports.asISODateOrError = asISODateOrError;
 exports.asISODateString = asISODateString;
 exports.asISODateStringOrError = asISODateStringOrError;
 exports.calculateDateRangeDescription = calculateDateRangeDescription;
@@ -550,6 +573,7 @@ exports.getGranularityDescription = getGranularityDescription;
 exports.getGranularityOptionsFromRange = getGranularityOptionsFromRange;
 exports.isDayjsInput = isDayjsInput;
 exports.isDuration = isDuration;
+exports.isISODate = isISODate;
 exports.isISODateString = isISODateString;
 exports.isStrictDayjsInput = isStrictDayjsInput;
 exports.isTodayOrFuture = isTodayOrFuture;
@@ -568,6 +592,8 @@ exports.parseDayjsEndOfDay = parseDayjsEndOfDay;
 exports.parseDayjsOrError = parseDayjsOrError;
 exports.parseDayjsStartOfDay = parseDayjsStartOfDay;
 exports.parseFromStandardPeriods = parseFromStandardPeriods;
+exports.parseISODate = parseISODate;
+exports.parseISODateOrError = parseISODateOrError;
 exports.parseISODateString = parseISODateString;
 exports.parseISODateStringOrError = parseISODateStringOrError;
 exports.parseToISOStringOrError = parseToISOStringOrError;
