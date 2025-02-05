@@ -13,12 +13,11 @@
     "README.md"
   ],
   "scripts": {
+    "commit": "git-cz",
     "build": "npm run build:tsup && npm run build:dts",
     "build:tsup": "tsup",
     "build:dts": "echo 'emitting Declaration using tsc' && tsc --emitDeclarationOnly",
-    "test": "vitest run",
-    "test:watch": "vitest watch",
-    "test:coverage": "vitest run --coverage",
+    "test": "vitest run --coverage",
     "fix": "npm run fix:biome",
     "fix:biome": "biome check --write --unsafe src",
     "clean": "rm -rf dist",
