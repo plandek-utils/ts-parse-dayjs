@@ -42,7 +42,7 @@
     "@commitlint/cli": "^20.0.0",
     "@commitlint/config-conventional": "^20.0.0",
     "@commitlint/cz-commitlint": "^20.0.0",
-    "@types/node": "^24.0.0",
+    "@types/node": "^25.0.0",
     "@vitest/coverage-v8": "^3.0.4",
     "timekeeper": "^2.3.1",
     "ts-enum-util": "^4.1.0",
