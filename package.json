@@ -51,7 +51,7 @@
     "vitest": "^4.1.8"
   },
   "dependencies": {
-    "dayjs": "1.11.22"
+    "dayjs": "1.11.23"
   },
   "peerDependencies": {
     "zod": "^3.24.1"
