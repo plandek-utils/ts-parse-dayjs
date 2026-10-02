@@ -43,12 +43,13 @@
     "@commitlint/config-conventional": "^21.0.0",
     "@commitlint/cz-commitlint": "^21.0.0",
     "@types/node": "^26.0.0",
-    "@vitest/coverage-v8": "^4.1.8",
+    "@vitest/coverage-v8": "5.0.3",
     "timekeeper": "^2.3.1",
     "ts-enum-util": "^4.1.0",
     "tsup": "^8.3.6",
     "typescript": "^5.7.3",
-    "vitest": "^4.1.8"
+    "vitest": "5.0.3",
+    "vite": "7.3.2"
   },
   "dependencies": {
     "dayjs": "1.11.23"
