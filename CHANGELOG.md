@@ -7,6 +7,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.5.1](https://github.com/plandek-utils/ts-parse-dayjs/compare/v6.5.0...v6.5.1) (2026-10-06)
+
+
+### Bug Fixes
+
+* **deps:** bump dayjs from 1.11.13 to 1.11.14 ([#683](https://github.com/plandek-utils/ts-parse-dayjs/issues/683)) ([6f1a12b](https://github.com/plandek-utils/ts-parse-dayjs/commit/6f1a12ba9381340c845a8ec5e1a0b8a7750d361b))
+* **deps:** bump dayjs from 1.11.14 to 1.11.15 ([#684](https://github.com/plandek-utils/ts-parse-dayjs/issues/684)) ([96aaa16](https://github.com/plandek-utils/ts-parse-dayjs/commit/96aaa16355cf7782047e30c8e6f387988cf3245b))
+* **deps:** bump dayjs from 1.11.15 to 1.11.18 ([#685](https://github.com/plandek-utils/ts-parse-dayjs/issues/685)) ([f10f896](https://github.com/plandek-utils/ts-parse-dayjs/commit/f10f896d9584ce69747d64e4f92592576b5782cb))
+* **deps:** bump dayjs from 1.11.18 to 1.11.19 ([#728](https://github.com/plandek-utils/ts-parse-dayjs/issues/728)) ([108e5e1](https://github.com/plandek-utils/ts-parse-dayjs/commit/108e5e12a9c96ffcf45df524359777bc266141d5))
+* **deps:** bump dayjs from 1.11.19 to 1.11.20 ([#822](https://github.com/plandek-utils/ts-parse-dayjs/issues/822)) ([27fd36f](https://github.com/plandek-utils/ts-parse-dayjs/commit/27fd36f6c31a044474223b53a337493c3ad414cd))
+* **deps:** bump dayjs from 1.11.20 to 1.11.21 ([#874](https://github.com/plandek-utils/ts-parse-dayjs/issues/874)) ([6c30d25](https://github.com/plandek-utils/ts-parse-dayjs/commit/6c30d25ffe1fe2b5c80f577fea12c533e5a82f99))
+* **deps:** bump dayjs from 1.11.21 to 1.11.22 ([#918](https://github.com/plandek-utils/ts-parse-dayjs/issues/918)) ([c20718d](https://github.com/plandek-utils/ts-parse-dayjs/commit/c20718d8587b4ac6adbabaef9d6e2726b1fcc88d))
+* **deps:** bump dayjs from 1.11.22 to 1.11.23 ([#919](https://github.com/plandek-utils/ts-parse-dayjs/issues/919)) ([fbdeca5](https://github.com/plandek-utils/ts-parse-dayjs/commit/fbdeca53c5b317bf2dd214551cab8242f7216842))
+* **deps:** bump glob in the npm_and_yarn group across 1 directory ([#933](https://github.com/plandek-utils/ts-parse-dayjs/issues/933)) ([70c5ee2](https://github.com/plandek-utils/ts-parse-dayjs/commit/70c5ee276a0040a5fc4bcf0006ef95888a1eb532))
+* **deps:** bump postcss in the npm_and_yarn group across 1 directory ([#855](https://github.com/plandek-utils/ts-parse-dayjs/issues/855)) ([da8fd5f](https://github.com/plandek-utils/ts-parse-dayjs/commit/da8fd5f993fb28c4da945ad949c911f38fefdeef))
+* **deps:** bump rollup in the npm_and_yarn group across 1 directory ([#805](https://github.com/plandek-utils/ts-parse-dayjs/issues/805)) ([09eb433](https://github.com/plandek-utils/ts-parse-dayjs/commit/09eb4331cf932af8593aac2c99ea833fded10cca))
+* **deps:** bump the npm_and_yarn group across 1 directory with 2 updates ([#883](https://github.com/plandek-utils/ts-parse-dayjs/issues/883)) ([48b3ca7](https://github.com/plandek-utils/ts-parse-dayjs/commit/48b3ca74bfa301a403d62f9aab902c47a9cd9748))
+* **deps:** bump vite from 6.2.2 to 6.2.3 in the npm_and_yarn group ([#613](https://github.com/plandek-utils/ts-parse-dayjs/issues/613)) ([832c5a9](https://github.com/plandek-utils/ts-parse-dayjs/commit/832c5a9a305579512ae3a359709c3159dc05e0ce))
+* **deps:** bump vite from 6.2.4 to 6.2.5 in the npm_and_yarn group ([#619](https://github.com/plandek-utils/ts-parse-dayjs/issues/619)) ([be3a1df](https://github.com/plandek-utils/ts-parse-dayjs/commit/be3a1df0e36dac397b2013e6d4eebb04e1fbedcc))
+* **deps:** bump vite from 6.2.5 to 6.2.6 in the npm_and_yarn group ([#621](https://github.com/plandek-utils/ts-parse-dayjs/issues/621)) ([917a989](https://github.com/plandek-utils/ts-parse-dayjs/commit/917a9897819796ec429c3235514bddf4b745048b))
+* **deps:** bump vite from 6.3.2 to 6.3.4 in the npm_and_yarn group ([#627](https://github.com/plandek-utils/ts-parse-dayjs/issues/627)) ([a3cf610](https://github.com/plandek-utils/ts-parse-dayjs/commit/a3cf610dafd232f01f03493d086766bf1be02d70))
+* **deps:** bump vite in the npm_and_yarn group across 1 directory ([#688](https://github.com/plandek-utils/ts-parse-dayjs/issues/688)) ([792e211](https://github.com/plandek-utils/ts-parse-dayjs/commit/792e211da0fbb067efea37ee6ea813f19f1797d5))
+* **deps:** bump vite in the npm_and_yarn group across 1 directory ([#711](https://github.com/plandek-utils/ts-parse-dayjs/issues/711)) ([6661979](https://github.com/plandek-utils/ts-parse-dayjs/commit/66619799d7a634f291a298074770357be375c8c6))
+* **deps:** bump vite in the npm_and_yarn group across 1 directory ([#838](https://github.com/plandek-utils/ts-parse-dayjs/issues/838)) ([bc52132](https://github.com/plandek-utils/ts-parse-dayjs/commit/bc521327333f81548d55ccd46401c8ebd394dc24))
+
 ## [6.5.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v6.4.1...v6.5.0) (2025-02-04)
 
 
