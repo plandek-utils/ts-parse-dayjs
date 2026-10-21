@@ -48,7 +48,7 @@
     "ts-enum-util": "^4.1.0",
     "tsup": "^9.0.0",
     "typescript": "^5.7.3",
-    "vitest": "5.0.3",
+    "vitest": "5.0.5",
     "vite": "8.3.4"
   },
   "dependencies": {
