@@ -16,7 +16,7 @@ export const serializedDateSchemaForParsing = z
     const res = parseDayjs(x);
     if (!res) {
       ctx.addIssue({
-        code: z.ZodIssueCode.custom,
+        code: "custom",
         message: "String must be a serialized date that can be parsed",
       });
       return z.NEVER;
@@ -31,7 +31,7 @@ export const serializedDateSchemaForSerialize = z
     const res = parseDayjs(x);
     if (!res) {
       ctx.addIssue({
-        code: z.ZodIssueCode.custom,
+        code: "custom",
         message: "String must be a serialized date that can be parsed",
       });
       return z.NEVER;
