@@ -425,7 +425,7 @@ function isDayjsInput(x) {
   return isNil(x) || isStrictDayjsInput(x);
 }
 function isNil(x) {
-  return x === null || x === undefined;
+  return x === null || x === void 0;
 }
 
 // src/is-valid-date.ts
@@ -504,7 +504,7 @@ var serializedDateSchemaForParsing = z.union([z.string(), z.number(), z.date(), 
   const res = parseDayjs(x);
   if (!res) {
     ctx.addIssue({
-      code: z.ZodIssueCode.custom,
+      code: "custom",
       message: "String must be a serialized date that can be parsed"
     });
     return z.NEVER;
@@ -515,7 +515,7 @@ var serializedDateSchemaForSerialize = z.union([z.string(), z.number(), z.date()
   const res = parseDayjs(x);
   if (!res) {
     ctx.addIssue({
-      code: z.ZodIssueCode.custom,
+      code: "custom",
       message: "String must be a serialized date that can be parsed"
     });
     return z.NEVER;

@@ -44,6 +44,7 @@
     "@commitlint/cz-commitlint": "^21.0.0",
     "@types/node": "^26.0.0",
     "@vitest/coverage-v8": "5.0.3",
+    "dayjs": "1.11.23",
     "timekeeper": "^2.3.1",
     "ts-enum-util": "^4.1.0",
     "tsup": "^9.0.0",
@@ -51,11 +52,9 @@
     "vitest": "5.0.3",
     "vite": "8.3.6"
   },
-  "dependencies": {
-    "dayjs": "1.11.23"
-  },
   "peerDependencies": {
-    "zod": "^3.24.1"
+    "dayjs": "^1.11.13",
+    "zod": "^4.6.7"
   },
   "config": {
     "commitizen": {

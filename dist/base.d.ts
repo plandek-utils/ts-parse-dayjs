@@ -34,21 +34,21 @@ export declare const isDuration: typeof dayjs.isDuration;
  *   const _checkGridLine: DeepEqual<z.infer<typeof gridLineSchema>, GridLine> = true;
  */
 export type DeepEqual<T, U> = (T extends U ? (U extends T ? true : never) : never) & (keyof T extends keyof U ? (keyof U extends keyof T ? true : never) : never);
-export declare const dayjsSchemaStrict: z.ZodType<dayjs.Dayjs, z.ZodTypeDef, dayjs.Dayjs>;
+export declare const dayjsSchemaStrict: z.ZodInstanceOf<dayjs.Dayjs>;
 export type TYear = `${number}` | `-${number}`;
-export declare const tYearSchema: z.ZodType<TYear, z.ZodTypeDef, TYear>;
+export declare const tYearSchema: z.ZodCustom<TYear, TYear>;
 export type TMonth = `${number}${number}`;
-export declare const tMonthSchema: z.ZodType<`${number}${number}`, z.ZodTypeDef, `${number}${number}`>;
+export declare const tMonthSchema: z.ZodCustom<`${number}${number}`, `${number}${number}`>;
 export type TDay = `${number}${number}`;
-export declare const tDaySchema: z.ZodType<`${number}${number}`, z.ZodTypeDef, `${number}${number}`>;
+export declare const tDaySchema: z.ZodCustom<`${number}${number}`, `${number}${number}`>;
 export type THours = `${number}${number}`;
-export declare const tHoursSchema: z.ZodType<`${number}${number}`, z.ZodTypeDef, `${number}${number}`>;
+export declare const tHoursSchema: z.ZodCustom<`${number}${number}`, `${number}${number}`>;
 export type TMinutes = `${number}${number}`;
-export declare const tMinutesSchema: z.ZodType<`${number}${number}`, z.ZodTypeDef, `${number}${number}`>;
+export declare const tMinutesSchema: z.ZodCustom<`${number}${number}`, `${number}${number}`>;
 export type TSeconds = TMinutes;
-export declare const tSecondsSchema: z.ZodType<`${number}${number}`, z.ZodTypeDef, `${number}${number}`>;
+export declare const tSecondsSchema: z.ZodCustom<`${number}${number}`, `${number}${number}`>;
 type TMilliseconds = `${number}${number}${number}`;
-export declare const tMillisecondsSchema: z.ZodType<`${number}${number}${number}`, z.ZodTypeDef, `${number}${number}${number}`>;
+export declare const tMillisecondsSchema: z.ZodCustom<`${number}${number}${number}`, `${number}${number}${number}`>;
 /**
  * Represent a string like `2021-01-08`
  *
@@ -56,13 +56,13 @@ export declare const tMillisecondsSchema: z.ZodType<`${number}${number}${number}
  * Only checks that the year is a number.
  */
 export type ISODate = `${TYear}-${TMonth}-${TDay}`;
-export declare const isoDateSchema: z.ZodType<`${number}-${number}${number}-${number}${number}` | `-${number}-${number}${number}-${number}${number}`, z.ZodTypeDef, `${number}-${number}${number}-${number}${number}` | `-${number}-${number}${number}-${number}${number}`>;
+export declare const isoDateSchema: z.ZodCustom<`${number}-${number}${number}-${number}${number}` | `-${number}-${number}${number}-${number}${number}`, `${number}-${number}${number}-${number}${number}` | `-${number}-${number}${number}-${number}${number}`>;
 /**
  * Represent a string like `14:42:34.678`
  */
 export type ISOTime = `${THours}:${TMinutes}:${TSeconds}.${TMilliseconds}`;
 /** */
-export declare const isoTimeSchema: z.ZodType<`${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}`, z.ZodTypeDef, `${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}`>;
+export declare const isoTimeSchema: z.ZodCustom<`${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}`, `${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}`>;
 /**
  * Represent a string like `2021-01-08T14:42:34.678Z` (format: ISO 8601).
  *
@@ -71,8 +71,8 @@ export declare const isoTimeSchema: z.ZodType<`${number}${number}:${number}${num
  *   "Expression produces a union type that is too complex to represent. ts(2590)"
  */
 export type ISODateString = `${ISODate}T${ISOTime}Z`;
-export declare const isoDateStringSchema: z.ZodType<`${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z` | `-${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z`, z.ZodTypeDef, `${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z` | `-${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z`>;
-export declare const serializedDateStringSchema: z.ZodUnion<[z.ZodType<`${number}-${number}${number}-${number}${number}` | `-${number}-${number}${number}-${number}${number}`, z.ZodTypeDef, `${number}-${number}${number}-${number}${number}` | `-${number}-${number}${number}-${number}${number}`>, z.ZodType<`${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z` | `-${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z`, z.ZodTypeDef, `${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z` | `-${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z`>]>;
+export declare const isoDateStringSchema: z.ZodCustom<`${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z` | `-${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z`, `${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z` | `-${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z`>;
+export declare const serializedDateStringSchema: z.ZodUnion<readonly [z.ZodCustom<`${number}-${number}${number}-${number}${number}` | `-${number}-${number}${number}-${number}${number}`, `${number}-${number}${number}-${number}${number}` | `-${number}-${number}${number}-${number}${number}`>, z.ZodCustom<`${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z` | `-${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z`, `${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z` | `-${number}-${number}${number}-${number}${number}T${number}${number}:${number}${number}:${number}${number}.${number}${number}${number}Z`>]>;
 export type SerializedDateString = z.infer<typeof serializedDateStringSchema>;
 export declare const ISO_DATE_STRING_REGEX: RegExp;
 export declare function isISODateString(x: unknown): x is ISODateString;
