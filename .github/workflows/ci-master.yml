@@ -50,11 +50,13 @@ jobs:
       - name: Build package
         run: npm run build
 
+      - name: Use npm >= 11.5.1 (required for npm trusted publishing)
+        run: npm install -g npm@^11.5.1
+
       - name: Publish to npm using JS-DevTools/npm-publish (if not released already)
-        uses: JS-DevTools/npm-publish@v3
+        uses: JS-DevTools/npm-publish@v4
         id: publish
         with:
-          token: ${{ secrets.NPM_TOKEN }}
           access: public
 
       - if: ${{ steps.publish.outputs.type }}
