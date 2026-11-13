@@ -522,7 +522,12 @@ var serializedDateSchemaForSerialize = z.union([z.string(), z.number(), z.date()
   }
   return res.toISOString();
 });
-var dayjsSchema = z.union([dayjsSchemaStrict, serializedDateSchemaForParsing]);
+var dayjsSchema = z.union([dayjsSchemaStrict, serializedDateSchemaForParsing], {
+  error: (issue) => {
+    if (issue.code !== "invalid_union") return void 0;
+    return issue.errors.flat().find((option) => option.code === "custom")?.message;
+  }
+});
 
 export { AvailableLocales, DEFAULT_DATETIME_FORMAT, DEFAULT_DATE_FORMAT, DEFAULT_LOCALE, ISO_DATE_REGEX, ISO_DATE_STRING_REGEX, InvalidDateError, TimeDefault, TimeOverride, asISODate, asISODateOrError, asISODateString, asISODateStringOrError, calculateDateRangeDescription, createFrom, createNow, dayjsNow, dayjsSchema, dayjsSchemaStrict, dayjsTodayEOD, duration, durationBetween, formatDate, formatDateTime, fromNow, fromNowStrict, getGranularityDescription, getGranularityOptionsFromRange, isDayjsInput, isDuration, isISODate, isISODateString, isStrictDayjsInput, isTodayOrFuture, isTodayOrPast, isValidDate, isoDateSchema, isoDateStringSchema, isoTimeSchema, makePrintWithPrefix, max, maxDayjs, min, minDayjs, parseDayjs, parseDayjsEndOfDay, parseDayjsOrError, parseDayjsStartOfDay, parseFromStandardPeriods, parseISODate, parseISODateOrError, parseISODateString, parseISODateStringOrError, parseToISOStringOrError, printRange, printSince, printStarted, serializedDateSchema, serializedDateSchemaForParsing, serializedDateSchemaForSerialize, serializedDateStringSchema, tDaySchema, tHoursSchema, tMillisecondsSchema, tMinutesSchema, tMonthSchema, tSecondsSchema, tYearSchema, toISODate, toISODateString, toISOString, toNow, toNowStrict };
 //# sourceMappingURL=index.mjs.map

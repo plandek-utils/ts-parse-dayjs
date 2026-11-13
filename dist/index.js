@@ -537,7 +537,12 @@ var serializedDateSchemaForSerialize = zod.z.union([zod.z.string(), zod.z.number
   }
   return res.toISOString();
 });
-var dayjsSchema = zod.z.union([dayjsSchemaStrict, serializedDateSchemaForParsing]);
+var dayjsSchema = zod.z.union([dayjsSchemaStrict, serializedDateSchemaForParsing], {
+  error: (issue) => {
+    if (issue.code !== "invalid_union") return void 0;
+    return issue.errors.flat().find((option) => option.code === "custom")?.message;
+  }
+});
 
 Object.defineProperty(exports, "isDayjs", {
   enumerable: true,
