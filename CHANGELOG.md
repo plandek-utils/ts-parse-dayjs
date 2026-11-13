@@ -7,6 +7,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.1](https://github.com/plandek-utils/ts-parse-dayjs/compare/v7.0.0...v7.0.1) (2026-11-13)
+
+
+### Bug Fixes
+
+* PLAN-17573: restore dayjsSchema's custom error message on zod 4 ([#980](https://github.com/plandek-utils/ts-parse-dayjs/issues/980)) ([8d2a231](https://github.com/plandek-utils/ts-parse-dayjs/commit/8d2a231341b86355a2e357520f8738df7d27ed09))
+
 ## [7.0.0](https://github.com/plandek-utils/ts-parse-dayjs/compare/v6.5.0...v7.0.0) (2026-11-11)
 
 
