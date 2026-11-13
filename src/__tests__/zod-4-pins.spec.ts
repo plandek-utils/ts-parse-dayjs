@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
 import { describe, expect, it } from "vitest";
+import { z } from "zod";
 
 import {
   dayjsSchema,
@@ -28,6 +29,28 @@ describe("zod 4 migration pins", () => {
     const result = serializedDateSchemaForParsing.safeParse("not a date");
     expect(result.success).toBe(false);
     expect(result.error?.issues[0]?.message).toBe("String must be a serialized date that can be parsed");
+  });
+
+  it("dayjsSchema reports the custom message for an unparseable string, at the field path", () => {
+    const result = z.object({ from: dayjsSchema }).safeParse({ from: "nope" });
+    expect(result.success).toBe(false);
+    expect(result.error?.issues).toHaveLength(1);
+    expect(result.error?.issues[0]?.message).toBe("String must be a serialized date that can be parsed");
+    expect(result.error?.issues[0]?.path).toEqual(["from"]);
+    expect(z.flattenError(result.error as z.ZodError).fieldErrors).toEqual({
+      from: ["String must be a serialized date that can be parsed"],
+    });
+  });
+
+  it("dayjsSchema keeps the default message when no option produced the custom issue", () => {
+    const result = dayjsSchema.safeParse({});
+    expect(result.success).toBe(false);
+    expect(result.error?.issues[0]?.message).not.toBe("String must be a serialized date that can be parsed");
+  });
+
+  it("dayjsSchema returns a Dayjs input unchanged", () => {
+    const d = dayjs("2026-01-01");
+    expect(dayjsSchema.parse(d)).toBe(d);
   });
 
   it("serializedDateSchemaForSerialize returns an ISO string", () => {

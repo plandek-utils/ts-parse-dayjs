@@ -40,4 +40,11 @@ export const serializedDateSchemaForSerialize = z
     return res.toISOString();
   });
 
-export const dayjsSchema = z.union([dayjsSchemaStrict, serializedDateSchemaForParsing]);
+// zod 4 reports a failed union as `invalid_union` ("Invalid input") and hides the options' issues in
+// `errors`. zod 3 surfaced the custom issue from `serializedDateSchemaForParsing`; keep that message.
+export const dayjsSchema = z.union([dayjsSchemaStrict, serializedDateSchemaForParsing], {
+  error: (issue) => {
+    if (issue.code !== "invalid_union") return undefined;
+    return issue.errors.flat().find((option) => option.code === "custom")?.message;
+  },
+});
